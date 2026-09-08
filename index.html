@@ -16,458 +16,542 @@
       --maroon-deep: #4A1F28;
       --kicker: #6B2D3C;
       --cream: #F3EBE4;
-      --cream-2: #FAF6F2;
-      --paper: #ffffff;
-      --line: #E6D9CF;
-      --sage: #D6E3CE;
+      --cream-2: #EDE4DC;
+      --paper: #FAF6F2;
+      --line: #D9C9BE;
       --wine: #6B2D3C;
       --wine-deep: #4A1F28;
       --sans: "Inter", "Poppins", "DM Sans", Helvetica, Arial, sans-serif;
       --display: "Inter", "Poppins", sans-serif;
-      --radius: 20px;
-      --shadow: 0 18px 40px rgba(42, 36, 34, 0.07);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
       font-family: var(--sans);
-      background: #F3EBE4;
+      background: var(--cream);
       color: var(--ink-soft);
-      line-height: 1.7;
+      line-height: 1.75;
       font-size: 17px;
       overflow-x: hidden;
       max-width: 100%;
+      overflow-wrap: break-word;
     }
     img { max-width: 100%; display: block; }
     a { color: var(--maroon); font-weight: 600; }
+    section[id] { scroll-margin-top: 96px; }
+    .wrap { width: min(1120px, calc(100% - 96px)); margin: 0 auto; max-width: 100%; }
     .ornament {
-      display: flex; align-items: center; justify-content: center; gap: 16px;
-      color: var(--maroon); margin: 8px 0 28px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 18px;
+      color: var(--maroon); margin: 0 0 20px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
     }
     .ornament::before, .ornament::after {
-      content: ""; height: 1px; width: 72px; background: #D7C4B8;
+      content: ""; height: 1px; width: 48px; background: var(--line);
     }
     .nav {
       position: sticky; top: 0; z-index: 40;
       display: grid; grid-template-columns: auto 1fr auto;
-      align-items: center; gap: 12px 24px; padding: 16px 40px;
-      background: rgba(74, 31, 40, 0.96);
+      align-items: center; gap: 16px 40px; padding: 20px 56px;
+      background: rgba(243, 235, 228, 0.95);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid var(--line);
     }
     .nav-brand {
-      font-family: var(--display); font-size: 22px; font-weight: 700;
-      color: #FFF8F2; letter-spacing: -0.04em;
+      font-family: var(--display); font-size: 13px; font-weight: 600;
+      color: var(--maroon-deep); letter-spacing: 0.16em; text-transform: uppercase;
     }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 4px 20px; min-width: 0; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px 28px; min-width: 0; justify-content: flex-end; }
     .nav-links a {
-      color: rgba(255,248,242,.82); text-decoration: none; font-size: 12px; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-soft); text-decoration: none; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
     }
-    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover { color: var(--maroon); }
     .print-btn {
-      border: 0; color: #4A1F28; background: #FFF8F2;
-      padding: 12px 20px; font: 700 11px/1 var(--sans); letter-spacing: 0.08em;
-      text-transform: uppercase; cursor: pointer; border-radius: 999px;
+      border: 1px solid var(--maroon); color: var(--maroon-deep); background: transparent;
+      padding: 12px 18px; font: 600 11px/1 var(--sans); letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer;
+    }
+    .print-btn:hover { background: var(--maroon-deep); color: #FFF8F2; }
+    .progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0;
+      background: var(--maroon); z-index: 60;
     }
     .hero {
-      position: relative; min-height: 92vh; margin: 0;
-      background:
-        linear-gradient(90deg, rgba(18,8,10,.78) 0%, rgba(18,8,10,.32) 50%, rgba(18,8,10,.12) 100%),
-        linear-gradient(0deg, rgba(18,8,10,.72) 0%, rgba(18,8,10,.08) 55%),
-        url("https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=80") center/cover;
+      position: relative; min-height: 88vh; margin: 0;
       color: #fff; display: flex; align-items: flex-end;
+      overflow: hidden;
     }
-    .hero-inner { width: min(1520px, calc(100% - 64px)); margin: 0 auto 88px; }
-    .hero .kicker { color: #F3E4D6; }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+    .hero-slide.is-on { opacity: 1; z-index: 0; animation: ken 22s ease-in-out infinite alternate; }
+    @keyframes ken {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.12) translate3d(-1%, -0.6%, 0); }
+    }
+    .hero::after {
+      content: "";
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(18,8,10,.78) 0%, rgba(18,8,10,.42) 48%, rgba(18,8,10,.22) 100%),
+        linear-gradient(180deg, rgba(18,8,10,.28) 0%, rgba(18,8,10,.82) 100%);
+    }
+    .hero-inner {
+      width: min(1120px, calc(100% - 96px)); margin: 0 auto 96px;
+      position: relative; z-index: 2;
+      text-shadow: 0 2px 18px rgba(18,8,10,.45);
+    }
+    .hero-dots {
+      position: absolute; right: 56px; bottom: 40px; z-index: 3;
+      display: flex; gap: 8px;
+    }
+    .hero-dots button {
+      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
+      background: rgba(255,248,242,.4); cursor: pointer;
+    }
+    .hero-dots button.is-on { background: #FFF8F2; width: 22px; }
+    .hero .kicker { color: #F8EDE4; margin-bottom: 18px; }
+    .hero h1 { color: #fff; }
+    .hero h1 em { color: #F8EDE4; }
+    .hero-script { color: #FFF8F2; }
+    .hero p { color: #FFF8F2; }
+    .hero-meta { color: #FFF8F2; }
     .kicker {
-      font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--maroon); margin-bottom: 14px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--maroon); margin-bottom: 16px;
     }
     .hero h1 {
-      font-family: var(--display); font-weight: 600; font-size: clamp(48px, 7vw, 72px);
-      line-height: 1.08; letter-spacing: -0.035em; color: #fff;
+      font-family: var(--display); font-weight: 600; font-size: clamp(44px, 7vw, 76px);
+      line-height: 1.05; letter-spacing: -0.04em; color: #fff;
     }
-    .hero h1 em { font-style: italic; font-weight: 600; color: #F3E4D6; }
+    .hero h1 em { font-style: italic; font-weight: 500; color: #F3E4D6; }
     .hero-script {
-      font-family: var(--sans); font-size: 15px; font-weight: 500;
-      color: rgba(255,248,242,.9); margin: 18px 0 22px; letter-spacing: 0.04em;
+      font-family: var(--sans); font-size: 13px; font-weight: 500;
+      color: rgba(255,248,242,.88); margin: 22px 0 28px; letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .hero p { max-width: 52ch; font-size: 18px; font-weight: 400; color: rgba(255,255,255,.9); }
+    .hero p { max-width: 46ch; font-size: 18px; font-weight: 400; color: rgba(255,255,255,.9); }
     .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 36px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
       color: #FFF8F2;
     }
     .hero-meta div { position: relative; }
     .hero-meta div:not(:last-child)::after {
-      content: "·"; position: absolute; right: -16px; color: #E8C9B8;
+      content: "·"; position: absolute; right: -18px; color: #E8C9B8;
     }
-    .wrap { width: min(1520px, calc(100% - 64px)); margin: 0 auto; }
-    .panel {
-      background: var(--paper);
-      border: 1px solid rgba(99,100,102,.08);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+    .btn-solid, .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 24px; text-decoration: none;
+      font: 600 11px/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .btn-solid, .btn-ghost, .print-btn, .slider-nav, .tab { transition: background .25s ease, color .25s ease, opacity .25s ease; }
+    .btn-solid { background: #FFF8F2; color: var(--maroon-deep); }
+    .btn-ghost { background: transparent; color: #FFF8F2; border: 1px solid rgba(255,248,242,.55); }
+    .btn-solid:hover { opacity: 0.92; }
+    .btn-ghost:hover { background: rgba(255,248,242,.12); }
+    .panel, .overview-card, .quote-teaser, .block, .stay, .t-card, .total-box {
+      background: transparent; border: 0; border-radius: 0; box-shadow: none;
+      min-width: 0; max-width: 100%;
     }
     .overview {
-      display: grid; grid-template-columns: 1.45fr 0.55fr; gap: 28px;
-      margin: -64px auto 108px; position: relative; z-index: 2;
-      align-items: stretch;
+      display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 96px;
+      padding: 112px 0 104px;
+      align-items: start;
     }
-    .overview .panel { box-shadow: var(--shadow); }
-    .overview-card { padding: 52px 48px 44px; }
     .overview-card h2, .section-title {
-      font-family: var(--display); font-size: clamp(28px, 4vw, 40px); color: var(--ink); font-weight: 600;
-      letter-spacing: -0.03em; line-height: 1.1;
+      font-family: var(--display); font-size: clamp(30px, 3.8vw, 42px); color: var(--ink); font-weight: 600;
+      letter-spacing: -0.035em; line-height: 1.12;
     }
-    .lede { font-size: 17px; margin: 12px 0 36px; max-width: 62ch; color: var(--ink-soft); }
+    .lede { font-size: 18px; margin: 18px 0 44px; max-width: 56ch; color: var(--ink-soft); }
     .route {
-      display: grid; grid-template-columns: repeat(7, 1fr); gap: 0;
-      position: relative; padding-top: 4px;
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 0 12px;
+      position: relative; padding-top: 8px;
     }
     .route::before {
       content: "";
-      position: absolute; left: 0; right: 12px; top: 11px;
+      position: absolute; left: 0; right: 12px; top: 12px;
       height: 1px; background: var(--line);
     }
-    .route-stop {
-      background: none;
-      border: 0;
-      border-radius: 0;
-      padding: 0 18px 0 0;
-      min-height: 0;
-      min-width: 0;
-      position: relative;
-    }
+    .route-stop { background: none; border: 0; padding: 0 8px 0 0; min-width: 0; position: relative; }
     .route-stop::before {
       content: "";
-      width: 8px; height: 8px; border-radius: 999px;
-      background: var(--paper);
-      border: 1.5px solid var(--maroon);
-      display: block; margin: 7px 0 18px;
+      width: 7px; height: 7px;
+      background: var(--cream); border: 1px solid var(--maroon);
+      display: block; margin: 8px 0 18px;
       position: relative; z-index: 1;
     }
     .route-stop span {
-      display: block; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      display: block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--maroon); font-weight: 600;
     }
     .route-stop strong {
-      display: block; font-family: var(--display); font-size: 17px; color: var(--ink);
-      margin: 8px 0 6px; font-weight: 600; letter-spacing: -0.02em;
+      display: block; font-family: var(--display); font-size: 16px; color: var(--ink);
+      margin: 10px 0 6px; font-weight: 600; letter-spacing: -0.02em;
     }
     .route-stop em { font-style: normal; font-size: 12px; color: #7A706C; line-height: 1.45; }
     .overview-foot {
-      margin-top: 36px; padding-top: 20px;
+      margin-top: 44px; padding-top: 28px;
       border-top: 1px solid var(--line);
-      font-size: 15px; color: var(--ink-soft); max-width: 68ch;
+      font-size: 15px; color: var(--ink-soft); max-width: 62ch;
     }
     .quote-teaser {
-      background: var(--maroon-deep);
-      color: rgba(255,248,242,.88);
-      border: 0;
-      display: flex; flex-direction: column;
-      padding: 48px 40px 40px;
+      padding: 12px 0 0 48px;
+      border-left: 1px solid var(--maroon);
+      color: var(--ink-soft);
     }
-    .quote-teaser .kicker { color: #F3E4D6; margin-bottom: 8px; }
+    .quote-teaser .kicker { color: var(--maroon); }
     .quote-teaser h2 {
-      color: #fff; font-size: 32px; font-family: var(--display);
+      color: var(--ink); font-size: 28px; font-family: var(--display);
       font-weight: 600; letter-spacing: -0.03em;
     }
     .price-xl {
-      font-family: var(--display); font-size: 46px; font-weight: 700; color: #FFF8F2;
-      line-height: 1; margin: 32px 0 12px; letter-spacing: -0.03em;
+      font-family: var(--display); font-size: 44px; font-weight: 600; color: var(--ink);
+      line-height: 1; margin: 28px 0 16px; letter-spacing: -0.04em;
     }
     .quote-teaser .price-xl .cad {
-      color: #F3E4D6; font-size: 18px; font-weight: 500; margin-top: 10px;
+      color: var(--ink-soft); font-size: 16px; font-weight: 500; margin-top: 10px;
       font-family: var(--sans);
     }
-    .quote-teaser p { font-size: 15px; color: rgba(255,248,242,.86); }
+    .quote-teaser p { font-size: 16px; color: var(--ink-soft); }
     .quote-teaser a {
-      color: #F3E4D6; text-decoration: none; font-size: 12px; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      margin-top: auto; padding-top: 32px;
+      color: var(--maroon); text-decoration: none; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      display: inline-block; margin-top: 32px;
     }
-    .quote-teaser a:hover { color: #fff; }
     .quote-alt {
-      margin-top: 32px; padding-top: 22px;
-      border-top: 1px solid rgba(243,228,214,.22);
+      margin-top: 28px; padding-top: 20px;
+      border-top: 1px solid var(--line);
       font-size: 14px;
     }
-    .section { margin: 36px auto 100px; }
-    .section-head { margin-bottom: 32px; }
-    .chapter { margin-bottom: 120px; }
-    .chapter-hero {
-      position: relative; height: min(64vh, 680px); overflow: hidden;
-      border-radius: var(--radius);
-    }
+    .section { padding: 104px 0 120px; }
+    .section-head { margin-bottom: 40px; }
+    .chapter { padding: 0 0 120px; }
+    .chapter.alt { background: var(--cream-2); padding: 0 0 120px; }
+    .chapter-hero { margin: 0 0 56px; overflow: hidden; }
     .chapter-hero img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: min(520px, 62vw); object-fit: cover;
+      animation: ken 24s ease-in-out infinite alternate;
     }
-    .chapter-hero::after {
-      content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(18,8,10,.05) 35%, rgba(18,8,10,.72) 100%);
-      pointer-events: none;
-    }
+    .chapter-hero::after { display: none; }
     .chapter-hero figcaption {
-      position: absolute; left: 48px; bottom: 40px; z-index: 2;
-      background: none;
-      border: 0;
-      box-shadow: none;
+      width: min(1120px, calc(100% - 96px));
+      margin: 28px auto 0;
       padding: 0;
-      max-width: min(720px, calc(100% - 80px));
-      color: #fff;
-    }
-    .chapter-hero .chap-no {
-      font-family: var(--sans); font-style: normal; font-size: 11px; font-weight: 700;
-      letter-spacing: 0.2em; text-transform: uppercase; color: #F3E4D6; display: block; margin-bottom: 8px;
-    }
-    .chapter-hero .when {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,248,242,.8);
-    }
-    .chapter-hero h2 {
-      font-family: var(--display); font-size: clamp(32px, 4.2vw, 48px); font-weight: 600;
-      letter-spacing: -0.03em; color: #fff; line-height: 1.1; margin-top: 8px;
-    }
-    .grid-2 { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; margin-top: 36px; }
-    .chapter.alt .grid-2 { grid-template-columns: 0.82fr 1.18fr; }
-    .chapter.alt .grid-2 .stay { order: -1; }
-    .block { padding: 40px 40px 36px; }
-    .block h3 {
-      font-family: var(--display); font-size: 26px; color: var(--ink); font-weight: 600; margin: 6px 0 14px; letter-spacing: -0.02em;
-    }
-    .time { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
-    .list { list-style: none; margin-top: 16px; }
-    .list li {
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line);
-      display: grid; grid-template-columns: 110px 1fr; gap: 14px; font-size: 17px;
-    }
-    .list b { color: var(--maroon); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 4px; }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-    .chip {
-      font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-      border: 1px solid var(--line); padding: 8px 12px; background: #fff; color: var(--ink);
-      border-radius: 999px;
-    }
-    .chip.must { background: #F3E4D6; border-color: #D7C4B8; color: var(--maroon-deep); }
-    .chip.opt { color: var(--ink-soft); }
-    .photo-row {
-      display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 16px;
-      margin-top: 32px;
-    }
-    .photo-row figure { overflow: hidden; border-radius: 16px; position: relative; }
-    .photo-row img {
-      width: 100%; height: 240px; object-fit: cover;
-    }
-    .photo-row figcaption {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      padding: 32px 16px 14px;
-      font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #fff;
-      background: linear-gradient(180deg, transparent, rgba(18,8,10,.72));
-    }
-    .stay { background: var(--cream-2); }
-    .hotel {
-      padding: 20px 0;
-      border-top: 1px solid rgba(99,100,102,.1);
-    }
-    .hotel:first-of-type { border-top: 0; padding-top: 0; }
-    .hotel.pick {
-      background: none;
-      border: 0;
-      border-radius: 0;
-      padding: 0 0 20px;
-      margin-bottom: 0;
-      box-shadow: none;
-    }
-    .badge {
-      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--maroon); border: 0;
-      padding: 0; margin-bottom: 8px; background: none;
-    }
-    .hotel h4 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; letter-spacing: -0.02em; }
-    .stars { color: var(--maroon); letter-spacing: 2px; font-size: 12px; margin: 4px 0 8px; }
-    .hotel p { font-size: 15px; margin: 6px 0; }
-    .rate { font-family: var(--display); font-size: 22px; color: var(--maroon-deep); font-weight: 700; }
-    .cad { color: var(--ink-soft); font-weight: 700; font-size: 0.85em; white-space: nowrap; }
-    .rate .cad { display: inline; font-size: 16px; font-weight: 700; color: var(--ink-soft); margin-left: 6px; }
-    .price-xl .cad { display: block; font-size: 22px; font-weight: 700; color: #F3E4D6; margin-top: 8px; }
-    .total-box .cad { display: block; font-size: 16px; font-weight: 700; margin-top: 4px; }
-    .total-box.featured .cad { color: #F3E4D6; }
-    .note {
-      background: #F3E4D6;
-      border: 0;
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      font-size: 16px; margin-top: 18px;
       color: var(--ink);
     }
+    .chapter-hero .chap-no {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); display: block; margin-bottom: 10px;
+    }
+    .chapter-hero .when {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon);
+    }
+    .chapter-hero h2 {
+      font-family: var(--display); font-size: clamp(32px, 4.2vw, 46px); font-weight: 600;
+      letter-spacing: -0.035em; color: var(--ink); line-height: 1.12; margin-top: 10px;
+    }
+    .chapter-body { padding-top: 8px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 72px; margin-top: 0; }
+    .chapter.alt .grid-2 { grid-template-columns: 1fr; }
+    .chapter.alt .grid-2 .stay { order: 0; }
+    .block { padding: 0; }
+    .chapter .block { max-width: 72ch; }
+    .block h3, .stay > h3 {
+      font-family: var(--display); font-size: 26px; color: var(--ink); font-weight: 600;
+      margin: 8px 0 18px; letter-spacing: -0.03em;
+    }
+    .time { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
+    .list { list-style: none; margin-top: 32px; border-top: 1px solid var(--line); }
+    .list li {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: 120px 1fr; gap: 28px; font-size: 17px;
+    }
+    .list b { color: var(--maroon); font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 4px; }
+    .chips {
+      display: block; margin-top: 32px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-soft); line-height: 1.8;
+    }
+    .chip {
+      display: inline; border: 0; padding: 0; background: none; color: inherit;
+      letter-spacing: 0.08em;
+    }
+    .chip.must { background: none; border: 0; color: var(--maroon-deep); }
+    .chip.opt { color: var(--ink-soft); }
+    .chip:not(:last-child)::after { content: " · "; color: #B7A89C; font-weight: 400; }
+    .photo-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
+      margin-top: 72px;
+    }
+    .photo-row figure { overflow: hidden; }
+    .photo-row img { width: 100%; height: 240px; object-fit: cover; }
+    .photo-row figcaption {
+      padding: 14px 0 0;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--maroon);
+    }
+    .slider { position: relative; margin-top: 72px; }
+    .slider-stage {
+      position: relative; height: min(440px, 58vw); overflow: hidden;
+      background: var(--maroon-deep);
+    }
+    .slider .slide {
+      position: absolute; inset: 0;
+      opacity: 0; transform: translateX(24px);
+      transition: opacity .7s ease, transform .7s ease;
+      pointer-events: none;
+    }
+    .slider .slide.is-on {
+      opacity: 1; transform: none; pointer-events: auto; z-index: 1;
+    }
+    .slider .slide img { width: 100%; height: 100%; object-fit: cover; }
+    .slider .slide::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0; height: 46%;
+      background: linear-gradient(180deg, transparent, rgba(18,8,10,.82));
+      pointer-events: none; z-index: 1;
+    }
+    .slider .slide figcaption {
+      position: absolute; left: 24px; bottom: 20px; z-index: 2;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #FFF8F2;
+      background: rgba(18,8,10,.55);
+      padding: 10px 14px;
+    }
+    .slider-nav {
+      position: absolute; top: 50%; z-index: 2;
+      width: 44px; height: 44px; margin-top: -22px;
+      border: 0; background: rgba(243,235,228,.92); color: var(--maroon-deep);
+      font: 500 26px/1 var(--sans); cursor: pointer;
+    }
+    .slider-nav:hover { background: #fff; }
+    .slider-nav.prev { left: 16px; }
+    .slider-nav.next { right: 16px; }
+    .slider-dots { display: flex; gap: 8px; margin-top: 18px; }
+    .slider-dots button {
+      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
+      background: var(--line); cursor: pointer;
+    }
+    .slider-dots button.is-on { background: var(--maroon); width: 22px; }
+    .reveal { opacity: 1; transform: none; }
+    .js .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+    .stay .hotel { opacity: 1; transform: none; }
+    .js .stay .hotel { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .js .stay.is-in .hotel { opacity: 1; transform: none; }
+    .js .stay.is-in .hotel:nth-child(3) { transition-delay: .08s; }
+    .js .stay.is-in .hotel:nth-child(4) { transition-delay: .16s; }
+    .js .stay.is-in .hotel:nth-child(5) { transition-delay: .24s; }
+    .stay {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px 40px;
+      padding-top: 56px;
+      border-top: 1px solid var(--line);
+    }
+    .stay > .time, .stay > h3 { grid-column: 1 / -1; }
+    .stay > h3 { margin-bottom: 8px; }
+    .hotel { padding: 0; }
+    .hotel.pick { background: none; padding: 0; margin: 0; }
+    .badge {
+      display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--maroon);
+      padding: 0; margin-bottom: 12px;
+    }
+    .hotel h4 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; letter-spacing: -0.03em; }
+    .stars { color: var(--maroon); letter-spacing: 2px; font-size: 11px; margin: 8px 0 14px; }
+    .hotel p { font-size: 15px; margin: 8px 0 16px; }
+    .rate { font-family: var(--display); font-size: 22px; color: var(--maroon-deep); font-weight: 600; }
+    .cad { color: var(--ink-soft); font-weight: 600; font-size: 0.85em; white-space: nowrap; }
+    .rate .cad { display: inline; font-size: 15px; font-weight: 600; color: var(--ink-soft); margin-left: 8px; }
+    .price-xl .cad { display: block; font-size: 16px; font-weight: 500; color: var(--ink-soft); margin-top: 10px; }
+    .total-box .cad { display: block; font-size: 14px; font-weight: 600; margin-top: 6px; }
+    .total-box.featured .cad { color: var(--ink-soft); }
+    .note {
+      background: none; border: 0; border-top: 1px solid var(--line);
+      padding: 24px 0 0; font-size: 16px; margin-top: 32px;
+      color: var(--ink-soft); font-style: italic; max-width: 68ch;
+    }
     .birthday {
-      display: grid; grid-template-columns: 0.95fr 1.05fr; min-height: 620px;
-      margin: 16px 0 36px; border: 0; overflow: hidden;
+      display: grid; grid-template-columns: 0.92fr 1.08fr;
+      margin: 24px 0 64px; gap: 72px; align-items: start;
     }
     .birthday-photo {
-      background:
-        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.28)),
-        url("https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=1400&q=80") center/cover;
-      min-height: 420px;
+      background: url("https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=1400&q=80") center/cover;
+      min-height: 560px;
     }
-    .birthday-copy { background: #6B2D3C; color: rgba(255,255,255,.9); padding: 52px 48px 44px; }
-    .birthday-copy h2 { font-family: var(--display); font-size: 40px; color: #fff; font-weight: 600; letter-spacing: -0.03em; }
-    .birthday-copy .script { font-family: var(--display); font-size: 16px; font-style: italic; font-weight: 600; color: #F3E4D6; margin: 8px 0 18px; }
-    .rest-card { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.18); }
-    .rest-card h3 { font-family: var(--display); font-size: 22px; color: #F3E4D6; font-weight: 600; }
+    .birthday-copy { color: var(--ink-soft); padding: 8px 0 0; }
+    .birthday-copy h2 { font-family: var(--display); font-size: 40px; color: var(--ink); font-weight: 600; letter-spacing: -0.035em; }
+    .birthday-copy .script { font-family: var(--display); font-size: 16px; font-style: italic; font-weight: 500; color: var(--maroon); margin: 12px 0 24px; }
+    .rest-card { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .rest-card h3 { font-family: var(--display); font-size: 22px; color: var(--maroon); font-weight: 600; margin-bottom: 8px; }
+    .convertible { margin-top: 8px; padding-top: 48px; border-top: 1px solid var(--line); }
+    .quote-block { margin-top: 56px; }
+    .quote-block h3, .pkg h3 {
+      font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600;
+      margin: 0 0 20px; letter-spacing: -0.03em;
+    }
+    #birthday { padding-top: 96px; }
     .price-table { width: 100%; border-collapse: collapse; font-size: 16px; }
-    .price-table th, .price-table td { padding: 13px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .price-table th { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); font-weight: 800; }
+    .price-table th, .price-table td { padding: 16px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .price-table th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); font-weight: 600; }
     .price-table td:last-child, .price-table th:last-child { text-align: right; white-space: nowrap; }
-    .price-table .total td { font-family: var(--display); font-size: 26px; color: var(--ink); border-bottom: 0; padding-top: 18px; font-weight: 600; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; border-bottom: 0; }
+    .price-table .total td { font-family: var(--display); font-size: 24px; color: var(--ink); border-bottom: 0; padding-top: 24px; font-weight: 600; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 0; margin: 8px 0 36px; border-bottom: 1px solid var(--line); }
     .tab {
-      border: 1px solid var(--line); background: #fff; padding: 11px 18px;
-      font: 700 12px/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase;
-      cursor: pointer; color: var(--ink); border-radius: 999px;
+      border: 0; background: transparent; padding: 16px 0; margin-right: 36px;
+      font: 600 11px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; color: var(--ink-soft);
+      border-bottom: 1px solid transparent; margin-bottom: -1px;
     }
-    .tab.active { color: #fff; background: #6B2D3C; border-color: #6B2D3C; }
+    .tab.active { color: var(--maroon-deep); border-bottom-color: var(--maroon); }
     .pkg { display: none; }
     .pkg.active { display: block; }
-    .totals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 32px 0; }
-    .total-box { background: #fff; border: 1px solid rgba(99,100,102,.08); border-radius: var(--radius); padding: 24px 22px; box-shadow: var(--shadow); }
-    .total-box span { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
-    .muted { font-size: 15px; color: var(--ink-soft); }
-    .total-box strong { display: block; font-family: var(--display); font-size: 32px; color: var(--ink); margin-top: 8px; font-weight: 600; letter-spacing: -0.03em; }
-    .total-box.featured { background: #6B2D3C; color: #fff; border-color: #6B2D3C; }
-    .total-box.featured span { color: #F3E4D6; }
-    .total-box.featured strong { color: #fff; }
-    .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .t-card { padding: 32px 28px; background: #fff; border: 1px solid rgba(99,100,102,.08); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .t-card h4 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; margin-bottom: 10px; letter-spacing: -0.02em; }
-    .muted { font-size: 15px; color: var(--ink-soft); }
-    footer {
-      background: #4A1F28; color: rgba(255,255,255,.84); padding: 72px 0 80px; margin-top: 40px;
-      text-align: center;
+    .totals {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      margin: 64px 0; padding: 8px 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
     }
-    footer h2 { font-family: var(--display); color: #fff; font-size: 36px; font-weight: 600; letter-spacing: -0.04em; }
+    .total-box { padding: 32px 32px 32px 0; }
+    .total-box + .total-box { padding-left: 32px; border-left: 1px solid var(--line); }
+    .total-box span { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
+    .muted { font-size: 15px; color: var(--ink-soft); margin-top: 16px; }
+    .total-box strong { display: block; font-family: var(--display); font-size: 30px; color: var(--ink); margin-top: 10px; font-weight: 600; letter-spacing: -0.03em; }
+    .total-box.featured { background: transparent; }
+    .total-box.featured span { color: var(--maroon); }
+    .total-box.featured strong { color: var(--ink); }
+    .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; counter-reset: tcard; }
+    .t-card { padding: 36px 0; border-top: 1px solid var(--line); }
+    .t-card::before {
+      counter-increment: tcard;
+      content: "0" counter(tcard);
+      display: block;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--maroon); margin-bottom: 14px;
+    }
+    .t-card h4 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; margin-bottom: 14px; letter-spacing: -0.03em; }
+    footer {
+      background: var(--maroon-deep); color: rgba(255,248,242,.84);
+      padding: 88px 0 80px; margin-top: 0;
+    }
+    footer h2 { font-family: var(--display); color: #fff; font-size: 32px; font-weight: 600; letter-spacing: -0.04em; }
     footer .ornament { color: #F3E4D6; }
-    footer .ornament::before, footer .ornament::after { background: rgba(243, 228, 214, .35); }
-    footer p { max-width: 680px; margin: 10px auto 0; padding: 0 16px; }
-    @media (max-width: 1280px) {
-      .nav { padding: 14px 24px; }
-      .overview { grid-template-columns: 1.3fr 0.7fr; gap: 20px; }
-      .overview-card { padding: 40px 36px 32px; }
-      .quote-teaser { padding: 36px 28px; }
-      .block { padding: 32px 28px 28px; }
-      .grid-2 { gap: 20px; }
-      .chapter-hero figcaption { left: 32px; bottom: 28px; }
+    footer .ornament::before, footer .ornament::after { background: rgba(243,228,214,.28); }
+    footer p { max-width: 640px; margin: 16px 0 0; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 36px 0 8px; }
+    .footer-links a {
+      color: #F3E4D6; text-decoration: none; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
     }
     @media (max-width: 1100px) {
-      .overview, .grid-2, .chapter.alt .grid-2, .birthday, .transport-grid { grid-template-columns: 1fr; }
-      .chapter.alt .grid-2 .stay { order: 0; }
+      .nav { padding: 16px 24px; }
+      .overview, .grid-2, .birthday, .transport-grid { grid-template-columns: 1fr; }
+      .stay { grid-template-columns: 1fr; gap: 40px; }
       .totals { grid-template-columns: 1fr 1fr; }
-      .overview { margin: -40px auto 72px; }
-      .overview-card, .quote-teaser { padding: 32px 28px 28px; }
-      .hero-inner, .wrap { width: min(1520px, calc(100% - 40px)); }
+      .total-box + .total-box { border-left: 0; padding-left: 0; }
+      .quote-teaser { padding: 40px 0 0; border-left: 0; border-top: 1px solid var(--maroon); }
+      .hero-inner, .wrap, .chapter-hero figcaption { width: min(1120px, calc(100% - 48px)); }
       .hero-inner { margin-bottom: 64px; }
-      .route {
-        display: flex; overflow-x: auto; gap: 0;
-        padding: 8px 0 12px; -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-      }
+      .overview { padding: 72px 0 80px; gap: 48px; }
+      .route { grid-template-columns: 1fr; padding: 8px 0 0; }
       .route::before {
-        left: 0; right: 0; top: 15px; bottom: auto;
-        width: auto; height: 1px;
+        left: 3px; right: auto; top: 10px; bottom: 16px;
+        width: 1px; height: auto;
       }
-      .route-stop { flex: 0 0 132px; padding: 0 16px 0 0; }
-      .route-stop::before { margin: 10px 0 18px; }
+      .route-stop {
+        display: grid; grid-template-columns: 96px 1fr;
+        column-gap: 16px; padding: 0 0 22px 24px;
+      }
+      .route-stop::before { position: absolute; left: 0; top: 6px; margin: 0; }
       .photo-row { grid-template-columns: 1fr 1fr; }
       .photo-row figure:first-child { grid-column: 1 / -1; }
-      .photo-row img { height: 200px; }
-      .photo-row figure:first-child img { height: 240px; }
-      .nav {
-        grid-template-columns: 1fr auto;
-        padding: 12px 16px 10px;
-      }
+      .photo-row img { height: 220px; }
+      .photo-row figure:first-child img { height: 260px; }
+      .nav { grid-template-columns: 1fr auto; padding: 14px 20px 12px; }
       .nav-links {
-        grid-column: 1 / -1;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        padding: 4px 0 8px;
-        gap: 4px 16px;
+        grid-column: 1 / -1; justify-content: flex-start;
+        flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        padding: 8px 0 6px; gap: 6px 20px;
       }
       .nav-links a { white-space: nowrap; flex-shrink: 0; }
       .hero { min-height: 78vh; }
-      .chapter { margin-bottom: 80px; }
-      .chapter-hero { height: min(52vh, 420px); }
-      .chapter-hero figcaption { left: 24px; right: 24px; bottom: 24px; max-width: none; }
-      .birthday-copy { padding: 36px 28px 32px; }
+      .chapter { padding-bottom: 88px; }
+      .chapter-hero { margin-bottom: 40px; }
+      .chapter-hero img { height: min(380px, 56vw); }
       .birthday-copy h2 { font-size: 32px; }
       .birthday-photo { min-height: 280px; }
-      .section { margin: 28px auto 72px; }
+      .section { padding: 80px 0 88px; }
     }
     @media (max-width: 700px) {
       body { font-size: 16px; }
-      .hero-inner, .wrap { width: calc(100% - 28px); }
-      .hero-inner { margin-bottom: 48px; }
-      .hero { min-height: 70vh; background-position: 70% center; }
+      .hero-inner, .wrap, .chapter-hero figcaption { width: calc(100% - 32px); }
+      .hero { min-height: 72vh; background-position: 70% center; }
       .hero h1 { font-size: clamp(36px, 12vw, 48px); }
       .hero p { font-size: 16px; }
-      .hero-script { font-size: 13px; }
-      .hero-meta { gap: 8px 0; margin-top: 24px; }
+      .hero-script { font-size: 11px; }
+      .hero-meta { gap: 10px 0; margin-top: 28px; }
       .hero-meta div { width: 100%; }
       .hero-meta div:not(:last-child)::after { display: none; }
-      .overview { margin: -28px auto 56px; }
-      .overview-card, .quote-teaser, .block, .t-card { padding: 24px 20px 22px; }
-      .quote-teaser h2 { font-size: 26px; }
-      .price-xl { font-size: 36px; margin: 20px 0 10px; }
-      .chapter-hero { height: 280px; border-radius: 14px; }
-      .chapter-hero figcaption { left: 18px; right: 18px; bottom: 18px; }
+      .overview { padding: 56px 0 64px; gap: 40px; }
+      .overview-card h2 { font-size: 28px; }
+      .lede { margin: 14px 0 32px; font-size: 16px; }
+      .route-stop { grid-template-columns: 84px 1fr; padding-bottom: 20px; }
+      .quote-teaser h2 { font-size: 24px; }
+      .price-xl { font-size: 36px; }
+      .chapter-hero img { height: 260px; }
       .chapter-hero h2 { font-size: 28px; }
       .block h3 { font-size: 22px; }
-      .list li {
-        grid-template-columns: 1fr;
-        gap: 4px;
-        padding: 12px 0;
-        font-size: 15px;
-      }
+      .list li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; font-size: 16px; }
       .list b { padding-top: 0; }
-      .photo-row { grid-template-columns: 1fr; }
+      .photo-row { grid-template-columns: 1fr; margin-top: 48px; }
       .photo-row figure:first-child { grid-column: auto; }
-      .photo-row img, .photo-row figure:first-child img { height: 200px; }
+      .photo-row img, .photo-row figure:first-child img { height: 210px; }
       .totals { grid-template-columns: 1fr; }
+      .total-box { padding: 24px 0; }
       .total-box strong { font-size: 26px; }
       .price-table { font-size: 14px; min-width: 520px; }
       .price-table .total td { font-size: 20px; }
-      .panel:has(.price-table) {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+      .pkg .block, .quote-block {
+        overflow-x: auto; -webkit-overflow-scrolling: touch;
       }
-      .tabs { gap: 8px; }
-      .tab { width: 100%; text-align: center; }
-      .ornament::before, .ornament::after { width: 32px; }
-      .print-btn { padding: 10px 14px; }
-      footer { padding: 48px 0 56px; }
-      .nav-brand { font-size: 18px; }
+      .tab { margin-right: 20px; }
+      footer { padding: 56px 0 64px; }
     }
     @media (max-width: 420px) {
-      .hero-inner, .wrap { width: calc(100% - 20px); }
-      .nav { padding: 10px 12px 8px; }
-      .overview-card, .quote-teaser, .block, .t-card { padding: 20px 16px 20px; }
+      .hero-inner, .wrap, .chapter-hero figcaption { width: calc(100% - 24px); }
+      .nav { padding: 12px 14px 10px; }
+      .slider-stage { height: 240px; }
+      .hero-dots { right: 20px; bottom: 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .stay .hotel, .hero-slide, .slider .slide, .chapter-hero img {
+        opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important;
+      }
     }
     @media print {
-      .nav, .print-btn, .tabs { display: none !important; }
+      .nav, .print-btn, .tabs, .hero-actions, .slider-nav, .slider-dots, .hero-dots, .progress { display: none !important; }
       .pkg { display: block !important; page-break-inside: avoid; }
-      .hero { min-height: 420px; }
+      .hero { min-height: 360px; }
+      .slider .slide { position: relative; opacity: 1; transform: none; height: 220px; margin-bottom: 12px; }
+      .slider-stage { height: auto; }
       body { background: #fff; overflow: visible; }
-      .wrap, .hero-inner { width: 100%; }
-      .overview, .grid-2, .birthday, .transport-grid, .totals { grid-template-columns: 1fr; }
+      .wrap, .hero-inner, .chapter-hero figcaption { width: 100%; }
+      .overview, .grid-2, .birthday, .transport-grid, .totals, .stay { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
+  <div class="progress" aria-hidden="true"></div>
   <nav class="nav">
     <div class="nav-brand">Italy Together · 2026</div>
     <div class="nav-links">
@@ -485,6 +569,12 @@
   </nav>
 
   <header class="hero">
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide is-on" style="background-image:url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=2000&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=2000&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=2000&q=80')"></div>
+    </div>
     <div class="hero-inner">
       <p class="kicker">A private itinerary for two · Toronto</p>
       <h1>Italy, <em>together</em></h1>
@@ -496,11 +586,16 @@
         <div>9 Hotel Nights</div>
         <div>Overnight flight after 6:00 PM</div>
       </div>
+      <div class="hero-actions">
+        <a class="btn-solid" href="#overview">Read the itinerary</a>
+        <a class="btn-ghost" href="#quote">See quotation</a>
+      </div>
     </div>
+    <div class="hero-dots"></div>
   </header>
 
-  <main class="wrap">
-    <section class="overview" id="overview">
+  <main>
+    <section class="overview wrap reveal" id="overview">
       <article class="panel overview-card">
         <p class="kicker">The journey</p>
         <h2>One country, six chapters</h2>
@@ -536,6 +631,7 @@
           <h2>Rome</h2>
         </figcaption>
       </figure>
+      <div class="wrap chapter-body reveal">
       <div class="grid-2">
         <div class="panel block">
           <p class="time">Arrival morning · Eternal City by night</p>
@@ -557,22 +653,8 @@
             <span class="chip must">Spanish Steps</span>
             <span class="chip opt">Trastevere</span>
           </div>
-          <div class="photo-row">
-            <figure>
-              <img src="https://images.unsplash.com/photo-1525874684015-58379d421a52?auto=format&fit=crop&w=900&q=80" alt="Trevi Fountain" />
-              <figcaption>Trevi Fountain</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1555992828-ca4dbe41d294?auto=format&fit=crop&w=900&q=80" alt="The Pantheon in Rome" />
-              <figcaption>Pantheon</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=900&q=80" alt="Roman Forum" />
-              <figcaption>Roman Forum</figcaption>
-            </figure>
-          </div>
         </div>
-        <div class="panel block stay">
+        <div class="stay reveal">
           <p class="time">Hotels · elevator · historic centre</p>
           <h3>Where to stay</h3>
           <div class="hotel pick">
@@ -596,6 +678,26 @@
           </div>
         </div>
       </div>
+          <div class="slider" aria-label="Rome photographs">
+            <div class="slider-stage">
+            <figure class="slide is-on">
+              <img src="https://images.unsplash.com/photo-1525874684015-58379d421a52?auto=format&fit=crop&w=1400&q=80" alt="Trevi Fountain" />
+              <figcaption>Trevi Fountain</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1555992828-ca4dbe41d294?auto=format&fit=crop&w=1400&q=80" alt="The Pantheon in Rome" />
+              <figcaption>Pantheon</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=1400&q=80" alt="Roman Forum" />
+              <figcaption>Roman Forum</figcaption>
+            </figure>
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
+            <div class="slider-dots"></div>
+          </div>
+      </div>
     </section>
 
     <!-- SORRENTO -->
@@ -608,6 +710,7 @@
           <h2>Sorrento &amp; the Amalfi Coast</h2>
         </figcaption>
       </figure>
+      <div class="wrap chapter-body reveal">
       <div class="grid-2">
         <div class="panel block">
           <p class="time">Bay of Naples · lemon groves · cliff towns</p>
@@ -628,23 +731,9 @@
             <span class="chip opt">Pompeii</span>
             <span class="chip opt">Boat along the coast</span>
           </div>
-          <div class="photo-row">
-            <figure>
-              <img src="https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?auto=format&fit=crop&w=900&q=80" alt="Positano cliffside village" />
-              <figcaption>Positano</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1612698093158-e07ac200d44e?auto=format&fit=crop&w=900&q=80" alt="Amalfi cathedral and square" />
-              <figcaption>Amalfi</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80" alt="Mediterranean hillside town" />
-              <figcaption>Coastal views</figcaption>
-            </figure>
-          </div>
           <p class="note">Recommended tour: small-group minivan from Sorrento covering Positano, Amalfi, and Ravello (~€120 / C$187 pp). Private Mercedes day for two is a worthwhile upgrade at about €590 / C$920 for the vehicle.</p>
         </div>
-        <div class="panel block stay">
+        <div class="stay reveal">
           <p class="time">Spend a little more here</p>
           <h3>Hotels with a view</h3>
           <div class="hotel pick">
@@ -668,6 +757,26 @@
           </div>
         </div>
       </div>
+          <div class="slider" aria-label="Amalfi Coast photographs">
+            <div class="slider-stage">
+            <figure class="slide is-on">
+              <img src="https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?auto=format&fit=crop&w=1400&q=80" alt="Positano cliffside village" />
+              <figcaption>Positano</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1612698093158-e07ac200d44e?auto=format&fit=crop&w=1400&q=80" alt="Amalfi cathedral and square" />
+              <figcaption>Amalfi</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80" alt="Mediterranean hillside town" />
+              <figcaption>Coastal views</figcaption>
+            </figure>
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
+            <div class="slider-dots"></div>
+          </div>
+      </div>
     </section>
 
     <!-- FLORENCE -->
@@ -680,6 +789,7 @@
           <h2>Florence</h2>
         </figcaption>
       </figure>
+      <div class="wrap chapter-body reveal">
       <div class="grid-2">
         <div class="panel block">
           <p class="time">The Renaissance, then her birthday in Chianti</p>
@@ -699,22 +809,8 @@
             <span class="chip must">Piazzale Michelangelo</span>
             <span class="chip must">Tuscany convertible</span>
           </div>
-          <div class="photo-row">
-            <figure>
-              <img src="https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=900&q=80" alt="Ponte Vecchio over the Arno" />
-              <figcaption>Ponte Vecchio</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80" alt="Tuscan countryside with cypress trees" />
-              <figcaption>Chianti roads</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=80" alt="Italian historic architecture" />
-              <figcaption>Historic Florence</figcaption>
-            </figure>
-          </div>
         </div>
-        <div class="panel block stay">
+        <div class="stay reveal">
           <p class="time">Central · elevator · walk to everything</p>
           <h3>Where to stay</h3>
           <div class="hotel pick">
@@ -738,10 +834,31 @@
           </div>
         </div>
       </div>
+          <div class="slider" aria-label="Florence photographs">
+            <div class="slider-stage">
+            <figure class="slide is-on">
+              <img src="https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=1400&q=80" alt="Ponte Vecchio over the Arno" />
+              <figcaption>Ponte Vecchio</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1400&q=80" alt="Tuscan countryside with cypress trees" />
+              <figcaption>Chianti roads</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1543429257-3eb0b65d9c58?auto=format&fit=crop&w=1400&q=80" alt="Florence rooftops" />
+              <figcaption>Historic Florence</figcaption>
+            </figure>
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
+            <div class="slider-dots"></div>
+          </div>
+      </div>
     </section>
 
     <!-- BIRTHDAY -->
     <section class="chapter" id="birthday">
+      <div class="wrap reveal">
       <div class="ornament">30 · IX · 2026</div>
       <div class="birthday panel">
         <div class="birthday-photo" role="img" aria-label="Ponte Vecchio and the Arno at dusk"></div>
@@ -766,11 +883,12 @@
           </div>
         </div>
       </div>
-      <div class="panel block">
+      <div class="panel block convertible">
         <h3>The convertible day</h3>
         <p>Private all-inclusive Chianti experience in a vintage Fiat 500 cabrio (or similar), with hotel pickup in Florence. Route includes Greve in Chianti, Castellina in Chianti, San Gimignano, Siena, vineyard photo stops, and a 3-course villa lunch with Chianti Classico. English-speaking driver-guide. About 8–9 hours, returning in time to dress for dinner.</p>
         <p class="rate" style="margin-top:10px">€1,090 <span class="cad">C$1,700</span> for the private car · 2 guests · lunch included</p>
         <p class="muted">Classic version without villa lunch: €890 / C$1,388. Self-drive convertible is cheaper but not recommended for a birthday, as you lose the photographs, the wine, and the ease.</p>
+      </div>
       </div>
     </section>
 
@@ -784,6 +902,7 @@
           <h2>Manarola · Cinque Terre</h2>
         </figcaption>
       </figure>
+      <div class="wrap chapter-body reveal">
       <div class="grid-2">
         <div class="panel block">
           <p class="time">Cliffs, colour, and one unforgettable sunset</p>
@@ -803,22 +922,8 @@
             <span class="chip opt">Via dell’Amore</span>
             <span class="chip opt">Short scenic walk</span>
           </div>
-          <div class="photo-row">
-            <figure>
-              <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80" alt="Cinque Terre village above the sea" />
-              <figcaption>Cinque Terre</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=900&q=80" alt="Italian coastal village" />
-              <figcaption>Coastal cliffs</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1537083702767-42f85f12834f?auto=format&fit=crop&w=900&q=80" alt="Manarola at dusk" />
-              <figcaption>Manarola dusk</figcaption>
-            </figure>
-          </div>
         </div>
-        <div class="panel block stay">
+        <div class="stay reveal">
           <p class="time">View first · luggage handled</p>
           <h3>Lodge or apartment</h3>
           <div class="hotel pick">
@@ -842,6 +947,26 @@
           </div>
         </div>
       </div>
+          <div class="slider" aria-label="Cinque Terre photographs">
+            <div class="slider-stage">
+            <figure class="slide is-on">
+              <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80" alt="Cinque Terre village above the sea" />
+              <figcaption>Cinque Terre</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1400&q=80" alt="Italian coastal village" />
+              <figcaption>Coastal cliffs</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1537083702767-42f85f12834f?auto=format&fit=crop&w=1400&q=80" alt="Manarola at dusk" />
+              <figcaption>Manarola dusk</figcaption>
+            </figure>
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
+            <div class="slider-dots"></div>
+          </div>
+      </div>
     </section>
 
     <!-- VENICE -->
@@ -854,6 +979,7 @@
           <h2>Venice</h2>
         </figcaption>
       </figure>
+      <div class="wrap chapter-body reveal">
       <div class="grid-2">
         <div class="panel block">
           <p class="time">Arrive afternoon · the city after dark</p>
@@ -873,22 +999,8 @@
             <span class="chip must">Doge’s Palace</span>
             <span class="chip opt">Gondola</span>
           </div>
-          <div class="photo-row">
-            <figure>
-              <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=900&q=80" alt="Rialto Bridge" />
-              <figcaption>Rialto</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80" alt="Italian historic square" />
-              <figcaption>Evening Venice</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=900&q=80" alt="Gondola on a Venice canal" />
-              <figcaption>Canals</figcaption>
-            </figure>
-          </div>
         </div>
-        <div class="panel block stay">
+        <div class="stay reveal">
           <p class="time">Beside Santa Lucia · no bridges with bags</p>
           <h3>Where to stay</h3>
           <div class="hotel pick">
@@ -912,6 +1024,26 @@
           </div>
         </div>
       </div>
+          <div class="slider" aria-label="Venice photographs">
+            <div class="slider-stage">
+            <figure class="slide is-on">
+              <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1400&q=80" alt="Rialto Bridge" />
+              <figcaption>Rialto</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80" alt="Italian historic square" />
+              <figcaption>Evening Venice</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1400&q=80" alt="Gondola on a Venice canal" />
+              <figcaption>Canals</figcaption>
+            </figure>
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
+            <div class="slider-dots"></div>
+          </div>
+      </div>
     </section>
 
     <!-- MILAN -->
@@ -924,6 +1056,7 @@
           <h2>Milan, then home</h2>
         </figcaption>
       </figure>
+      <div class="wrap chapter-body reveal">
       <div class="grid-2">
         <div class="panel block">
           <p class="time">Fashion, marble, and a 1:00 PM flight</p>
@@ -943,22 +1076,8 @@
             <span class="chip opt">Aperitivo</span>
             <span class="chip opt">Sforza Castle</span>
           </div>
-          <div class="photo-row">
-            <figure>
-              <img src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=900&q=80" alt="Milan Duomo" />
-              <figcaption>Duomo</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.pexels.com/photos/2422584/pexels-photo-2422584.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Galleria Vittorio Emanuele II" />
-              <figcaption>Galleria</figcaption>
-            </figure>
-            <figure>
-              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80" alt="Northern Italian street" />
-              <figcaption>Brera streets</figcaption>
-            </figure>
-          </div>
         </div>
-        <div class="panel block stay">
+        <div class="stay reveal">
           <p class="time">Next to Milano Centrale</p>
           <h3>Where to stay</h3>
           <div class="hotel pick">
@@ -982,10 +1101,31 @@
           </div>
         </div>
       </div>
+          <div class="slider" aria-label="Milan photographs">
+            <div class="slider-stage">
+            <figure class="slide is-on">
+              <img src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1400&q=80" alt="Milan Duomo" />
+              <figcaption>Duomo</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.pexels.com/photos/2422584/pexels-photo-2422584.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Galleria Vittorio Emanuele II" />
+              <figcaption>Galleria</figcaption>
+            </figure>
+            <figure class="slide">
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80" alt="Northern Italian street" />
+              <figcaption>Brera streets</figcaption>
+            </figure>
+            </div>
+            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
+            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
+            <div class="slider-dots"></div>
+          </div>
+      </div>
     </section>
 
     <!-- TRANSPORT -->
     <section class="section" id="transport">
+      <div class="wrap reveal">
       <div class="ornament">The route</div>
       <div class="section-head">
         <div>
@@ -1011,10 +1151,12 @@
           <p>Malpensa Express Centrale → MXP T1, €13 / C$20 pp, ~50 minutes. Leave the hotel at 09:00 for a 1:00 PM Toronto flight. Private car upgrade €110 / C$172 if you want door-to-terminal.</p>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- QUOTE -->
     <section class="section" id="quote">
+      <div class="wrap reveal">
       <div class="ornament">Quotation</div>
       <div class="section-head">
         <div>
@@ -1069,7 +1211,7 @@
         </div>
       </div>
 
-      <div class="panel block" style="margin-top:18px">
+      <div class="quote-block">
         <h3>Transportation: both packages</h3>
         <table class="price-table">
           <thead><tr><th>Leg</th><th>Mode</th><th>EUR · CAD</th></tr></thead>
@@ -1091,7 +1233,7 @@
         </table>
       </div>
 
-      <div class="panel block" style="margin-top:18px">
+      <div class="quote-block">
         <h3>Tours & activities: both packages</h3>
         <table class="price-table">
           <thead><tr><th>Experience</th><th>Notes</th><th>EUR · CAD</th></tr></thead>
@@ -1108,7 +1250,7 @@
         </table>
       </div>
 
-      <div class="panel block" style="margin-top:18px; border-color: var(--wine);">
+      <div class="quote-block">
         <p class="kicker">Quoted separately, as requested</p>
         <h3>Birthday dinner · Borgo San Jacopo</h3>
         <table class="price-table">
@@ -1142,7 +1284,7 @@
         </div>
       </div>
 
-      <div class="panel block">
+      <div class="quote-block">
         <h3>Grand totals for 2 adults</h3>
         <table class="price-table">
           <thead><tr><th>Package</th><th>EUR</th><th>CAD (indicative)</th></tr></thead>
@@ -1155,7 +1297,7 @@
         </table>
       </div>
 
-      <div class="panel block" style="margin-top:18px">
+      <div class="quote-block">
         <h3>Optional upgrades</h3>
         <table class="price-table">
           <thead><tr><th>Upgrade</th><th>Instead of</th><th>Add</th></tr></thead>
@@ -1169,18 +1311,6 @@
           </tbody>
         </table>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="panel block">
-        <h3>Before you book</h3>
-        <ul class="list">
-          <li><b>Flights</b> Choose a Toronto departure after 6:00 PM on 24 September, and a Milan Malpensa departure near 1:00 PM on 4 October. Air Canada, Lufthansa, and Air France/KLM are the usual patterns.</li>
-          <li><b>Tickets</b> Colosseum, Uffizi, Duomo rooftop, Doge’s Palace, and Via dell’Amore sell out. Reserve as soon as official calendars open.</li>
-          <li><b>Vegetarian</b> Rome and Florence are easy. Ask hotels to note preferences. Borgo San Jacopo already has a vegetarian tasting menu.</li>
-          <li><b>Luggage</b> One medium suitcase each. Cinque Terre and Venice punish oversized bags. La Torretta’s porter is booked with the room.</li>
-          <li><b>Pace</b> This itinerary is rich, not slow. If you later want to cut a city, drop Milan and fly home from Venice, or drop Cinque Terre and take a second night in Venice.</li>
-        </ul>
       </div>
     </section>
   </main>
@@ -1189,12 +1319,26 @@
     <div class="wrap">
       <h2>Italy Together</h2>
       <div class="ornament">MMXXVI</div>
+      <div class="footer-links">
+        <a href="#overview">Overview</a>
+        <a href="#rome">Rome</a>
+        <a href="#sorrento">Sorrento</a>
+        <a href="#florence">Florence</a>
+        <a href="#birthday">Birthday</a>
+        <a href="#cinqueterre">Cinque Terre</a>
+        <a href="#venice">Venice</a>
+        <a href="#milan">Milan</a>
+        <a href="#quote">Quotation</a>
+      </div>
       <p>24 September – 4 October 2026 · Two adults · Prepared as a planning presentation</p>
-      <p style="margin-top:10px">Hotel and tour prices are planning estimates for these dates, not live contracts. International airfare, most meals, travel insurance, and tips are extra. Birthday dinner and the Tuscany convertible day should be reserved first. 30 September is a Saturday in 2026.</p>
+      <p>Hotel and tour prices are planning estimates for these dates, not live contracts. International airfare, most meals, travel insurance, and tips are extra. Birthday dinner and the Tuscany convertible day should be reserved first. 30 September is a Saturday in 2026.</p>
     </div>
   </footer>
 
   <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.documentElement.classList.add("js");
+
     document.querySelectorAll(".tab").forEach((btn) => {
       btn.addEventListener("click", () => {
         document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
@@ -1203,6 +1347,79 @@
         document.getElementById("pkg-" + btn.dataset.pkg).classList.add("active");
       });
     });
+
+    const bar = document.querySelector(".progress");
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    const heroSlides = [...document.querySelectorAll(".hero-slide")];
+    const heroDots = document.querySelector(".hero-dots");
+    let heroIndex = 0;
+    heroSlides.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", "Hero image " + (i + 1));
+      if (i === 0) dot.classList.add("is-on");
+      dot.addEventListener("click", () => showHero(i));
+      heroDots.appendChild(dot);
+    });
+    function showHero(n) {
+      heroSlides[heroIndex].classList.remove("is-on");
+      heroDots.children[heroIndex].classList.remove("is-on");
+      heroIndex = (n + heroSlides.length) % heroSlides.length;
+      heroSlides[heroIndex].classList.add("is-on");
+      heroDots.children[heroIndex].classList.add("is-on");
+    }
+    if (!reduceMotion && heroSlides.length > 1) {
+      setInterval(() => showHero(heroIndex + 1), 5600);
+    }
+
+    function initSlider(slider) {
+      const slides = [...slider.querySelectorAll(".slide")];
+      const dots = slider.querySelector(".slider-dots");
+      let i = 0;
+      slides.forEach((_, idx) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Slide " + (idx + 1));
+        if (idx === 0) b.classList.add("is-on");
+        b.addEventListener("click", () => go(idx));
+        dots.appendChild(b);
+      });
+      function go(n) {
+        slides[i].classList.remove("is-on");
+        dots.children[i].classList.remove("is-on");
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add("is-on");
+        dots.children[i].classList.add("is-on");
+      }
+      slider.querySelector(".prev").addEventListener("click", () => go(i - 1));
+      slider.querySelector(".next").addEventListener("click", () => go(i + 1));
+      if (!reduceMotion) {
+        let timer = setInterval(() => go(i + 1), 6500);
+        slider.addEventListener("mouseenter", () => clearInterval(timer));
+        slider.addEventListener("mouseleave", () => { timer = setInterval(() => go(i + 1), 6500); });
+      }
+    }
+    document.querySelectorAll(".slider").forEach(initSlider);
+
+    const reveals = document.querySelectorAll(".reveal");
+    if (reduceMotion) {
+      reveals.forEach((el) => el.classList.add("is-in"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-in"); });
+      }, { threshold: 0.05, rootMargin: "80px 0px 0px 0px" });
+      reveals.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 24) el.classList.add("is-in");
+        io.observe(el);
+      });
+    }
   </script>
 </body>
 </html>
