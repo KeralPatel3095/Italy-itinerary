@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Italy Together · 24 September – 4 October 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #2A2422;
+      --ink-soft: #4A3F3C;
+      --maroon: #6B2D3C;
+      --maroon-deep: #4A1F28;
+      --kicker: #6B2D3C;
+      --cream: #F6F1EC;
+      --cream-2: #FBF8F6;
+      --paper: #ffffff;
+      --line: #E4D9D0;
+      --sage: #D6E3CE;
+      --wine: #6B2D3C;
+      --wine-deep: #4A1F28;
+      --sans: "Inter", "Poppins", "DM Sans", Helvetica, Arial, sans-serif;
+      --serif: "Inter", "Poppins", "DM Sans", sans-serif;
+      --radius: 16px;
+      --shadow: 0 12px 32px rgba(42, 36, 34, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: linear-gradient(180deg, #EFE6E1 0%, #F6F1EC 40%, #ffffff 100%);
+      color: var(--ink-soft);
+      line-height: 1.7;
+      font-size: 18px;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: var(--maroon); font-weight: 600; }
+    .ornament {
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      color: var(--maroon); margin: 8px 0 24px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .ornament::before, .ornament::after {
+      content: ""; height: 1px; width: 56px; background: #D7C4B8;
+    }
+    .nav {
+      position: sticky; top: 0; z-index: 40;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 16px 32px;
+      background: #4A1F28;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .nav-brand {
+      font-family: var(--sans); font-size: 22px; font-weight: 800;
+      color: #FFF8F2; letter-spacing: -0.03em;
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .nav-links a {
+      color: #FFF8F2; text-decoration: none; font-size: 13px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .nav-links a:hover { color: #E8C9B8; }
+    .print-btn {
+      border: 0; color: #4A1F28; background: #FFF8F2;
+      padding: 12px 18px; font: 800 12px/1 var(--sans); letter-spacing: 0.06em;
+      text-transform: uppercase; cursor: pointer; border-radius: 999px;
+    }
+    .hero {
+      position: relative; min-height: 88vh; margin: 0;
+      background:
+        linear-gradient(90deg, rgba(20,10,12,.72) 0%, rgba(20,10,12,.28) 46%, rgba(20,10,12,.12) 100%),
+        linear-gradient(0deg, rgba(20,10,12,.78) 0%, rgba(20,10,12,.2) 52%),
+        url("https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=80") center/cover;
+      color: #fff; display: flex; align-items: flex-end;
+    }
+    .hero-inner { width: min(1040px, 90%); margin: 0 auto 72px; }
+    .hero .kicker { color: #F3E4D6; }
+    .kicker {
+      font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--maroon); margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-family: var(--sans); font-weight: 700; font-size: clamp(44px, 7vw, 68px);
+      line-height: 1.08; letter-spacing: -0.03em; color: #fff;
+    }
+    .hero h1 em { font-style: italic; font-weight: 600; color: #F3E4D6; }
+    .hero-script {
+      font-family: var(--sans); font-size: 18px; font-weight: 600;
+      color: #fff; margin: 10px 0 18px;
+    }
+    .hero p { max-width: 56ch; font-size: 19px; font-weight: 500; color: #fff; }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 28px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      color: #FFF8F2;
+    }
+    .hero-meta div { position: relative; }
+    .hero-meta div:not(:last-child)::after {
+      content: "·"; position: absolute; right: -14px; color: var(--sage);
+    }
+    .wrap { width: min(1120px, 90%); margin: 0 auto; }
+    .panel {
+      background: var(--paper);
+      border: 1px solid rgba(99,100,102,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .overview {
+      display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 20px;
+      margin: -48px auto 64px; position: relative; z-index: 2;
+    }
+    .overview-card, .quote-teaser { padding: 36px 32px 32px; }
+    .overview-card h2, .section-title {
+      font-family: var(--sans); font-size: clamp(28px, 4vw, 40px); color: var(--ink); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 1.1;
+    }
+    .lede { font-size: 18px; margin: 10px 0 22px; max-width: 62ch; }
+    .route {
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px;
+    }
+    .route-stop {
+      background: var(--cream-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 14px 14px;
+      min-height: 128px;
+    }
+    .route-stop::before {
+      content: "";
+      width: 8px; height: 7px; border-radius: 999px;
+      background: var(--maroon);
+      display: block; margin-bottom: 10px;
+    }
+    .route-stop span { display: block; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); font-weight: 800; }
+    .route-stop strong { display: block; font-family: var(--sans); font-size: 18px; color: var(--ink); margin: 6px 0 6px; font-weight: 700; letter-spacing: -0.02em; }
+    .route-stop em { font-style: normal; font-size: 13px; color: var(--ink-soft); }
+    .quote-teaser {
+      background: var(--maroon-deep);
+      color: #fff;
+      border: 0;
+      position: relative;
+    }
+    .quote-teaser .kicker { color: #F3E4D6; }
+    .quote-teaser h2 { color: #fff; font-size: 32px; font-family: var(--sans); font-weight: 700; letter-spacing: -0.02em; }
+    .price-xl { font-family: var(--sans); font-size: 46px; font-weight: 800; color: #FFF8F2; line-height: 1; margin: 10px 0 8px; letter-spacing: -0.03em; }
+    .quote-teaser p { font-size: 16px; color: #FFF8F2; }
+    .quote-teaser a { color: #FFF8F2; }
+    .section { margin: 20px auto 72px; }
+    .section-head { margin-bottom: 22px; }
+    .chapter { margin-bottom: 80px; }
+    .chapter-hero {
+      position: relative; height: 520px; overflow: hidden;
+      border-radius: var(--radius);
+    }
+    .chapter-hero img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .chapter-hero figcaption {
+      position: absolute; left: 24px; bottom: 24px; z-index: 2;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 24px 16px;
+      max-width: min(640px, calc(100% - 48px));
+      color: var(--ink);
+    }
+    .chapter-hero .chap-no {
+      font-family: var(--sans); font-style: normal; font-size: 12px; font-weight: 800;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); display: block; margin-bottom: 6px;
+    }
+    .chapter-hero .when {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon);
+    }
+    .chapter-hero h2 {
+      font-family: var(--sans); font-size: clamp(26px, 3.6vw, 36px); font-weight: 700;
+      letter-spacing: -0.03em; color: var(--ink); line-height: 1.2;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1.18fr 0.82fr; gap: 20px; margin-top: 22px; }
+    .chapter.alt .grid-2 { grid-template-columns: 0.82fr 1.18fr; }
+    .chapter.alt .grid-2 .stay { order: -1; }
+    .block { padding: 28px 28px 26px; }
+    .block h3 {
+      font-family: var(--sans); font-size: 24px; color: var(--ink); font-weight: 600; margin: 6px 0 10px; letter-spacing: -0.02em;
+    }
+    .time { font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
+    .list { list-style: none; margin-top: 16px; }
+    .list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid; grid-template-columns: 110px 1fr; gap: 14px; font-size: 17px;
+    }
+    .list b { color: var(--maroon); font-weight: 800; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 4px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .chip {
+      font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      border: 1px solid var(--line); padding: 8px 12px; background: #fff; color: var(--ink);
+      border-radius: 999px;
+    }
+    .chip.must { background: #F3E4D6; border-color: #D7C4B8; color: var(--maroon-deep); }
+    .chip.opt { color: var(--ink-soft); }
+    .photo-row {
+      display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 12px;
+      margin-top: 22px;
+    }
+    .photo-row figure { overflow: hidden; border-radius: var(--radius); }
+    .photo-row img {
+      width: 100%; height: 200px; object-fit: cover;
+    }
+    .photo-row figcaption {
+      padding: 10px 2px 0;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--maroon); background: none;
+    }
+    .stay { background: var(--cream); }
+    .hotel {
+      padding: 16px 0;
+      border-top: 1px solid rgba(99,100,102,.12);
+    }
+    .hotel:first-of-type { border-top: 0; padding-top: 0; }
+    .hotel.pick {
+      background: #fff;
+      border: 1px solid var(--maroon);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--maroon); border: 0;
+      padding: 0; margin-bottom: 8px; background: none;
+    }
+    .hotel h4 { font-family: var(--sans); font-size: 20px; color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
+    .stars { color: var(--maroon); letter-spacing: 2px; font-size: 13px; margin: 2px 0 6px; }
+    .hotel p { font-size: 16px; margin: 6px 0; }
+    .rate { font-family: var(--sans); font-size: 22px; color: var(--maroon-deep); font-weight: 800; }
+    .cad { color: var(--ink-soft); font-weight: 700; font-size: 0.85em; white-space: nowrap; }
+    .rate .cad { display: inline; font-size: 16px; font-weight: 700; color: var(--ink-soft); margin-left: 6px; }
+    .price-xl .cad { display: block; font-size: 22px; font-weight: 700; color: #F3E4D6; margin-top: 8px; }
+    .total-box .cad { display: block; font-size: 16px; font-weight: 700; margin-top: 4px; }
+    .total-box.featured .cad { color: #F3E4D6; }
+    .note {
+      background: #F3E4D6;
+      border: 0;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-size: 16px; margin-top: 18px;
+      color: var(--ink);
+    }
+    .birthday {
+      display: grid; grid-template-columns: 0.92fr 1.08fr; min-height: 580px;
+      margin: 8px 0 22px; border: 0; overflow: hidden;
+    }
+    .birthday-photo {
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.28)),
+        url("https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=1400&q=80") center/cover;
+      min-height: 380px;
+    }
+    .birthday-copy { background: #6B2D3C; color: rgba(255,255,255,.9); padding: 44px 40px 36px; }
+    .birthday-copy h2 { font-family: var(--sans); font-size: 40px; color: #fff; font-weight: 600; letter-spacing: -0.03em; }
+    .birthday-copy .script { font-family: var(--sans); font-size: 16px; font-weight: 600; color: #F3E4D6; margin: 6px 0 16px; letter-spacing: 0.04em; }
+    .rest-card { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+    .rest-card h3 { font-family: var(--sans); font-size: 22px; color: #F3E4D6; font-weight: 600; }
+    .price-table { width: 100%; border-collapse: collapse; font-size: 16px; }
+    .price-table th, .price-table td { padding: 13px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .price-table th { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); font-weight: 800; }
+    .price-table td:last-child, .price-table th:last-child { text-align: right; white-space: nowrap; }
+    .price-table .total td { font-family: var(--sans); font-size: 22px; color: var(--ink); border-bottom: 0; padding-top: 16px; font-weight: 800; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 18px; border-bottom: 0; }
+    .tab {
+      border: 1px solid var(--line); background: #fff; padding: 11px 18px;
+      font: 700 12px/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; color: var(--ink); border-radius: 999px;
+    }
+    .tab.active { color: #fff; background: #6B2D3C; border-color: #6B2D3C; }
+    .pkg { display: none; }
+    .pkg.active { display: block; }
+    .totals { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 24px 0; }
+    .total-box { background: #fff; border: 1px solid rgba(99,100,102,.12); border-radius: var(--radius); padding: 20px 18px; box-shadow: var(--shadow); }
+    .total-box span { display: block; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
+    .muted { font-size: 15px; color: var(--ink-soft); }
+    .total-box strong { display: block; font-family: var(--sans); font-size: 28px; color: var(--ink); margin-top: 8px; font-weight: 700; letter-spacing: -0.03em; }
+    .total-box.featured { background: #6B2D3C; color: #fff; border-color: #6B2D3C; }
+    .total-box.featured span { color: #F3E4D6; }
+    .total-box.featured strong { color: #fff; }
+    .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .t-card { padding: 24px 22px; background: #fff; border: 1px solid rgba(99,100,102,.12); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .t-card h4 { font-family: var(--sans); font-size: 20px; color: var(--ink); font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .muted { font-size: 15px; color: var(--ink-soft); }
+    footer {
+      background: #4A1F28; color: rgba(255,255,255,.84); padding: 56px 0 64px; margin-top: 20px;
+      text-align: center;
+    }
+    footer h2 { font-family: var(--sans); color: #fff; font-size: 32px; font-weight: 700; letter-spacing: -0.04em; }
+    footer .ornament { color: #F3E4D6; }
+    footer .ornament::before, footer .ornament::after { background: rgba(243, 228, 214, .35); }
+    footer p { max-width: 680px; margin: 10px auto 0; }
+    @media (max-width: 980px) {
+      .overview, .grid-2, .chapter.alt .grid-2, .birthday, .transport-grid, .totals { grid-template-columns: 1fr; }
+      .chapter.alt .grid-2 .stay { order: 0; }
+      .route { grid-template-columns: 1fr 1fr; }
+      .photo-row { grid-template-columns: 1fr; }
+      .photo-row img { height: 220px; }
+      .nav { flex-direction: column; align-items: flex-start; }
+      .hero { min-height: 82vh; }
+      .chapter-hero { height: 400px; }
+      .chapter-hero figcaption { left: 16px; right: 16px; bottom: 16px; max-width: none; }
+    }
+    @media print {
+      .nav, .print-btn, .tabs { display: none !important; }
+      .pkg { display: block !important; page-break-inside: avoid; }
+      .hero { min-height: 420px; }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-brand">Italy Together · 2026</div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#rome">Rome</a>
+      <a href="#sorrento">Sorrento</a>
+      <a href="#florence">Florence</a>
+      <a href="#birthday">Birthday</a>
+      <a href="#cinqueterre">Cinque Terre</a>
+      <a href="#venice">Venice</a>
+      <a href="#milan">Milan</a>
+      <a href="#quote">Quotation</a>
+    </div>
+    <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">A private itinerary for two · Toronto</p>
+      <h1>Italy, <em>together</em></h1>
+      <p class="hero-script">Rome · Sorrento · Florence · Cinque Terre · Venice · Milan</p>
+      <p>An eleven-day journey from the Eternal City to the Amalfi Coast, through Tuscany on her birthday, then north along the cliffs, canals, and fashion capital, timed to a 1:00 PM departure from Milan Malpensa.</p>
+      <div class="hero-meta">
+        <div>24 September – 4 October 2026</div>
+        <div>2 Adults</div>
+        <div>9 Hotel Nights</div>
+        <div>Overnight flight after 6:00 PM</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="overview" id="overview">
+      <article class="panel overview-card">
+        <p class="kicker">The journey</p>
+        <h2>One country, six chapters</h2>
+        <p class="lede">This is a beautiful, ambitious route. Travel days are designed around high-speed trains, with private cars only where they save time and spare you the luggage scramble, especially Naples to Sorrento and the airport legs.</p>
+        <div class="route">
+          <div class="route-stop"><span>24 Sep</span><strong>Sky</strong><em>YYZ → Rome overnight</em></div>
+          <div class="route-stop"><span>25 Sep</span><strong>Rome</strong><em>1 night</em></div>
+          <div class="route-stop"><span>26–27 Sep</span><strong>Sorrento</strong><em>2 nights · Amalfi</em></div>
+          <div class="route-stop"><span>28–30 Sep</span><strong>Florence</strong><em>3 nights · birthday</em></div>
+          <div class="route-stop"><span>1 Oct</span><strong>Manarola</strong><em>1 night</em></div>
+          <div class="route-stop"><span>2 Oct</span><strong>Venice</strong><em>1 night</em></div>
+          <div class="route-stop"><span>3–4 Oct</span><strong>Milan</strong><em>1 night · fly home</em></div>
+        </div>
+        <p class="note">Rome has only one full day, and 2 October is a long train day into Venice. The plan still covers every must-see by starting early, pre-booking tickets, and using private transfers on the two hardest luggage legs.</p>
+      </article>
+      <aside class="panel quote-teaser">
+        <p class="kicker">Recommended package</p>
+        <h2>Bella Vista</h2>
+        <div class="price-xl">€6,444 <span class="cad">C$10,050</span></div>
+        <p>for 2 adults · hotels, transport, tours, and the birthday dinner</p>
+        <p style="margin-top:14px">Value package <strong>Classic Italia</strong> €5,794 · C$9,040</p>
+        <p style="margin-top:16px">International flights are quoted separately. Birthday dinner is shown on its own line, as requested.</p>
+        <p style="margin-top:18px"><a href="#quote">See the full quotation ↓</a></p>
+      </aside>
+    </section>
+
+    <!-- ROME -->
+    <section class="chapter" id="rome">
+      <figure class="chapter-hero">
+        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1800&q=80" alt="The Colosseum in Rome at dusk" />
+        <figcaption>
+          <span class="chap-no">Chapter 01</span>
+          <div class="when">25 September · 1 night</div>
+          <h2>Rome</h2>
+        </figcaption>
+      </figure>
+      <div class="grid-2">
+        <div class="panel block">
+          <p class="time">Arrival morning · Eternal City by night</p>
+          <h3>Must-see, walked in one golden day</h3>
+          <p>Overnight flight from Toronto after 6:00 PM lands at Fiumicino the next morning. A private driver meets you at arrivals and takes you to the historic centre so you can drop bags and begin.</p>
+          <ul class="list">
+            <li><b>Morning</b> Private transfer FCO → hotel. Request early check-in. Shower, light lunch nearby.</li>
+            <li><b>13:30</b> Small-group guided visit: Colosseum, Roman Forum & Palatine Hill.</li>
+            <li><b>17:30</b> Walk to the Pantheon, then Piazza Navona.</li>
+            <li><b>Dusk</b> Trevi Fountain and the Spanish Steps in the evening light.</li>
+            <li><b>Optional</b> Trastevere evening walk and a vegetarian-friendly trattoria dinner.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip must">Colosseum</span>
+            <span class="chip must">Forum & Palatine</span>
+            <span class="chip must">Pantheon</span>
+            <span class="chip must">Piazza Navona</span>
+            <span class="chip must">Trevi</span>
+            <span class="chip must">Spanish Steps</span>
+            <span class="chip opt">Trastevere</span>
+          </div>
+          <div class="photo-row">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1525874684015-58379d421a52?auto=format&fit=crop&w=900&q=80" alt="Trevi Fountain" />
+              <figcaption>Trevi Fountain</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1555992828-ca4dbe41d294?auto=format&fit=crop&w=900&q=80" alt="The Pantheon in Rome" />
+              <figcaption>Pantheon</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=900&q=80" alt="Roman Forum" />
+              <figcaption>Roman Forum</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="panel block stay">
+          <p class="time">Hotels · elevator · historic centre</p>
+          <h3>Where to stay</h3>
+          <div class="hotel pick">
+            <span class="badge">Recommended</span>
+            <h4>9 Hotel Cesàri</h4>
+            <div class="stars">★★★★</div>
+            <p>Rome’s oldest hotel, a few minutes from the Pantheon and Trevi. Rooftop views, elevator, and a walkable first evening. ~€280 / C$437 per night</p>
+            <p class="rate">€280 <span class="cad">C$437</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Colosseum</h4>
+            <div class="stars">★★★</div>
+            <p>Quiet street in Monti, panoramic terrace, short walk to the Colosseum. Comfortable 3-star with easy luggage access. ~€180 / C$281 per night</p>
+            <p class="rate">€180 <span class="cad">C$281</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Artemide</h4>
+            <div class="stars">★★★★</div>
+            <p>Via Nazionale, full elevator access, spa, and a rooftop restaurant. Slightly further east, excellent if you want extra comfort after the overnight flight. ~€300 / C$468 per night</p>
+            <p class="rate">€300 <span class="cad">C$468</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SORRENTO -->
+    <section class="chapter alt" id="sorrento">
+      <figure class="chapter-hero">
+        <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1800&q=80" alt="Positano and the Amalfi Coast" />
+        <figcaption>
+          <span class="chap-no">Chapter 02</span>
+          <div class="when">26–27 September · 2 nights</div>
+          <h2>Sorrento &amp; the Amalfi Coast</h2>
+        </figcaption>
+      </figure>
+      <div class="grid-2">
+        <div class="panel block">
+          <p class="time">Bay of Naples · lemon groves · cliff towns</p>
+          <h3>The romantic pause</h3>
+          <p>Sorrento is the base: walkable, beautiful, and the right launch point for Positano, Amalfi, and Ravello. We recommend a private car for both Naples transfers. The Circumvesuviana is cheap, but it is crowded and awkward with suitcases.</p>
+          <ul class="list">
+            <li><b>26 Sep</b> 08:50 Frecciarossa Rome → Naples (~1h10). Private driver to the hotel by late morning.</li>
+            <li><b>Afternoon</b> Piazza Tasso, old town, Marina Grande viewpoints, first lemon-scented evening.</li>
+            <li><b>27 Sep</b> Full-day Amalfi Coast: Positano, Amalfi, Ravello, and coastal belvederes.</li>
+            <li><b>Evening</b> Return to Sorrento. Romantic dinner with a view. This is the night to linger.</li>
+            <li><b>Optional</b> Pompeii or a private boat. With only two nights, the coast should come first; Pompeii is the piece to drop if you want a slower day.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip must">Piazza Tasso</span>
+            <span class="chip must">Positano</span>
+            <span class="chip must">Amalfi</span>
+            <span class="chip must">Ravello</span>
+            <span class="chip opt">Pompeii</span>
+            <span class="chip opt">Boat along the coast</span>
+          </div>
+          <div class="photo-row">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?auto=format&fit=crop&w=900&q=80" alt="Positano cliffside village" />
+              <figcaption>Positano</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1612698093158-e07ac200d44e?auto=format&fit=crop&w=900&q=80" alt="Amalfi cathedral and square" />
+              <figcaption>Amalfi</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80" alt="Mediterranean hillside town" />
+              <figcaption>Coastal views</figcaption>
+            </figure>
+          </div>
+          <p class="note">Recommended tour: small-group minivan from Sorrento covering Positano, Amalfi, and Ravello (~€120 / C$187 pp). Private Mercedes day for two is a worthwhile upgrade at about €590 / C$920 for the vehicle.</p>
+        </div>
+        <div class="panel block stay">
+          <p class="time">Spend a little more here</p>
+          <h3>Hotels with a view</h3>
+          <div class="hotel pick">
+            <span class="badge">Recommended</span>
+            <h4>Hotel Plaza Sorrento</h4>
+            <div class="stars">★★★★</div>
+            <p>Minutes from Piazza Tasso. Rooftop infinity pool and Sky Bar over the Bay of Naples, the romantic upgrade you asked for, without going full five-star. Book a sea-view / premium room. ~€400 / C$624 per night</p>
+            <p class="rate">€800 · 2 nights <span class="cad">C$1,248</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Continental</h4>
+            <div class="stars">★★★★</div>
+            <p>Central, rooftop terrace, garden, and an easy walk to the marina. Classic Sorrento atmosphere. ~€320 / C$499 per night</p>
+            <p class="rate">€640 · 2 nights <span class="cad">C$998</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Grand Hotel de la Ville</h4>
+            <div class="stars">★★★★</div>
+            <p>Rooftop and garden pools, Vesuvius views, still walkable to the centre. A strong alternative if Plaza sea-view rooms are sold. ~€340 / C$530 per night</p>
+            <p class="rate">€680 · 2 nights <span class="cad">C$1,061</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLORENCE -->
+    <section class="chapter" id="florence">
+      <figure class="chapter-hero">
+        <img src="https://images.unsplash.com/photo-1543429257-3eb0b65d9c58?auto=format&fit=crop&w=1800&q=80" alt="Florence Duomo and terracotta rooftops" />
+        <figcaption>
+          <span class="chap-no">Chapter 03</span>
+          <div class="when">28–30 September · 3 nights</div>
+          <h2>Florence</h2>
+        </figcaption>
+      </figure>
+      <div class="grid-2">
+        <div class="panel block">
+          <p class="time">The Renaissance, then her birthday in Chianti</p>
+          <h3>City of light, and the longest stay</h3>
+          <p>Three nights give Florence room to breathe. Day one is the historic centre. Day two is art and sunset. Day three, 30 September, is entirely hers: a private convertible through Chianti, then a reserved birthday table in the evening.</p>
+          <ul class="list">
+            <li><b>28 Sep</b> Private Sorrento → Naples, then Frecciarossa to Firenze S.M.N. (~3h). Afternoon: Duomo, Piazza della Signoria, Ponte Vecchio.</li>
+            <li><b>29 Sep</b> 09:00 Uffizi Gallery (timed tickets). Afternoon free in the centre. Sunset at Piazzale Michelangelo.</li>
+            <li><b>30 Sep</b> Full-day private convertible: Greve, Castellina, San Gimignano, Siena, photo stops, Tuscan lunch. Return for dinner.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip must">Historic centre</span>
+            <span class="chip must">Duomo</span>
+            <span class="chip must">Piazza della Signoria</span>
+            <span class="chip must">Ponte Vecchio</span>
+            <span class="chip must">Uffizi</span>
+            <span class="chip must">Piazzale Michelangelo</span>
+            <span class="chip must">Tuscany convertible</span>
+          </div>
+          <div class="photo-row">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=900&q=80" alt="Ponte Vecchio over the Arno" />
+              <figcaption>Ponte Vecchio</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=900&q=80" alt="Tuscan countryside with cypress trees" />
+              <figcaption>Chianti roads</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=80" alt="Italian historic architecture" />
+              <figcaption>Historic Florence</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="panel block stay">
+          <p class="time">Central · elevator · walk to everything</p>
+          <h3>Where to stay</h3>
+          <div class="hotel pick">
+            <span class="badge">Recommended</span>
+            <h4>FH55 Hotel Calzaiuoli</h4>
+            <div class="stars">★★★★</div>
+            <p>On Via Calzaiuoli, two minutes from the Duomo. Elevator, 24-hour desk, the best possible walking location for three nights. ~€320 / C$499 per night</p>
+            <p class="rate">€960 · 3 nights <span class="cad">C$1,498</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Orafi</h4>
+            <div class="stars">★★★★</div>
+            <p>Between the Uffizi and Ponte Vecchio, with Arno-view rooms if you upgrade. Elevator and accessible rooms. Romantic, slightly quieter. ~€280 / C$437 per night</p>
+            <p class="rate">€840 · 3 nights <span class="cad">C$1,310</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Continentale</h4>
+            <div class="stars">★★★★</div>
+            <p>Lungarno Collection, steps from Ponte Vecchio. Design-forward, elevator, superb for a special-occasion stay. Expect ~€380–450 / C$593–702 per night.</p>
+            <p class="rate">€1,140 · 3 nights <span class="cad">C$1,778</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIRTHDAY -->
+    <section class="chapter" id="birthday">
+      <div class="ornament">30 · IX · 2026</div>
+      <div class="birthday panel">
+        <div class="birthday-photo" role="img" aria-label="Ponte Vecchio and the Arno at dusk"></div>
+        <div class="birthday-copy">
+          <p class="kicker">30 September</p>
+          <h2>Her birthday</h2>
+          <p class="script">A table over the Arno</p>
+          <p>By day: a private convertible through Chianti: Greve, Castellina, San Gimignano, Siena, with scenic stops and a relaxed Tuscan lunch. By night: a reserved celebration table, vegetarian tasting menu, and a quiet request to the restaurant for flowers and a dessert inscription.</p>
+          <div class="rest-card">
+            <h3>Borgo San Jacopo</h3>
+            <p>1 Michelin star · Hotel Lungarno · Arno and Ponte Vecchio views</p>
+            <p style="margin-top:10px">This is the recommendation. Intimate, special-occasion service, and a dedicated vegetarian tasting menu. A handful of tables look straight onto the river. We will request a window/river table and note the birthday when booking.</p>
+            <p style="margin-top:12px"><strong>Vegetarian tasting menu</strong> €170 / C$265 pp<br />
+            Wine pairing (est.) €90 / C$140 pp<br />
+            Birthday cake / flowers / table styling €60 / C$94<br />
+            <strong>Dinner for two €620 · C$967</strong> · shown separately in the quotation</p>
+          </div>
+          <div class="rest-card">
+            <h3>Alternatives</h3>
+            <p><strong>Segno Rooftop Experience</strong>: Duomo and terracotta-roof sunset, vegetable “Radici” tasting. About €90–120 / C$140–187 pp plus wine. More panoramic, slightly less formal. ~€380–450 / C$593–702 for two.</p>
+            <p style="margin-top:10px"><strong>Antesi</strong> at Villa San Michele, Fiesole: eight tables in a 16th-century loggia above Florence. Vegetarian “Traccia” menu €160 / C$250 pp, wine pairing €110 / C$172. Taxi each way ~€40 / C$62. The most secluded historic setting. ~€720 / C$1,123 including transfers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="panel block">
+        <h3>The convertible day</h3>
+        <p>Private all-inclusive Chianti experience in a vintage Fiat 500 cabrio (or similar), with hotel pickup in Florence. Route includes Greve in Chianti, Castellina in Chianti, San Gimignano, Siena, vineyard photo stops, and a 3-course villa lunch with Chianti Classico. English-speaking driver-guide. About 8–9 hours, returning in time to dress for dinner.</p>
+        <p class="rate" style="margin-top:10px">€1,090 <span class="cad">C$1,700</span> for the private car · 2 guests · lunch included</p>
+        <p class="muted">Classic version without villa lunch: €890 / C$1,388. Self-drive convertible is cheaper but not recommended for a birthday, as you lose the photographs, the wine, and the ease.</p>
+      </div>
+    </section>
+
+    <!-- CINQUE TERRE -->
+    <section class="chapter alt" id="cinqueterre">
+      <figure class="chapter-hero">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=80" alt="Manarola harbour and colourful houses at sunset" />
+        <figcaption>
+          <span class="chap-no">Chapter 04</span>
+          <div class="when">1 October · 1 night</div>
+          <h2>Manarola · Cinque Terre</h2>
+        </figcaption>
+      </figure>
+      <div class="grid-2">
+        <div class="panel block">
+          <p class="time">Cliffs, colour, and one unforgettable sunset</p>
+          <h3>The Ligurian night</h3>
+          <p>Morning train Florence → La Spezia → Manarola. The village is steep; we only recommend stays that are close to the station or that offer luggage transfer. One night is enough for Manarola, Vernazza, and sunset, not for hiking all five villages.</p>
+          <ul class="list">
+            <li><b>08:00</b> Train Firenze S.M.N. → La Spezia Centrale (~2h20), then 8 minutes to Manarola.</li>
+            <li><b>Late morning</b> Porter or short, manageable walk to the room. Leave large bags if needed.</li>
+            <li><b>Afternoon</b> Manarola harbour and viewpoints, then the Cinque Terre train to Vernazza.</li>
+            <li><b>Optional</b> Via dell’Amore, Riomaggiore → Manarola. Open in 2026 with timed tickets; book ahead. Flat, about 30 minutes.</li>
+            <li><b>Sunset</b> Back in Manarola for the classic harbour light, then dinner on a terrace.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip must">Manarola</span>
+            <span class="chip must">Vernazza</span>
+            <span class="chip must">Sunset</span>
+            <span class="chip opt">Via dell’Amore</span>
+            <span class="chip opt">Short scenic walk</span>
+          </div>
+          <div class="photo-row">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80" alt="Cinque Terre village above the sea" />
+              <figcaption>Cinque Terre</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=900&q=80" alt="Italian coastal village" />
+              <figcaption>Coastal cliffs</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1537083702767-42f85f12834f?auto=format&fit=crop&w=900&q=80" alt="Manarola at dusk" />
+              <figcaption>Manarola dusk</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="panel block stay">
+          <p class="time">View first · luggage handled</p>
+          <h3>Lodge or apartment</h3>
+          <div class="hotel pick">
+            <span class="badge">Recommended</span>
+            <h4>La Torretta Lodge</h4>
+            <div class="stars">Boutique</div>
+            <p>Converted medieval tower above the village. Private terraces, and complimentary luggage transfer from the station, the detail that makes Cinque Terre civilised. Superior room. ~€450 / C$702 per night</p>
+            <p class="rate">€450 <span class="cad">C$702</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Marina Piccola</h4>
+            <div class="stars">★★★</div>
+            <p>Five minutes from the station and boat dock, some sea-view rooms, recently refreshed. Best 3-star if you want a hotel rather than an apartment. ~€250 / C$390 per night</p>
+            <p class="rate">€250 <span class="cad">C$390</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Tramontana apartment</h4>
+            <div class="stars">Apartment</div>
+            <p>Studio with private terrace, five minutes from the station. Stronger view-and-value play, provided you travel with one manageable suitcase each. ~€170 / C$265 per night</p>
+            <p class="rate">€170 <span class="cad">C$265</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENICE -->
+    <section class="chapter" id="venice">
+      <figure class="chapter-hero">
+        <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1800&q=80" alt="Venetian canal and gondolas" />
+        <figcaption>
+          <span class="chap-no">Chapter 05</span>
+          <div class="when">2 October · 1 night</div>
+          <h2>Venice</h2>
+        </figcaption>
+      </figure>
+      <div class="grid-2">
+        <div class="panel block">
+          <p class="time">Arrive afternoon · the city after dark</p>
+          <h3>Grand Canal to San Marco</h3>
+          <p>This is the longest overland day. An early Cinque Terre departure reaches Venezia Santa Lucia around early afternoon. Staying beside the station means you never drag bags over bridges. Then the vaporetto does the theatre for you: a slow Grand Canal ride to St Mark’s.</p>
+          <ul class="list">
+            <li><b>07:00</b> Manarola → La Spezia → Venezia S. Lucia, about 4.5–5.5 hours with one change.</li>
+            <li><b>14:00</b> Hotel drop. Vaporetto from Ferrovia down the Grand Canal.</li>
+            <li><b>Afternoon</b> Rialto, St Mark’s Square, St Mark’s Basilica, Doge’s Palace (pre-booked).</li>
+            <li><b>Evening</b> Quiet back-canal walk. Optional private gondola after 7:00 PM (€110 / C$172 for the boat).</li>
+          </ul>
+          <div class="chips">
+            <span class="chip must">Grand Canal</span>
+            <span class="chip must">Rialto</span>
+            <span class="chip must">St Mark’s</span>
+            <span class="chip must">Basilica</span>
+            <span class="chip must">Doge’s Palace</span>
+            <span class="chip opt">Gondola</span>
+          </div>
+          <div class="photo-row">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=900&q=80" alt="Rialto Bridge" />
+              <figcaption>Rialto</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80" alt="Italian historic square" />
+              <figcaption>Evening Venice</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=900&q=80" alt="Gondola on a Venice canal" />
+              <figcaption>Canals</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="panel block stay">
+          <p class="time">Beside Santa Lucia · no bridges with bags</p>
+          <h3>Where to stay</h3>
+          <div class="hotel pick">
+            <span class="badge">Recommended</span>
+            <h4>NH Venezia Santa Lucia</h4>
+            <div class="stars">★★★★</div>
+            <p>On the Grand Canal, facing Ponte degli Scalzi, opposite the Ferrovia vaporetto. Elevator, renovated 2023, a few minutes from the station. Water-taxi possible at the canal front. ~€320 / C$499 per night</p>
+            <p class="rate">€320 <span class="cad">C$499</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Maggior Consiglio</h4>
+            <div class="stars">★★★</div>
+            <p>Two-minute flat walk from Santa Lucia, no bridges, elevator. The practical 3-star for luggage. ~€180 / C$281 per night</p>
+            <p class="rate">€180 <span class="cad">C$281</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Hotel Basilea</h4>
+            <div class="stars">★★★</div>
+            <p>On the Rio Marin canal, five minutes from the station and Piazzale Roma. Characterful 17th-century building. ~€200 / C$312 per night</p>
+            <p class="rate">€200 <span class="cad">C$312</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MILAN -->
+    <section class="chapter alt" id="milan">
+      <figure class="chapter-hero">
+        <img src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1800&q=80" alt="Milan Cathedral and Piazza del Duomo" />
+        <figcaption>
+          <span class="chap-no">Chapter 06</span>
+          <div class="when">3 October · 1 night · 4 October departure</div>
+          <h2>Milan, then home</h2>
+        </figcaption>
+      </figure>
+      <div class="grid-2">
+        <div class="panel block">
+          <p class="time">Fashion, marble, and a 1:00 PM flight</p>
+          <h3>A last Italian evening</h3>
+          <p>Morning Frecciarossa Venice → Milano Centrale (~2h20). Hotel beside the station so the Malpensa run is simple. Afternoon for the Duomo, Galleria, La Scala, and Brera. Next morning: breakfast, then the airport train.</p>
+          <ul class="list">
+            <li><b>3 Oct 09:30</b> Venezia S. Lucia → Milano Centrale. Hotel drop, then metro to Duomo.</li>
+            <li><b>Afternoon</b> Milan Cathedral (rooftop if the sky is clear), Galleria Vittorio Emanuele II, Piazza della Scala.</li>
+            <li><b>Late day</b> Brera district walk. Optional aperitivo. Sforza Castle if energy remains.</li>
+            <li><b>4 Oct 09:00</b> Malpensa Express from Centrale (~50 min) for the ~1:00 PM Toronto flight. Be at the terminal by 10:00.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip must">Duomo</span>
+            <span class="chip must">Galleria</span>
+            <span class="chip must">La Scala</span>
+            <span class="chip must">Brera</span>
+            <span class="chip opt">Aperitivo</span>
+            <span class="chip opt">Sforza Castle</span>
+          </div>
+          <div class="photo-row">
+            <figure>
+              <img src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=900&q=80" alt="Milan Duomo" />
+              <figcaption>Duomo</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.pexels.com/photos/2422584/pexels-photo-2422584.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Galleria Vittorio Emanuele II" />
+              <figcaption>Galleria</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=900&q=80" alt="Northern Italian street" />
+              <figcaption>Brera streets</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="panel block stay">
+          <p class="time">Next to Milano Centrale</p>
+          <h3>Where to stay</h3>
+          <div class="hotel pick">
+            <span class="badge">Recommended</span>
+            <h4>Starhotels E.c.ho.</h4>
+            <div class="stars">★★★★</div>
+            <p>100 metres from Centrale. Quiet, well-run, elevator, easy with luggage before an international flight. ~€200 / C$312 per night</p>
+            <p class="rate">€200 <span class="cad">C$312</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Smart Hotel Milano</h4>
+            <div class="stars">★★★★</div>
+            <p>One minute from the station, modern rooms, elevator. Slightly sharper design, same logic. ~€180 / C$281 per night</p>
+            <p class="rate">€180 <span class="cad">C$281</span></p>
+          </div>
+          <div class="hotel">
+            <h4>Just Hotel Milano</h4>
+            <div class="stars">★★★★</div>
+            <p>Three-minute walk from Centrale, airport buses and Malpensa Express at the door. ~€175 / C$273 per night</p>
+            <p class="rate">€175 <span class="cad">C$273</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRANSPORT -->
+    <section class="section" id="transport">
+      <div class="ornament">The route</div>
+      <div class="section-head">
+        <div>
+          <p class="kicker">How you move</p>
+          <h2 class="section-title">Transportation</h2>
+        </div>
+      </div>
+      <div class="transport-grid">
+        <div class="t-card">
+          <h4>Private where it matters</h4>
+          <p>Fiumicino → Rome hotel (€80 / C$125). Naples Centrale ↔ Sorrento hotel both ways (€150 / C$234 each). These three legs are the difference between a graceful trip and a suitcase ordeal.</p>
+        </div>
+        <div class="t-card">
+          <h4>High-speed trains for the rest</h4>
+          <p>Rome–Naples 1h10 · Naples–Florence ~3h · Florence–Manarola ~2h40 · Manarola–Venice 4.5–5.5h · Venice–Milan 2h20. Book Frecciarossa 60–90 days ahead.</p>
+        </div>
+        <div class="t-card">
+          <h4>Cinque Terre & Venice water</h4>
+          <p>Cinque Terre Train Card for village hops. In Venice, a 24-hour vaporetto pass from Ferrovia. Private water taxi from Santa Lucia is optional (~€80–120 / C$125–187) if you prefer a cinematic arrival.</p>
+        </div>
+        <div class="t-card">
+          <h4>4 October · Malpensa</h4>
+          <p>Malpensa Express Centrale → MXP T1, €13 / C$20 pp, ~50 minutes. Leave the hotel at 09:00 for a 1:00 PM Toronto flight. Private car upgrade €110 / C$172 if you want door-to-terminal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="section" id="quote">
+      <div class="ornament">Quotation</div>
+      <div class="section-head">
+        <div>
+          <p class="kicker">For 2 adults · excluding international flights</p>
+          <h2 class="section-title">Quotation</h2>
+        </div>
+      </div>
+      <p class="lede">Rates are estimated double-occupancy prices for these dates in 2026. Canadian dollars are shown beside euros at C$1.56 / €. City tax is extra (~€84 / C$131). Breakfast included at recommended hotels unless noted. Confirm live availability before booking.</p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" type="button" data-pkg="bella">Bella Vista · recommended</button>
+        <button class="tab" type="button" data-pkg="classic">Classic Italia · value</button>
+      </div>
+
+      <div class="pkg active" id="pkg-bella">
+        <div class="panel block">
+          <h3>Hotels: Bella Vista</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>City</th><th>Hotel</th><th>Nights</th><th>EUR · CAD</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Rome</td><td>9 Hotel Cesàri 4★</td><td>1</td><td>€280 · C$437</td></tr>
+              <tr><td>Sorrento</td><td>Hotel Plaza 4★, sea-view</td><td>2</td><td>€800 · C$1,248</td></tr>
+              <tr><td>Florence</td><td>FH55 Hotel Calzaiuoli 4★</td><td>3</td><td>€960 · C$1,498</td></tr>
+              <tr><td>Manarola</td><td>La Torretta Lodge, Superior</td><td>1</td><td>€450 · C$702</td></tr>
+              <tr><td>Venice</td><td>NH Venezia Santa Lucia 4★</td><td>1</td><td>€320 · C$499</td></tr>
+              <tr><td>Milan</td><td>Starhotels E.c.ho. 4★</td><td>1</td><td>€200 · C$312</td></tr>
+              <tr class="total"><td colspan="3">Hotels subtotal</td><td>€3,010 · C$4,696</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pkg" id="pkg-classic">
+        <div class="panel block">
+          <h3>Hotels: Classic Italia</h3>
+          <table class="price-table">
+            <thead>
+              <tr><th>City</th><th>Hotel</th><th>Nights</th><th>EUR · CAD</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Rome</td><td>Hotel Colosseum 3★</td><td>1</td><td>€180 · C$281</td></tr>
+              <tr><td>Sorrento</td><td>Hotel Plaza 4★, sea-view (kept)</td><td>2</td><td>€800 · C$1,248</td></tr>
+              <tr><td>Florence</td><td>Hotel Orafi 4★</td><td>3</td><td>€780 · C$1,217</td></tr>
+              <tr><td>Manarola</td><td>Hotel Marina Piccola 3★</td><td>1</td><td>€250 · C$390</td></tr>
+              <tr><td>Venice</td><td>Hotel Maggior Consiglio 3★</td><td>1</td><td>€180 · C$281</td></tr>
+              <tr><td>Milan</td><td>Smart Hotel Milano 4★</td><td>1</td><td>€170 · C$265</td></tr>
+              <tr class="total"><td colspan="3">Hotels subtotal</td><td>€2,360 · C$3,682</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel block" style="margin-top:18px">
+        <h3>Transportation: both packages</h3>
+        <table class="price-table">
+          <thead><tr><th>Leg</th><th>Mode</th><th>EUR · CAD</th></tr></thead>
+          <tbody>
+            <tr><td>Fiumicino → Rome hotel</td><td>Private sedan</td><td>€80 · C$125</td></tr>
+            <tr><td>Rome local</td><td>Walk / metro</td><td>€16 · C$25</td></tr>
+            <tr><td>Rome → Naples</td><td>Frecciarossa, booked ahead</td><td>€90 · C$140</td></tr>
+            <tr><td>Naples → Sorrento hotel</td><td>Private transfer</td><td>€150 · C$234</td></tr>
+            <tr><td>Sorrento hotel → Naples</td><td>Private transfer</td><td>€150 · C$234</td></tr>
+            <tr><td>Naples → Florence</td><td>Frecciarossa</td><td>€140 · C$218</td></tr>
+            <tr><td>Florence → Manarola</td><td>Regionale via La Spezia</td><td>€70 · C$109</td></tr>
+            <tr><td>Manarola → Venice</td><td>Regionale + Intercity / Frecciarossa</td><td>€160 · C$250</td></tr>
+            <tr><td>Venice water</td><td>ACTV 24-hour vaporetto × 2</td><td>€50 · C$78</td></tr>
+            <tr><td>Venice → Milan</td><td>Frecciarossa</td><td>€80 · C$125</td></tr>
+            <tr><td>Milan local</td><td>Metro</td><td>€10 · C$16</td></tr>
+            <tr><td>Centrale → Malpensa T1</td><td>Malpensa Express</td><td>€26 · C$41</td></tr>
+            <tr class="total"><td colspan="2">Transportation subtotal</td><td>€1,022 · C$1,594</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel block" style="margin-top:18px">
+        <h3>Tours & activities: both packages</h3>
+        <table class="price-table">
+          <thead><tr><th>Experience</th><th>Notes</th><th>EUR · CAD</th></tr></thead>
+          <tbody>
+            <tr><td>Colosseum, Forum & Palatine</td><td>Small-group guided, timed entry</td><td>€180 · C$281</td></tr>
+            <tr><td>Amalfi Coast full day</td><td>Positano, Amalfi, Ravello from Sorrento</td><td>€240 · C$374</td></tr>
+            <tr><td>Uffizi Gallery</td><td>Timed tickets</td><td>€58 · C$90</td></tr>
+            <tr><td>Tuscany convertible day</td><td>Private car, villa lunch included</td><td>€1,090 · C$1,700</td></tr>
+            <tr><td>Cinque Terre Train Card + Via dell’Amore</td><td>1-day card and timed path supplement</td><td>€64 · C$100</td></tr>
+            <tr><td>Doge’s Palace + St Mark’s Basilica</td><td>Advance tickets</td><td>€110 · C$172</td></tr>
+            <tr><td>Milan Duomo rooftop</td><td>Timed terrace</td><td>€50 · C$78</td></tr>
+            <tr class="total"><td colspan="2">Tours subtotal</td><td>€1,792 · C$2,796</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel block" style="margin-top:18px; border-color: var(--wine);">
+        <p class="kicker">Quoted separately, as requested</p>
+        <h3>Birthday dinner · Borgo San Jacopo</h3>
+        <table class="price-table">
+          <tbody>
+            <tr><td>Vegetarian tasting menu</td><td>€170 × 2 · C$265 pp</td><td>€340 · C$530</td></tr>
+            <tr><td>Wine pairing</td><td>estimated €90 × 2 · C$140 pp</td><td>€180 · C$281</td></tr>
+            <tr><td>Birthday cake, flowers, reserved table</td><td>special-occasion request</td><td>€60 · C$94</td></tr>
+            <tr><td>Service / cover</td><td></td><td>€40 · C$62</td></tr>
+            <tr class="total"><td colspan="2">Birthday dinner for two</td><td>€620 · C$967</td></tr>
+          </tbody>
+        </table>
+        <p class="muted">If Segno Rooftop is preferred instead, budget €400 / C$624. If Antesi in Fiesole, budget €720 / C$1,123 including taxis.</p>
+      </div>
+
+      <div class="totals">
+        <div class="total-box">
+          <span>Hotels · Bella Vista</span>
+          <strong>€3,010 <span class="cad">C$4,696</span></strong>
+        </div>
+        <div class="total-box">
+          <span>Transport</span>
+          <strong>€1,022 <span class="cad">C$1,594</span></strong>
+        </div>
+        <div class="total-box">
+          <span>Tours</span>
+          <strong>€1,792 <span class="cad">C$2,796</span></strong>
+        </div>
+        <div class="total-box featured">
+          <span>Birthday dinner</span>
+          <strong>€620 <span class="cad">C$967</span></strong>
+        </div>
+      </div>
+
+      <div class="panel block">
+        <h3>Grand totals for 2 adults</h3>
+        <table class="price-table">
+          <thead><tr><th>Package</th><th>EUR</th><th>CAD (indicative)</th></tr></thead>
+          <tbody>
+            <tr><td>Bella Vista · recommended 4-star</td><td>€6,444</td><td>C$10,050</td></tr>
+            <tr><td>Classic Italia · 3-star mix, Plaza kept in Sorrento</td><td>€5,794</td><td>C$9,040</td></tr>
+            <tr><td>Italian city tax (paid at hotels)</td><td>€84</td><td>C$130</td></tr>
+            <tr><td>International flights YYZ ⇄ Italy</td><td colspan="2">Not included · typically C$2,400–3,600 for two in late September</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel block" style="margin-top:18px">
+        <h3>Optional upgrades</h3>
+        <table class="price-table">
+          <thead><tr><th>Upgrade</th><th>Instead of</th><th>Add</th></tr></thead>
+          <tbody>
+            <tr><td>Private Amalfi Coast Mercedes day</td><td>Small-group €240 / C$374</td><td>+ €350 / C$546</td></tr>
+            <tr><td>Pompeii skip-the-line from Sorrento</td><td></td><td>€160 · C$250</td></tr>
+            <tr><td>Private Amalfi boat</td><td></td><td>€220 · C$343</td></tr>
+            <tr><td>Evening gondola, private 30 minutes</td><td></td><td>€110 · C$172</td></tr>
+            <tr><td>Private car Milan hotel → Malpensa</td><td>Express €26 / C$41</td><td>+ €84 / C$131</td></tr>
+            <tr><td>Hotel Continentale, Florence, 3 nights</td><td>Calzaiuoli €960 / C$1,498</td><td>+ €180 / C$281</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel block">
+        <h3>Before you book</h3>
+        <ul class="list">
+          <li><b>Flights</b> Choose a Toronto departure after 6:00 PM on 24 September, and a Milan Malpensa departure near 1:00 PM on 4 October. Air Canada, Lufthansa, and Air France/KLM are the usual patterns.</li>
+          <li><b>Tickets</b> Colosseum, Uffizi, Duomo rooftop, Doge’s Palace, and Via dell’Amore sell out. Reserve as soon as official calendars open.</li>
+          <li><b>Vegetarian</b> Rome and Florence are easy. Ask hotels to note preferences. Borgo San Jacopo already has a vegetarian tasting menu.</li>
+          <li><b>Luggage</b> One medium suitcase each. Cinque Terre and Venice punish oversized bags. La Torretta’s porter is booked with the room.</li>
+          <li><b>Pace</b> This itinerary is rich, not slow. If you later want to cut a city, drop Milan and fly home from Venice, or drop Cinque Terre and take a second night in Venice.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <h2>Italy Together</h2>
+      <div class="ornament">MMXXVI</div>
+      <p>24 September – 4 October 2026 · Two adults · Prepared as a planning presentation</p>
+      <p style="margin-top:10px">Hotel and tour prices are planning estimates for these dates, not live contracts. International airfare, most meals, travel insurance, and tips are extra. Birthday dinner and the Tuscany convertible day should be reserved first. 30 September is a Saturday in 2026.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll(".tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+        document.querySelectorAll(".pkg").forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("pkg-" + btn.dataset.pkg).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
