@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-CA">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Italy Together · 24 September – 4 October 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -14,548 +13,374 @@
       --ink-soft: #5A524E;
       --maroon: #6B2D3C;
       --maroon-deep: #4A1F28;
-      --kicker: #6B2D3C;
       --cream: #F3EBE4;
       --cream-2: #EDE4DC;
-      --paper: #FAF6F2;
       --line: #D9C9BE;
-      --wine: #6B2D3C;
-      --wine-deep: #4A1F28;
       --sans: "Inter", "Poppins", "DM Sans", Helvetica, Arial, sans-serif;
       --display: "Inter", "Poppins", sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: hidden; -webkit-text-size-adjust: 100%; }
     body {
       font-family: var(--sans);
       background: var(--cream);
       color: var(--ink-soft);
-      line-height: 1.75;
+      line-height: 1.65;
       font-size: 17px;
       overflow-x: hidden;
-      max-width: 100%;
-      overflow-wrap: break-word;
     }
     img { max-width: 100%; display: block; }
     a { color: var(--maroon); font-weight: 600; }
-    section[id] { scroll-margin-top: 96px; }
-    .wrap { width: min(1120px, calc(100% - 96px)); margin: 0 auto; max-width: 100%; }
-    .ornament {
-      display: flex; align-items: center; gap: 18px;
-      color: var(--maroon); margin: 0 0 20px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
-    }
-    .ornament::before, .ornament::after {
-      content: ""; height: 1px; width: 48px; background: var(--line);
-    }
-    .nav {
-      position: sticky; top: 0; z-index: 40;
-      display: grid; grid-template-columns: auto 1fr auto;
-      align-items: center; gap: 16px 40px; padding: 20px 56px;
-      background: rgba(243, 235, 228, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav-brand {
-      font-family: var(--display); font-size: 13px; font-weight: 600;
-      color: var(--maroon-deep); letter-spacing: 0.16em; text-transform: uppercase;
-    }
-    .nav-links { display: flex; flex-wrap: wrap; gap: 6px 28px; min-width: 0; justify-content: flex-end; }
-    .nav-links a {
-      color: var(--ink-soft); text-decoration: none; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
-    }
-    .nav-links a:hover { color: var(--maroon); }
-    .print-btn {
-      border: 1px solid var(--maroon); color: var(--maroon-deep); background: transparent;
-      padding: 12px 18px; font: 600 11px/1 var(--sans); letter-spacing: 0.1em;
-      text-transform: uppercase; cursor: pointer;
-    }
-    .print-btn:hover { background: var(--maroon-deep); color: #FFF8F2; }
+    section[id] { scroll-margin-top: 88px; }
+    .wrap { width: min(980px, calc(100% - 80px)); margin: 0 auto; }
     .progress {
       position: fixed; top: 0; left: 0; height: 2px; width: 0;
       background: var(--maroon); z-index: 60;
     }
+    .nav {
+      position: sticky; top: 0; z-index: 40;
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; gap: 12px 20px;
+      padding: 18px 48px;
+      background: rgba(243, 235, 228, 0.95);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-brand {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--maroon-deep); white-space: nowrap;
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: flex-end; }
+    .nav-links a {
+      color: var(--maroon); text-decoration: none; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+    }
+    .nav-links a:hover { color: var(--maroon-deep); }
+    .print-btn {
+      border: 1px solid var(--maroon); background: transparent; color: var(--maroon-deep);
+      padding: 10px 16px; font: 600 11px/1 var(--sans); letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer;
+    }
+    .kicker {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--maroon); margin-bottom: 12px;
+    }
     .hero {
-      position: relative; min-height: 88vh; margin: 0;
-      color: #fff; display: flex; align-items: flex-end;
-      overflow: hidden;
+      position: relative; min-height: 90vh; color: #fff;
+      display: flex; align-items: flex-end; overflow: hidden;
     }
     .hero-slides { position: absolute; inset: 0; z-index: 0; }
     .hero-slide {
-      position: absolute; inset: 0;
-      background-size: cover; background-position: center;
-      opacity: 0;
-      transition: opacity 1.4s ease;
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      opacity: 0; transition: opacity 1.4s ease;
     }
-    .hero-slide.is-on { opacity: 1; z-index: 0; animation: ken 22s ease-in-out infinite alternate; }
+    .hero-slide.is-on { opacity: 1; animation: ken 22s ease-in-out infinite alternate; }
     @keyframes ken {
-      from { transform: scale(1.05); }
-      to { transform: scale(1.12) translate3d(-1%, -0.6%, 0); }
+      from { transform: scale(1.04); }
+      to { transform: scale(1.1); }
     }
     .hero::after {
-      content: "";
-      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
       background:
-        linear-gradient(90deg, rgba(18,8,10,.78) 0%, rgba(18,8,10,.42) 48%, rgba(18,8,10,.22) 100%),
-        linear-gradient(180deg, rgba(18,8,10,.28) 0%, rgba(18,8,10,.82) 100%);
+        linear-gradient(90deg, rgba(18,8,10,.38) 0%, rgba(18,8,10,.12) 50%, rgba(18,8,10,.04) 100%),
+        linear-gradient(180deg, rgba(18,8,10,.08) 0%, rgba(18,8,10,.42) 100%);
     }
     .hero-inner {
-      width: min(1120px, calc(100% - 96px)); margin: 0 auto 96px;
-      position: relative; z-index: 2;
-      text-shadow: 0 2px 18px rgba(18,8,10,.45);
+      position: relative; z-index: 2; width: min(980px, calc(100% - 80px));
+      margin: 0 auto 80px;
+      text-shadow: 0 1px 2px rgba(18,8,10,.28), 0 6px 22px rgba(18,8,10,.22);
     }
-    .hero-dots {
-      position: absolute; right: 56px; bottom: 40px; z-index: 3;
-      display: flex; gap: 8px;
-    }
-    .hero-dots button {
-      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
-      background: rgba(255,248,242,.4); cursor: pointer;
-    }
-    .hero-dots button.is-on { background: #FFF8F2; width: 22px; }
-    .hero .kicker { color: #F8EDE4; margin-bottom: 18px; }
-    .hero h1 { color: #fff; }
-    .hero h1 em { color: #F8EDE4; }
-    .hero-script { color: #FFF8F2; }
-    .hero p { color: #FFF8F2; }
-    .hero-meta { color: #FFF8F2; }
-    .kicker {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--maroon); margin-bottom: 16px;
-    }
+    .hero .kicker { color: #F8EDE4; }
     .hero h1 {
-      font-family: var(--display); font-weight: 600; font-size: clamp(44px, 7vw, 76px);
-      line-height: 1.05; letter-spacing: -0.04em; color: #fff;
+      font-family: var(--display); font-weight: 600; font-size: clamp(42px, 7vw, 72px);
+      letter-spacing: -0.04em; line-height: 1.06; color: #fff;
     }
-    .hero h1 em { font-style: italic; font-weight: 500; color: #F3E4D6; }
+    .hero h1 em { font-style: italic; font-weight: 500; color: #E8C4C8; }
     .hero-script {
-      font-family: var(--sans); font-size: 13px; font-weight: 500;
-      color: rgba(255,248,242,.88); margin: 22px 0 28px; letter-spacing: 0.1em;
-      text-transform: uppercase;
+      margin: 18px 0 0; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: #FFF8F2;
     }
-    .hero p { max-width: 46ch; font-size: 18px; font-weight: 400; color: rgba(255,255,255,.9); }
     .hero-meta {
-      display: flex; flex-wrap: wrap; gap: 12px 32px; margin-top: 40px;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #FFF8F2;
+      display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 36px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #FFF8F2;
     }
-    .hero-meta div { position: relative; }
-    .hero-meta div:not(:last-child)::after {
-      content: "·"; position: absolute; right: -18px; color: #E8C9B8;
-    }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
-    .btn-solid, .btn-ghost {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 24px; text-decoration: none;
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; text-decoration: none;
       font: 600 11px/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase;
     }
-    .btn-solid, .btn-ghost, .print-btn, .slider-nav, .tab { transition: background .25s ease, color .25s ease, opacity .25s ease; }
-    .btn-solid { background: #FFF8F2; color: var(--maroon-deep); }
-    .btn-ghost { background: transparent; color: #FFF8F2; border: 1px solid rgba(255,248,242,.55); }
-    .btn-solid:hover { opacity: 0.92; }
-    .btn-ghost:hover { background: rgba(255,248,242,.12); }
-    .panel, .overview-card, .quote-teaser, .block, .stay, .t-card, .total-box {
-      background: transparent; border: 0; border-radius: 0; box-shadow: none;
-      min-width: 0; max-width: 100%;
+    .btn-solid { background: #FFF8F2; color: var(--maroon-deep); box-shadow: 0 4px 18px rgba(18,8,10,.18); }
+    .btn-ghost { color: #FFF8F2; border: 1px solid rgba(255,248,242,.7); background: rgba(18,8,10,.12); }
+    .hero-dots {
+      position: absolute; right: 48px; bottom: 36px; z-index: 3; display: flex; gap: 8px;
     }
-    .overview {
-      display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 96px;
-      padding: 112px 0 104px;
-      align-items: start;
+    .hero-dots button {
+      width: 8px; height: 8px; border: 0; border-radius: 999px; padding: 0;
+      background: rgba(255,248,242,.4); cursor: pointer;
     }
-    .overview-card h2, .section-title {
-      font-family: var(--display); font-size: clamp(30px, 3.8vw, 42px); color: var(--ink); font-weight: 600;
-      letter-spacing: -0.035em; line-height: 1.12;
+
+    .overview { padding: 96px 0 88px; }
+    .overview h2 {
+      font-family: var(--display); font-size: clamp(28px, 4vw, 40px); font-weight: 600;
+      color: var(--maroon-deep); letter-spacing: -0.035em; margin-bottom: 12px;
     }
-    .lede { font-size: 18px; margin: 18px 0 44px; max-width: 56ch; color: var(--ink-soft); }
+    .lede { max-width: 46ch; margin-bottom: 48px; }
     .route {
-      display: grid; grid-template-columns: repeat(7, 1fr); gap: 0 12px;
-      position: relative; padding-top: 8px;
+      display: grid; grid-template-columns: repeat(7, 1fr); gap: 0 16px;
+      padding-top: 8px; position: relative;
     }
     .route::before {
-      content: "";
-      position: absolute; left: 0; right: 12px; top: 12px;
-      height: 1px; background: var(--line);
+      content: ""; position: absolute; left: 0; right: 8px; top: 10px; height: 1px; background: var(--line);
     }
-    .route-stop { background: none; border: 0; padding: 0 8px 0 0; min-width: 0; position: relative; }
+    .route-stop { position: relative; padding-right: 8px; }
     .route-stop::before {
-      content: "";
-      width: 7px; height: 7px;
-      background: var(--cream); border: 1px solid var(--maroon);
-      display: block; margin: 8px 0 18px;
-      position: relative; z-index: 1;
+      content: ""; width: 7px; height: 7px; display: block; margin: 6px 0 16px;
+      background: var(--cream); border: 1px solid var(--maroon); position: relative; z-index: 1;
     }
-    .route-stop span {
-      display: block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--maroon); font-weight: 600;
+    .route-stop span { display: block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); font-weight: 600; }
+    .route-stop strong { display: block; font-family: var(--display); font-size: 17px; color: var(--ink); margin: 8px 0 4px; font-weight: 600; }
+    .route-stop em { font-style: normal; font-size: 13px; color: #7A706C; }
+    .price-row {
+      display: flex; flex-wrap: wrap; gap: 20px 48px; align-items: flex-end;
+      margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line);
     }
-    .route-stop strong {
-      display: block; font-family: var(--display); font-size: 16px; color: var(--ink);
-      margin: 10px 0 6px; font-weight: 600; letter-spacing: -0.02em;
-    }
-    .route-stop em { font-style: normal; font-size: 12px; color: #7A706C; line-height: 1.45; }
-    .overview-foot {
-      margin-top: 44px; padding-top: 28px;
-      border-top: 1px solid var(--line);
-      font-size: 15px; color: var(--ink-soft); max-width: 62ch;
-    }
-    .quote-teaser {
-      padding: 12px 0 0 48px;
-      border-left: 1px solid var(--maroon);
-      color: var(--ink-soft);
-    }
-    .quote-teaser .kicker { color: var(--maroon); }
-    .quote-teaser h2 {
-      color: var(--ink); font-size: 28px; font-family: var(--display);
-      font-weight: 600; letter-spacing: -0.03em;
-    }
-    .price-xl {
-      font-family: var(--display); font-size: 44px; font-weight: 600; color: var(--ink);
-      line-height: 1; margin: 28px 0 16px; letter-spacing: -0.04em;
-    }
-    .quote-teaser .price-xl .cad {
-      color: var(--ink-soft); font-size: 16px; font-weight: 500; margin-top: 10px;
-      font-family: var(--sans);
-    }
-    .quote-teaser p { font-size: 16px; color: var(--ink-soft); }
-    .quote-teaser a {
-      color: var(--maroon); text-decoration: none; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      display: inline-block; margin-top: 32px;
-    }
-    .quote-alt {
-      margin-top: 28px; padding-top: 20px;
-      border-top: 1px solid var(--line);
-      font-size: 14px;
-    }
-    .section { padding: 104px 0 120px; }
-    .section-head { margin-bottom: 40px; }
-    .chapter { padding: 0 0 120px; }
-    .chapter.alt { background: var(--cream-2); padding: 0 0 120px; }
-    .chapter-hero { margin: 0 0 56px; overflow: hidden; }
-    .chapter-hero img {
-      width: 100%; height: min(520px, 62vw); object-fit: cover;
-      animation: ken 24s ease-in-out infinite alternate;
-    }
-    .chapter-hero::after { display: none; }
-    .chapter-hero figcaption {
-      width: min(1120px, calc(100% - 96px));
-      margin: 28px auto 0;
-      padding: 0;
-      color: var(--ink);
-    }
-    .chapter-hero .chap-no {
-      font-size: 11px; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase; color: var(--maroon); display: block; margin-bottom: 10px;
-    }
-    .chapter-hero .when {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon);
-    }
-    .chapter-hero h2 {
-      font-family: var(--display); font-size: clamp(32px, 4.2vw, 46px); font-weight: 600;
-      letter-spacing: -0.035em; color: var(--ink); line-height: 1.12; margin-top: 10px;
-    }
-    .chapter-body { padding-top: 8px; }
-    .grid-2 { display: grid; grid-template-columns: 1fr; gap: 72px; margin-top: 0; }
-    .chapter.alt .grid-2 { grid-template-columns: 1fr; }
-    .chapter.alt .grid-2 .stay { order: 0; }
-    .block { padding: 0; }
-    .chapter .block { max-width: 72ch; }
-    .block h3, .stay > h3 {
-      font-family: var(--display); font-size: 26px; color: var(--ink); font-weight: 600;
-      margin: 8px 0 18px; letter-spacing: -0.03em;
-    }
-    .time { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
-    .list { list-style: none; margin-top: 32px; border-top: 1px solid var(--line); }
-    .list li {
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-      display: grid; grid-template-columns: 120px 1fr; gap: 28px; font-size: 17px;
-    }
-    .list b { color: var(--maroon); font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 4px; }
-    .chips {
-      display: block; margin-top: 32px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--ink-soft); line-height: 1.8;
-    }
-    .chip {
-      display: inline; border: 0; padding: 0; background: none; color: inherit;
-      letter-spacing: 0.08em;
-    }
-    .chip.must { background: none; border: 0; color: var(--maroon-deep); }
-    .chip.opt { color: var(--ink-soft); }
-    .chip:not(:last-child)::after { content: " · "; color: #B7A89C; font-weight: 400; }
-    .photo-row {
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px;
-      margin-top: 72px;
-    }
-    .photo-row figure { overflow: hidden; }
-    .photo-row img { width: 100%; height: 240px; object-fit: cover; }
-    .photo-row figcaption {
-      padding: 14px 0 0;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--maroon);
-    }
-    .slider { position: relative; margin-top: 72px; }
-    .slider-stage {
-      position: relative; height: min(440px, 58vw); overflow: hidden;
-      background: var(--maroon-deep);
-    }
-    .slider .slide {
-      position: absolute; inset: 0;
-      opacity: 0; transform: translateX(24px);
-      transition: opacity .7s ease, transform .7s ease;
-      pointer-events: none;
-    }
-    .slider .slide.is-on {
-      opacity: 1; transform: none; pointer-events: auto; z-index: 1;
-    }
-    .slider .slide img { width: 100%; height: 100%; object-fit: cover; }
-    .slider .slide::after {
-      content: "";
-      position: absolute; left: 0; right: 0; bottom: 0; height: 46%;
-      background: linear-gradient(180deg, transparent, rgba(18,8,10,.82));
-      pointer-events: none; z-index: 1;
-    }
-    .slider .slide figcaption {
-      position: absolute; left: 24px; bottom: 20px; z-index: 2;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #FFF8F2;
-      background: rgba(18,8,10,.55);
-      padding: 10px 14px;
-    }
-    .slider-nav {
-      position: absolute; top: 50%; z-index: 2;
-      width: 44px; height: 44px; margin-top: -22px;
-      border: 0; background: rgba(243,235,228,.92); color: var(--maroon-deep);
-      font: 500 26px/1 var(--sans); cursor: pointer;
-    }
-    .slider-nav:hover { background: #fff; }
-    .slider-nav.prev { left: 16px; }
-    .slider-nav.next { right: 16px; }
-    .slider-dots { display: flex; gap: 8px; margin-top: 18px; }
-    .slider-dots button {
-      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
-      background: var(--line); cursor: pointer;
-    }
-    .slider-dots button.is-on { background: var(--maroon); width: 22px; }
-    .reveal { opacity: 1; transform: none; }
-    .js .reveal {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity .8s ease, transform .8s ease;
-    }
-    .js .reveal.is-in { opacity: 1; transform: none; }
-    .stay .hotel { opacity: 1; transform: none; }
-    .js .stay .hotel { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-    .js .stay.is-in .hotel { opacity: 1; transform: none; }
-    .js .stay.is-in .hotel:nth-child(3) { transition-delay: .08s; }
-    .js .stay.is-in .hotel:nth-child(4) { transition-delay: .16s; }
-    .js .stay.is-in .hotel:nth-child(5) { transition-delay: .24s; }
-    .stay {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 48px 40px;
-      padding-top: 56px;
-      border-top: 1px solid var(--line);
-    }
-    .stay > .time, .stay > h3 { grid-column: 1 / -1; }
-    .stay > h3 { margin-bottom: 8px; }
-    .hotel { padding: 0; }
-    .hotel.pick { background: none; padding: 0; margin: 0; }
-    .badge {
-      display: block; font-size: 10px; font-weight: 600; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--maroon);
-      padding: 0; margin-bottom: 12px;
-    }
-    .hotel h4 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; letter-spacing: -0.03em; }
-    .stars { color: var(--maroon); letter-spacing: 2px; font-size: 11px; margin: 8px 0 14px; }
-    .hotel p { font-size: 15px; margin: 8px 0 16px; }
-    .rate { font-family: var(--display); font-size: 22px; color: var(--maroon-deep); font-weight: 600; }
+    .price-row strong { font-family: var(--display); font-size: 28px; color: var(--maroon-deep); font-weight: 600; }
     .cad { color: var(--ink-soft); font-weight: 600; font-size: 0.85em; white-space: nowrap; }
-    .rate .cad { display: inline; font-size: 15px; font-weight: 600; color: var(--ink-soft); margin-left: 8px; }
-    .price-xl .cad { display: block; font-size: 16px; font-weight: 500; color: var(--ink-soft); margin-top: 10px; }
-    .total-box .cad { display: block; font-size: 14px; font-weight: 600; margin-top: 6px; }
-    .total-box.featured .cad { color: var(--ink-soft); }
-    .note {
-      background: none; border: 0; border-top: 1px solid var(--line);
-      padding: 24px 0 0; font-size: 16px; margin-top: 32px;
-      color: var(--ink-soft); font-style: italic; max-width: 68ch;
+    .price-row a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; }
+
+    .chapter { padding: 0 0 96px; }
+    .chapter.band { background: var(--cream-2); }
+    .shot {
+      position: relative; height: min(72vh, 680px); overflow: hidden; margin-bottom: 48px;
     }
-    .birthday {
-      display: grid; grid-template-columns: 0.92fr 1.08fr;
-      margin: 24px 0 64px; gap: 72px; align-items: start;
+    .shot-slides { position: absolute; inset: 0; }
+    .shot-slides img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center 42%;
+      opacity: 0; transition: opacity 1.2s ease;
     }
-    .birthday-photo {
-      background: url("https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=1400&q=80") center/cover;
-      min-height: 560px;
+    .shot-slides img.is-on { opacity: 1; animation: ken 24s ease-in-out infinite alternate; }
+    .shot::after {
+      content: ""; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, transparent 48%, rgba(18,8,10,.38) 100%);
     }
-    .birthday-copy { color: var(--ink-soft); padding: 8px 0 0; }
-    .birthday-copy h2 { font-family: var(--display); font-size: 40px; color: var(--ink); font-weight: 600; letter-spacing: -0.035em; }
-    .birthday-copy .script { font-family: var(--display); font-size: 16px; font-style: italic; font-weight: 500; color: var(--maroon); margin: 12px 0 24px; }
-    .rest-card { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
-    .rest-card h3 { font-family: var(--display); font-size: 22px; color: var(--maroon); font-weight: 600; margin-bottom: 8px; }
-    .convertible { margin-top: 8px; padding-top: 48px; border-top: 1px solid var(--line); }
-    .quote-block { margin-top: 56px; }
-    .quote-block h3, .pkg h3 {
-      font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600;
-      margin: 0 0 20px; letter-spacing: -0.03em;
+    .shot figcaption {
+      position: absolute; left: max(40px, calc((100% - 980px) / 2)); bottom: 36px; z-index: 2;
+      color: #FFF8F2;
+      text-shadow: 0 1px 2px rgba(18,8,10,.28), 0 6px 22px rgba(18,8,10,.22);
+      max-width: 70ch;
     }
-    #birthday { padding-top: 96px; }
-    .price-table { width: 100%; border-collapse: collapse; font-size: 16px; }
-    .price-table th, .price-table td { padding: 16px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .price-table th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); font-weight: 600; }
-    .price-table td:last-child, .price-table th:last-child { text-align: right; white-space: nowrap; }
-    .price-table .total td { font-family: var(--display); font-size: 24px; color: var(--ink); border-bottom: 0; padding-top: 24px; font-weight: 600; }
-    .tabs { display: flex; flex-wrap: wrap; gap: 0; margin: 8px 0 36px; border-bottom: 1px solid var(--line); }
+    .shot .chap { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #F8EDE4; margin-bottom: 8px; }
+    .shot h2 {
+      font-family: var(--display); font-size: clamp(28px, 4vw, 42px); font-weight: 600;
+      letter-spacing: -0.035em; color: #fff;
+    }
+    .shot .when { margin-top: 8px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #F8EDE4; }
+    .shot-dots {
+      position: absolute; right: max(40px, calc((100% - 980px) / 2)); bottom: 36px; z-index: 3;
+      display: flex; gap: 8px;
+    }
+    .shot-dots button, .hero-dots button {
+      width: 8px; height: 8px; border: 0; border-radius: 999px; padding: 0;
+      background: rgba(255,248,242,.4); cursor: pointer;
+    }
+    .shot-dots button.is-on, .hero-dots button.is-on { width: 22px; background: #FFF8F2; }
+
+    .chapter-inner { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 72px; align-items: start; }
+    .plan h3, .stay h3 {
+      font-family: var(--display); font-size: 15px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--maroon); margin-bottom: 20px;
+    }
+    .plan ol { list-style: none; }
+    .plan li {
+      display: grid; grid-template-columns: 88px 1fr; gap: 20px;
+      padding: 14px 0; border-top: 1px solid var(--line); font-size: 16px; color: var(--ink);
+    }
+    .plan li:last-child { border-bottom: 1px solid var(--line); }
+    .plan b { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); font-weight: 600; padding-top: 3px; }
+    .opt { color: var(--ink-soft); }
+    .stay .pick h4 {
+      font-family: var(--display); font-size: 24px; color: var(--maroon-deep); font-weight: 600;
+      letter-spacing: -0.03em; margin: 6px 0 8px;
+    }
+    .stars { color: var(--maroon); letter-spacing: 2px; font-size: 11px; margin-bottom: 12px; }
+    .stay p { font-size: 15px; margin-bottom: 16px; max-width: 36ch; }
+    .rate { font-family: var(--display); font-size: 22px; color: var(--maroon-deep); font-weight: 600; }
+    .rate .cad { font-size: 15px; margin-left: 6px; }
+    details { margin-top: 28px; border-top: 1px solid var(--line); }
+    summary {
+      cursor: pointer; list-style: none; padding: 16px 0;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: " +"; }
+    details[open] summary::after { content: " −"; }
+    .alt-hotels { padding-bottom: 8px; }
+    .alt-hotels article { padding: 16px 0; border-top: 1px solid var(--line); }
+    .alt-hotels h4 { font-family: var(--display); font-size: 18px; color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+    .alt-hotels p { font-size: 14px; margin: 0; max-width: none; }
+
+    .note { margin-top: 24px; font-size: 14px; color: var(--ink-soft); font-style: italic; }
+
+    #birthday { padding: 96px 0 88px; }
+    .bday {
+      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: start;
+    }
+    .bday-photo {
+      position: relative;
+      height: min(72vh, 640px);
+      overflow: hidden;
+    }
+    .bday-photo::after {
+      content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(180deg, transparent 55%, rgba(18,8,10,.36) 100%);
+    }
+    .bday-photo .shot-dots { right: 16px; bottom: 16px; }
+    .bday-photo .shot-place {
+      position: absolute; left: 16px; bottom: 16px; z-index: 2;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: #FFF8F2;
+      text-shadow: 0 1px 2px rgba(18,8,10,.28), 0 6px 22px rgba(18,8,10,.22);
+    }
+    .bday h2 {
+      font-family: var(--display); font-size: 36px; color: var(--maroon-deep); font-weight: 600;
+      letter-spacing: -0.035em; margin-bottom: 8px;
+    }
+    .script { font-style: italic; color: var(--maroon); margin-bottom: 18px; }
+    .bday .rate { display: block; margin: 20px 0 8px; }
+
+    #move, #quote { padding: 88px 0 104px; }
+    .section-title {
+      font-family: var(--display); font-size: clamp(28px, 4vw, 38px); color: var(--maroon-deep);
+      font-weight: 600; letter-spacing: -0.035em; margin-bottom: 12px;
+    }
+    .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .legs { width: 100%; border-collapse: collapse; font-size: 16px; }
+    .legs th, .legs td { padding: 14px 8px; border-bottom: 1px solid var(--line); text-align: left; }
+    .legs th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
+    .legs td:last-child, .legs th:last-child { text-align: right; white-space: nowrap; }
+    .pkgs { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin: 40px 0 8px; }
+    .pkg-card h3 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; margin-bottom: 8px; }
+    .pkg-card .num { font-family: var(--display); font-size: 36px; color: var(--ink); font-weight: 600; letter-spacing: -0.03em; }
+    .pkg-card p { font-size: 15px; margin-top: 10px; }
+    .grand {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+      margin: 40px 0 8px; padding-top: 32px; border-top: 1px solid var(--line);
+    }
+    .grand h3 {
+      font-family: var(--display); font-size: 15px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--maroon); margin-bottom: 8px;
+    }
+    .roll { list-style: none; }
+    .roll li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--ink);
+    }
+    .roll li span { color: var(--ink-soft); font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .roll .sum {
+      font-family: var(--display); font-size: 22px; font-weight: 600; border-bottom: 0; padding-top: 18px;
+      color: var(--maroon-deep);
+    }
+    .roll .sum span { font-size: 15px; }
+    .tabs { display: flex; gap: 28px; margin: 32px 0 16px; border-bottom: 1px solid var(--line); overflow-x: auto; -webkit-overflow-scrolling: touch; }
     .tab {
-      border: 0; background: transparent; padding: 16px 0; margin-right: 36px;
-      font: 600 11px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase;
-      cursor: pointer; color: var(--ink-soft);
-      border-bottom: 1px solid transparent; margin-bottom: -1px;
+      border: 0; background: none; padding: 12px 0; margin-bottom: -1px; cursor: pointer;
+      font: 600 11px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft);
+      border-bottom: 1px solid transparent; white-space: nowrap;
     }
     .tab.active { color: var(--maroon-deep); border-bottom-color: var(--maroon); }
     .pkg { display: none; }
     .pkg.active { display: block; }
-    .totals {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-      margin: 64px 0; padding: 8px 0;
-      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    }
-    .total-box { padding: 32px 32px 32px 0; }
-    .total-box + .total-box { padding-left: 32px; border-left: 1px solid var(--line); }
-    .total-box span { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
-    .muted { font-size: 15px; color: var(--ink-soft); margin-top: 16px; }
-    .total-box strong { display: block; font-family: var(--display); font-size: 30px; color: var(--ink); margin-top: 10px; font-weight: 600; letter-spacing: -0.03em; }
-    .total-box.featured { background: transparent; }
-    .total-box.featured span { color: var(--maroon); }
-    .total-box.featured strong { color: var(--ink); }
-    .transport-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; counter-reset: tcard; }
-    .t-card { padding: 36px 0; border-top: 1px solid var(--line); }
-    .t-card::before {
-      counter-increment: tcard;
-      content: "0" counter(tcard);
-      display: block;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--maroon); margin-bottom: 14px;
-    }
-    .t-card h4 { font-family: var(--display); font-size: 22px; color: var(--ink); font-weight: 600; margin-bottom: 14px; letter-spacing: -0.03em; }
+    .price-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .price-table th, .price-table td { padding: 12px 8px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .price-table th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--maroon); }
+    .price-table td:last-child, .price-table th:last-child { text-align: right; white-space: nowrap; }
+    .price-table .total td { font-family: var(--display); font-size: 20px; color: var(--ink); border: 0; padding-top: 18px; font-weight: 600; }
     footer {
-      background: var(--maroon-deep); color: rgba(255,248,242,.84);
-      padding: 88px 0 80px; margin-top: 0;
+      background: var(--maroon-deep); color: rgba(255,248,242,.82); padding: 64px 0 72px;
     }
-    footer h2 { font-family: var(--display); color: #fff; font-size: 32px; font-weight: 600; letter-spacing: -0.04em; }
-    footer .ornament { color: #F3E4D6; }
-    footer .ornament::before, footer .ornament::after { background: rgba(243,228,214,.28); }
-    footer p { max-width: 640px; margin: 16px 0 0; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 36px 0 8px; }
-    .footer-links a {
-      color: #F3E4D6; text-decoration: none; font-size: 11px; font-weight: 600;
-      letter-spacing: 0.1em; text-transform: uppercase;
+    footer h2 { font-family: var(--display); color: #fff; font-size: 26px; font-weight: 600; }
+    footer p { max-width: 58ch; margin-top: 16px; font-size: 14px; }
+
+    @media (max-width: 1100px) and (min-width: 901px) {
+      .route { grid-template-columns: repeat(4, 1fr); gap: 24px 16px; }
+      .route::before { display: none; }
     }
-    @media (max-width: 1100px) {
-      .nav { padding: 16px 24px; }
-      .overview, .grid-2, .birthday, .transport-grid { grid-template-columns: 1fr; }
-      .stay { grid-template-columns: 1fr; gap: 40px; }
-      .totals { grid-template-columns: 1fr 1fr; }
-      .total-box + .total-box { border-left: 0; padding-left: 0; }
-      .quote-teaser { padding: 40px 0 0; border-left: 0; border-top: 1px solid var(--maroon); }
-      .hero-inner, .wrap, .chapter-hero figcaption { width: min(1120px, calc(100% - 48px)); }
-      .hero-inner { margin-bottom: 64px; }
-      .overview { padding: 72px 0 80px; gap: 48px; }
-      .route { grid-template-columns: 1fr; padding: 8px 0 0; }
-      .route::before {
-        left: 3px; right: auto; top: 10px; bottom: 16px;
-        width: 1px; height: auto;
-      }
-      .route-stop {
-        display: grid; grid-template-columns: 96px 1fr;
-        column-gap: 16px; padding: 0 0 22px 24px;
-      }
-      .route-stop::before { position: absolute; left: 0; top: 6px; margin: 0; }
-      .photo-row { grid-template-columns: 1fr 1fr; }
-      .photo-row figure:first-child { grid-column: 1 / -1; }
-      .photo-row img { height: 220px; }
-      .photo-row figure:first-child img { height: 260px; }
-      .nav { grid-template-columns: 1fr auto; padding: 14px 20px 12px; }
-      .nav-links {
-        grid-column: 1 / -1; justify-content: flex-start;
-        flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
-        padding: 8px 0 6px; gap: 6px 20px;
-      }
-      .nav-links a { white-space: nowrap; flex-shrink: 0; }
-      .hero { min-height: 78vh; }
-      .chapter { padding-bottom: 88px; }
-      .chapter-hero { margin-bottom: 40px; }
-      .chapter-hero img { height: min(380px, 56vw); }
-      .birthday-copy h2 { font-size: 32px; }
-      .birthday-photo { min-height: 280px; }
-      .section { padding: 80px 0 88px; }
-    }
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
       body { font-size: 16px; }
-      .hero-inner, .wrap, .chapter-hero figcaption { width: calc(100% - 32px); }
-      .hero { min-height: 72vh; background-position: 70% center; }
-      .hero h1 { font-size: clamp(36px, 12vw, 48px); }
-      .hero p { font-size: 16px; }
-      .hero-script { font-size: 11px; }
-      .hero-meta { gap: 10px 0; margin-top: 28px; }
-      .hero-meta div { width: 100%; }
-      .hero-meta div:not(:last-child)::after { display: none; }
-      .overview { padding: 56px 0 64px; gap: 40px; }
-      .overview-card h2 { font-size: 28px; }
-      .lede { margin: 14px 0 32px; font-size: 16px; }
-      .route-stop { grid-template-columns: 84px 1fr; padding-bottom: 20px; }
-      .quote-teaser h2 { font-size: 24px; }
-      .price-xl { font-size: 36px; }
-      .chapter-hero img { height: 260px; }
-      .chapter-hero h2 { font-size: 28px; }
-      .block h3 { font-size: 22px; }
-      .list li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; font-size: 16px; }
-      .list b { padding-top: 0; }
-      .photo-row { grid-template-columns: 1fr; margin-top: 48px; }
-      .photo-row figure:first-child { grid-column: auto; }
-      .photo-row img, .photo-row figure:first-child img { height: 210px; }
-      .totals { grid-template-columns: 1fr; }
-      .total-box { padding: 24px 0; }
-      .total-box strong { font-size: 26px; }
-      .price-table { font-size: 14px; min-width: 520px; }
-      .price-table .total td { font-size: 20px; }
-      .pkg .block, .quote-block {
-        overflow-x: auto; -webkit-overflow-scrolling: touch;
+      .nav {
+        grid-template-columns: 1fr auto;
+        padding: max(12px, env(safe-area-inset-top)) 16px 0;
+        gap: 8px 12px;
       }
-      .tab { margin-right: 20px; }
-      footer { padding: 56px 0 64px; }
+      .nav-links {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 4px 0 12px;
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a { white-space: nowrap; padding: 8px 0; }
+      .print-btn { padding: 8px 12px; }
+      .wrap, .hero-inner { width: calc(100% - 32px); }
+      .hero { min-height: 78svh; min-height: 78vh; }
+      .hero-inner { margin: 0 auto 48px; }
+      .hero h1 { font-size: clamp(34px, 11vw, 52px); }
+      .hero-actions { margin-top: 28px; }
+      .hero-dots { right: 16px; bottom: 20px; }
+      .overview { padding: 56px 0 48px; }
+      .chapter { padding: 0 0 56px; }
+      #birthday, #move, #quote { padding: 56px 0; }
+      .shot { height: 62vh; margin-bottom: 28px; }
+      .shot figcaption { left: 16px; right: 16px; bottom: 20px; max-width: none; }
+      .shot-dots { right: 16px; bottom: 20px; }
+      .route { grid-template-columns: 1fr; }
+      .route::before { left: 3px; right: auto; top: 8px; bottom: 12px; width: 1px; height: auto; }
+      .route-stop { display: grid; grid-template-columns: 92px 1fr; gap: 8px 12px; padding: 0 0 16px 22px; }
+      .route-stop::before { position: absolute; left: 0; top: 6px; margin: 0; }
+      .route-stop strong { margin: 0; }
+      .chapter-inner, .bday, .pkgs, .grand { grid-template-columns: 1fr; gap: 32px; }
+      .plan li { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+      .stay p { max-width: none; }
+      .price-row { gap: 24px; margin-top: 36px; }
+      .price-row strong, .pkg-card .num { font-size: 26px; }
+      .cad { display: inline-block; }
+      .bday h2 { font-size: 30px; }
+      .bday-photo { height: 52vh; }
+      .legs, .price-table { font-size: 14px; }
+      .legs th, .legs td, .price-table th, .price-table td { padding: 12px 6px; }
+      footer { padding: 48px 0 56px; }
     }
-    @media (max-width: 420px) {
-      .hero-inner, .wrap, .chapter-hero figcaption { width: calc(100% - 24px); }
-      .nav { padding: 12px 14px 10px; }
-      .slider-stage { height: 240px; }
-      .hero-dots { right: 20px; bottom: 24px; }
+    @media (max-width: 640px) {
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; }
+      .hero-meta { gap: 8px 16px; }
+      .pkg-card .num .cad, .price-row .cad, .rate .cad, .roll .sum span {
+        display: block; margin: 4px 0 0; white-space: normal;
+      }
+      .roll li { flex-wrap: wrap; }
+      .roll li span { white-space: normal; text-align: right; }
+      .legs, .price-table { min-width: 520px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .stay .hotel, .hero-slide, .slider .slide, .chapter-hero img {
-        opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important;
-      }
+      .hero-slide, .shot-slides img { animation: none !important; }
     }
     @media print {
-      .nav, .print-btn, .tabs, .hero-actions, .slider-nav, .slider-dots, .hero-dots, .progress { display: none !important; }
-      .pkg { display: block !important; page-break-inside: avoid; }
-      .hero { min-height: 360px; }
-      .slider .slide { position: relative; opacity: 1; transform: none; height: 220px; margin-bottom: 12px; }
-      .slider-stage { height: auto; }
-      body { background: #fff; overflow: visible; }
-      .wrap, .hero-inner, .chapter-hero figcaption { width: 100%; }
-      .overview, .grid-2, .birthday, .transport-grid, .totals, .stay { grid-template-columns: 1fr; }
+      .nav, .print-btn, .hero-actions, .hero-dots, .shot-dots, .progress, summary { display: none !important; }
+      details { display: block; }
+      details > *:not(summary) { display: block !important; }
+      .pkg { display: block !important; }
+      .hero { min-height: 280px; }
     }
   </style>
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
   <nav class="nav">
-    <div class="nav-brand">Italy Together · 2026</div>
+    <div class="nav-brand">Italy Together</div>
     <div class="nav-links">
-      <a href="#overview">Overview</a>
+      <a href="#overview">Route</a>
       <a href="#rome">Rome</a>
       <a href="#sorrento">Sorrento</a>
       <a href="#florence">Florence</a>
@@ -563,641 +388,478 @@
       <a href="#cinqueterre">Cinque Terre</a>
       <a href="#venice">Venice</a>
       <a href="#milan">Milan</a>
-      <a href="#quote">Quotation</a>
+      <a href="#quote">Quote</a>
     </div>
-    <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+    <button class="print-btn" type="button" onclick="window.print()">Print</button>
   </nav>
 
   <header class="hero">
     <div class="hero-slides" aria-hidden="true">
-      <div class="hero-slide is-on" style="background-image:url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=2000&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=2000&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=2000&q=80')"></div>
-      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=2000&q=80')"></div>
+      <div class="hero-slide is-on" style="background-image:url('images/manarola.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/rome-colosseum.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/positano.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/florence-duomo.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/venice-sanmarco.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('images/milan-duomo.jpg')"></div>
     </div>
     <div class="hero-inner">
-      <p class="kicker">A private itinerary for two · Toronto</p>
+      <p class="kicker">Toronto · two adults</p>
       <h1>Italy, <em>together</em></h1>
-      <p class="hero-script">Rome · Sorrento · Florence · Cinque Terre · Venice · Milan</p>
-      <p>An eleven-day journey from the Eternal City to the Amalfi Coast, through Tuscany on her birthday, then north along the cliffs, canals, and fashion capital, timed to a 1:00 PM departure from Milan Malpensa.</p>
+      <p class="hero-script">24 September – 4 October 2026</p>
       <div class="hero-meta">
-        <div>24 September – 4 October 2026</div>
-        <div>2 Adults</div>
-        <div>9 Hotel Nights</div>
-        <div>Overnight flight after 6:00 PM</div>
+        <div>6 cities</div>
+        <div>9 nights</div>
+        <div>Overnight after 6:00 PM</div>
+        <div>Home from MXP ~1:00 PM</div>
       </div>
       <div class="hero-actions">
-        <a class="btn-solid" href="#overview">Read the itinerary</a>
-        <a class="btn-ghost" href="#quote">See quotation</a>
+        <a class="btn btn-solid" href="#overview">The route</a>
+        <a class="btn btn-ghost" href="#quote">Quotation</a>
       </div>
     </div>
     <div class="hero-dots"></div>
   </header>
 
   <main>
-    <section class="overview wrap reveal" id="overview">
-      <article class="panel overview-card">
-        <p class="kicker">The journey</p>
-        <h2>One country, six chapters</h2>
-        <p class="lede">This is a beautiful, ambitious route. Travel days are designed around high-speed trains, with private cars only where they save time and spare you the luggage scramble, especially Naples to Sorrento and the airport legs.</p>
-        <div class="route">
-          <div class="route-stop"><span>24 Sep</span><strong>Sky</strong><em>YYZ → Rome overnight</em></div>
-          <div class="route-stop"><span>25 Sep</span><strong>Rome</strong><em>1 night</em></div>
-          <div class="route-stop"><span>26–27 Sep</span><strong>Sorrento</strong><em>2 nights · Amalfi</em></div>
-          <div class="route-stop"><span>28–30 Sep</span><strong>Florence</strong><em>3 nights · birthday</em></div>
-          <div class="route-stop"><span>1 Oct</span><strong>Manarola</strong><em>1 night</em></div>
-          <div class="route-stop"><span>2 Oct</span><strong>Venice</strong><em>1 night</em></div>
-          <div class="route-stop"><span>3–4 Oct</span><strong>Milan</strong><em>1 night · fly home</em></div>
+    <section class="overview wrap" id="overview">
+      <p class="kicker">The journey</p>
+      <h2>Six chapters, one line south to north</h2>
+      <p class="lede">Trains for the long legs. Private cars only where luggage would otherwise spoil the day: Fiumicino, Naples–Sorrento, and optionally Malpensa.</p>
+      <div class="route">
+        <div class="route-stop"><span>24 Sep</span><strong>Sky</strong><em>YYZ overnight</em></div>
+        <div class="route-stop"><span>25 Sep</span><strong>Rome</strong><em>1 night</em></div>
+        <div class="route-stop"><span>26–27 Sep</span><strong>Sorrento</strong><em>2 nights</em></div>
+        <div class="route-stop"><span>28–30 Sep</span><strong>Florence</strong><em>3 nights</em></div>
+        <div class="route-stop"><span>1 Oct</span><strong>Manarola</strong><em>1 night</em></div>
+        <div class="route-stop"><span>2 Oct</span><strong>Venice</strong><em>1 night</em></div>
+        <div class="route-stop"><span>3–4 Oct</span><strong>Milan</strong><em>fly home</em></div>
+      </div>
+      <div class="price-row">
+        <div>
+          <p class="kicker">Trip total · Bella Vista</p>
+          <strong>€6,444 <span class="cad">C$10,050</span></strong>
         </div>
-        <p class="overview-foot">Rome has only one full day, and 2 October is a long train day into Venice. The plan still covers every must-see by starting early, pre-booking tickets, and using private transfers on the two hardest luggage legs.</p>
-      </article>
-      <aside class="panel quote-teaser">
-        <p class="kicker">Recommended</p>
-        <h2>Bella Vista</h2>
-        <div class="price-xl">€6,444 <span class="cad">C$10,050</span></div>
-        <p>Two adults. Hotels, transport, tours, and the birthday dinner. Flights extra.</p>
-        <p class="quote-alt">Classic Italia · €5,794 · C$9,040</p>
-        <a href="#quote">Full quotation</a>
-      </aside>
+        <div>
+          <p class="kicker">Trip total · Classic Italia</p>
+          <strong>€5,794 <span class="cad">C$9,040</span></strong>
+        </div>
+        <a href="#quote">How it adds up</a>
+      </div>
     </section>
 
-    <!-- ROME -->
     <section class="chapter" id="rome">
-      <figure class="chapter-hero">
-        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=1800&q=80" alt="The Colosseum in Rome at dusk" />
-        <figcaption>
-          <span class="chap-no">Chapter 01</span>
-          <div class="when">25 September · 1 night</div>
-          <h2>Rome</h2>
-        </figcaption>
-      </figure>
-      <div class="wrap chapter-body reveal">
-      <div class="grid-2">
-        <div class="panel block">
-          <p class="time">Arrival morning · Eternal City by night</p>
-          <h3>Must-see, walked in one golden day</h3>
-          <p>Overnight flight from Toronto after 6:00 PM lands at Fiumicino the next morning. A private driver meets you at arrivals and takes you to the historic centre so you can drop bags and begin.</p>
-          <ul class="list">
-            <li><b>Morning</b> Private transfer FCO → hotel. Request early check-in. Shower, light lunch nearby.</li>
-            <li><b>13:30</b> Small-group guided visit: Colosseum, Roman Forum & Palatine Hill.</li>
-            <li><b>17:30</b> Walk to the Pantheon, then Piazza Navona.</li>
-            <li><b>Dusk</b> Trevi Fountain and the Spanish Steps in the evening light.</li>
-            <li><b>Optional</b> Trastevere evening walk and a vegetarian-friendly trattoria dinner.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip must">Colosseum</span>
-            <span class="chip must">Forum & Palatine</span>
-            <span class="chip must">Pantheon</span>
-            <span class="chip must">Piazza Navona</span>
-            <span class="chip must">Trevi</span>
-            <span class="chip must">Spanish Steps</span>
-            <span class="chip opt">Trastevere</span>
-          </div>
+      <figure class="shot">
+        <div class="shot-slides">
+          <img class="is-on" src="images/rome-colosseum.jpg" alt="The Colosseum" data-place="Colosseum" />
+          <img src="images/rome-trevi.jpg" alt="Trevi Fountain" data-place="Trevi Fountain" />
+          <img src="images/rome-vatican.jpg" alt="St Peter’s Square" data-place="St Peter’s Square" />
+          <img src="images/rome-pantheon.jpg" alt="The Pantheon dome" data-place="The Pantheon" />
         </div>
-        <div class="stay reveal">
-          <p class="time">Hotels · elevator · historic centre</p>
-          <h3>Where to stay</h3>
-          <div class="hotel pick">
-            <span class="badge">Recommended</span>
+        <figcaption>
+          <span class="chap">01 · 25 September · 1 night</span>
+          <h2>Rome</h2>
+          <div class="when shot-place">Colosseum</div>
+        </figcaption>
+        <div class="shot-dots"></div>
+      </figure>
+      <div class="wrap chapter-inner">
+        <div class="plan">
+          <h3>The day</h3>
+          <ol>
+            <li><b>Morning</b> Private transfer FCO → hotel. Early check-in if possible.</li>
+            <li><b>13:30</b> Colosseum, Forum and Palatine, small-group, timed entry.</li>
+            <li><b>17:30</b> Pantheon, Piazza Navona, Trevi, Spanish Steps.</li>
+            <li class="opt"><b>Optional</b> Trastevere for dinner.</li>
+          </ol>
+        </div>
+        <div class="stay">
+          <h3>Stay</h3>
+          <div class="pick">
+            <p class="kicker">Recommended</p>
             <h4>9 Hotel Cesàri</h4>
             <div class="stars">★★★★</div>
-            <p>Rome’s oldest hotel, a few minutes from the Pantheon and Trevi. Rooftop views, elevator, and a walkable first evening. ~€280 / C$437 per night</p>
+            <p>Near the Pantheon and Trevi. Elevator, rooftop, walkable first evening.</p>
             <p class="rate">€280 <span class="cad">C$437</span></p>
           </div>
-          <div class="hotel">
-            <h4>Hotel Colosseum</h4>
-            <div class="stars">★★★</div>
-            <p>Quiet street in Monti, panoramic terrace, short walk to the Colosseum. Comfortable 3-star with easy luggage access. ~€180 / C$281 per night</p>
-            <p class="rate">€180 <span class="cad">C$281</span></p>
-          </div>
-          <div class="hotel">
-            <h4>Hotel Artemide</h4>
-            <div class="stars">★★★★</div>
-            <p>Via Nazionale, full elevator access, spa, and a rooftop restaurant. Slightly further east, excellent if you want extra comfort after the overnight flight. ~€300 / C$468 per night</p>
-            <p class="rate">€300 <span class="cad">C$468</span></p>
-          </div>
-        </div>
-      </div>
-          <div class="slider" aria-label="Rome photographs">
-            <div class="slider-stage">
-            <figure class="slide is-on">
-              <img src="https://images.unsplash.com/photo-1525874684015-58379d421a52?auto=format&fit=crop&w=1400&q=80" alt="Trevi Fountain" />
-              <figcaption>Trevi Fountain</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1555992828-ca4dbe41d294?auto=format&fit=crop&w=1400&q=80" alt="The Pantheon in Rome" />
-              <figcaption>Pantheon</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=1400&q=80" alt="Roman Forum" />
-              <figcaption>Roman Forum</figcaption>
-            </figure>
+          <details>
+            <summary>Two other hotels</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Hotel Colosseum · 3★</h4>
+                <p>Monti, terrace, short walk to the Colosseum. €180 / C$281</p>
+              </article>
+              <article>
+                <h4>Hotel Artemide · 4★</h4>
+                <p>Via Nazionale, spa and rooftop. Extra comfort after the overnight. €300 / C$468</p>
+              </article>
             </div>
-            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
-            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
-            <div class="slider-dots"></div>
-          </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- SORRENTO -->
-    <section class="chapter alt" id="sorrento">
-      <figure class="chapter-hero">
-        <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1800&q=80" alt="Positano and the Amalfi Coast" />
-        <figcaption>
-          <span class="chap-no">Chapter 02</span>
-          <div class="when">26–27 September · 2 nights</div>
-          <h2>Sorrento &amp; the Amalfi Coast</h2>
-        </figcaption>
-      </figure>
-      <div class="wrap chapter-body reveal">
-      <div class="grid-2">
-        <div class="panel block">
-          <p class="time">Bay of Naples · lemon groves · cliff towns</p>
-          <h3>The romantic pause</h3>
-          <p>Sorrento is the base: walkable, beautiful, and the right launch point for Positano, Amalfi, and Ravello. We recommend a private car for both Naples transfers. The Circumvesuviana is cheap, but it is crowded and awkward with suitcases.</p>
-          <ul class="list">
-            <li><b>26 Sep</b> 08:50 Frecciarossa Rome → Naples (~1h10). Private driver to the hotel by late morning.</li>
-            <li><b>Afternoon</b> Piazza Tasso, old town, Marina Grande viewpoints, first lemon-scented evening.</li>
-            <li><b>27 Sep</b> Full-day Amalfi Coast: Positano, Amalfi, Ravello, and coastal belvederes.</li>
-            <li><b>Evening</b> Return to Sorrento. Romantic dinner with a view. This is the night to linger.</li>
-            <li><b>Optional</b> Pompeii or a private boat. With only two nights, the coast should come first; Pompeii is the piece to drop if you want a slower day.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip must">Piazza Tasso</span>
-            <span class="chip must">Positano</span>
-            <span class="chip must">Amalfi</span>
-            <span class="chip must">Ravello</span>
-            <span class="chip opt">Pompeii</span>
-            <span class="chip opt">Boat along the coast</span>
-          </div>
-          <p class="note">Recommended tour: small-group minivan from Sorrento covering Positano, Amalfi, and Ravello (~€120 / C$187 pp). Private Mercedes day for two is a worthwhile upgrade at about €590 / C$920 for the vehicle.</p>
+    <section class="chapter band" id="sorrento">
+      <figure class="shot">
+        <div class="shot-slides">
+          <img class="is-on" src="images/sorrento.jpg" alt="Marina Grande in Sorrento" data-place="Marina Grande" />
+          <img src="images/positano.jpg" alt="Positano" data-place="Positano" />
+          <img src="images/amalfi.jpg" alt="Amalfi Coast" data-place="Amalfi Coast" />
+          <img src="images/ravello.jpg" alt="Sorrento cliffs" data-place="Sorrento cliffs" />
         </div>
-        <div class="stay reveal">
-          <p class="time">Spend a little more here</p>
-          <h3>Hotels with a view</h3>
-          <div class="hotel pick">
-            <span class="badge">Recommended</span>
+        <figcaption>
+          <span class="chap">02 · 26–27 September · 2 nights</span>
+          <h2>Sorrento</h2>
+          <div class="when shot-place">Marina Grande</div>
+        </figcaption>
+        <div class="shot-dots"></div>
+      </figure>
+      <div class="wrap chapter-inner">
+        <div class="plan">
+          <h3>The days</h3>
+          <ol>
+            <li><b>26 Sep</b> Frecciarossa Rome → Naples (~1h10), then a private car to the hotel.</li>
+            <li><b>Afternoon</b> Piazza Tasso, old town, Marina Grande.</li>
+            <li><b>27 Sep</b> Positano, Amalfi, Ravello. Linger for dinner back in Sorrento.</li>
+            <li class="opt"><b>Optional</b> Pompeii or a private boat. Drop Pompeii if you want a slower day.</li>
+          </ol>
+          <p class="note">Coast day: small-group minivan ~€120 / C$187 pp, or a private Mercedes ~€590 / C$920 for the car.</p>
+        </div>
+        <div class="stay">
+          <h3>Stay</h3>
+          <div class="pick">
+            <p class="kicker">Recommended · spend more here</p>
             <h4>Hotel Plaza Sorrento</h4>
             <div class="stars">★★★★</div>
-            <p>Minutes from Piazza Tasso. Rooftop infinity pool and Sky Bar over the Bay of Naples, the romantic upgrade you asked for, without going full five-star. Book a sea-view / premium room. ~€400 / C$624 per night</p>
+            <p>Near Piazza Tasso. Rooftop pool and Sky Bar. Book a sea-view room.</p>
             <p class="rate">€800 · 2 nights <span class="cad">C$1,248</span></p>
           </div>
-          <div class="hotel">
-            <h4>Hotel Continental</h4>
-            <div class="stars">★★★★</div>
-            <p>Central, rooftop terrace, garden, and an easy walk to the marina. Classic Sorrento atmosphere. ~€320 / C$499 per night</p>
-            <p class="rate">€640 · 2 nights <span class="cad">C$998</span></p>
-          </div>
-          <div class="hotel">
-            <h4>Grand Hotel de la Ville</h4>
-            <div class="stars">★★★★</div>
-            <p>Rooftop and garden pools, Vesuvius views, still walkable to the centre. A strong alternative if Plaza sea-view rooms are sold. ~€340 / C$530 per night</p>
-            <p class="rate">€680 · 2 nights <span class="cad">C$1,061</span></p>
-          </div>
-        </div>
-      </div>
-          <div class="slider" aria-label="Amalfi Coast photographs">
-            <div class="slider-stage">
-            <figure class="slide is-on">
-              <img src="https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?auto=format&fit=crop&w=1400&q=80" alt="Positano cliffside village" />
-              <figcaption>Positano</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1612698093158-e07ac200d44e?auto=format&fit=crop&w=1400&q=80" alt="Amalfi cathedral and square" />
-              <figcaption>Amalfi</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80" alt="Mediterranean hillside town" />
-              <figcaption>Coastal views</figcaption>
-            </figure>
+          <details>
+            <summary>Two other hotels</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Hotel Continental · 4★</h4>
+                <p>Central, rooftop terrace, garden. €640 / C$998 for 2 nights</p>
+              </article>
+              <article>
+                <h4>Grand Hotel de la Ville · 4★</h4>
+                <p>Pools and Vesuvius views, still walkable. €680 / C$1,061 for 2 nights</p>
+              </article>
             </div>
-            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
-            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
-            <div class="slider-dots"></div>
-          </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- FLORENCE -->
     <section class="chapter" id="florence">
-      <figure class="chapter-hero">
-        <img src="https://images.unsplash.com/photo-1543429257-3eb0b65d9c58?auto=format&fit=crop&w=1800&q=80" alt="Florence Duomo and terracotta rooftops" />
-        <figcaption>
-          <span class="chap-no">Chapter 03</span>
-          <div class="when">28–30 September · 3 nights</div>
-          <h2>Florence</h2>
-        </figcaption>
-      </figure>
-      <div class="wrap chapter-body reveal">
-      <div class="grid-2">
-        <div class="panel block">
-          <p class="time">The Renaissance, then her birthday in Chianti</p>
-          <h3>City of light, and the longest stay</h3>
-          <p>Three nights give Florence room to breathe. Day one is the historic centre. Day two is art and sunset. Day three, 30 September, is entirely hers: a private convertible through Chianti, then a reserved birthday table in the evening.</p>
-          <ul class="list">
-            <li><b>28 Sep</b> Private Sorrento → Naples, then Frecciarossa to Firenze S.M.N. (~3h). Afternoon: Duomo, Piazza della Signoria, Ponte Vecchio.</li>
-            <li><b>29 Sep</b> 09:00 Uffizi Gallery (timed tickets). Afternoon free in the centre. Sunset at Piazzale Michelangelo.</li>
-            <li><b>30 Sep</b> Full-day private convertible: Greve, Castellina, San Gimignano, Siena, photo stops, Tuscan lunch. Return for dinner.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip must">Historic centre</span>
-            <span class="chip must">Duomo</span>
-            <span class="chip must">Piazza della Signoria</span>
-            <span class="chip must">Ponte Vecchio</span>
-            <span class="chip must">Uffizi</span>
-            <span class="chip must">Piazzale Michelangelo</span>
-            <span class="chip must">Tuscany convertible</span>
-          </div>
+      <figure class="shot">
+        <div class="shot-slides">
+          <img class="is-on" src="images/florence-duomo.jpg" alt="Florence Duomo" data-place="The Duomo" />
+          <img src="images/ponte-vecchio.jpg" alt="Ponte Vecchio" data-place="Ponte Vecchio" />
+          <img src="images/florence-signoria.jpg" alt="Florence from Piazzale Michelangelo" data-place="Piazzale Michelangelo" />
         </div>
-        <div class="stay reveal">
-          <p class="time">Central · elevator · walk to everything</p>
-          <h3>Where to stay</h3>
-          <div class="hotel pick">
-            <span class="badge">Recommended</span>
+        <figcaption>
+          <span class="chap">03 · 28–30 September · 3 nights</span>
+          <h2>Florence</h2>
+          <div class="when shot-place">The Duomo</div>
+        </figcaption>
+        <div class="shot-dots"></div>
+      </figure>
+      <div class="wrap chapter-inner">
+        <div class="plan">
+          <h3>The days</h3>
+          <ol>
+            <li><b>28 Sep</b> Private Sorrento → Naples, then Frecciarossa to Florence. Duomo, Signoria, Ponte Vecchio.</li>
+            <li><b>29 Sep</b> Uffizi at 09:00. Afternoon free. Sunset at Piazzale Michelangelo.</li>
+            <li><b>30 Sep</b> Convertible through Chianti, then birthday dinner. <a href="#birthday">Details</a></li>
+          </ol>
+        </div>
+        <div class="stay">
+          <h3>Stay</h3>
+          <div class="pick">
+            <p class="kicker">Recommended</p>
             <h4>FH55 Hotel Calzaiuoli</h4>
             <div class="stars">★★★★</div>
-            <p>On Via Calzaiuoli, two minutes from the Duomo. Elevator, 24-hour desk, the best possible walking location for three nights. ~€320 / C$499 per night</p>
+            <p>Two minutes from the Duomo. Elevator, 24-hour desk, walk everywhere.</p>
             <p class="rate">€960 · 3 nights <span class="cad">C$1,498</span></p>
           </div>
-          <div class="hotel">
-            <h4>Hotel Orafi</h4>
-            <div class="stars">★★★★</div>
-            <p>Between the Uffizi and Ponte Vecchio, with Arno-view rooms if you upgrade. Elevator and accessible rooms. Romantic, slightly quieter. ~€280 / C$437 per night</p>
-            <p class="rate">€840 · 3 nights <span class="cad">C$1,310</span></p>
-          </div>
-          <div class="hotel">
-            <h4>Hotel Continentale</h4>
-            <div class="stars">★★★★</div>
-            <p>Lungarno Collection, steps from Ponte Vecchio. Design-forward, elevator, superb for a special-occasion stay. Expect ~€380–450 / C$593–702 per night.</p>
-            <p class="rate">€1,140 · 3 nights <span class="cad">C$1,778</span></p>
-          </div>
-        </div>
-      </div>
-          <div class="slider" aria-label="Florence photographs">
-            <div class="slider-stage">
-            <figure class="slide is-on">
-              <img src="https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?auto=format&fit=crop&w=1400&q=80" alt="Ponte Vecchio over the Arno" />
-              <figcaption>Ponte Vecchio</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1400&q=80" alt="Tuscan countryside with cypress trees" />
-              <figcaption>Chianti roads</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1543429257-3eb0b65d9c58?auto=format&fit=crop&w=1400&q=80" alt="Florence rooftops" />
-              <figcaption>Historic Florence</figcaption>
-            </figure>
+          <details>
+            <summary>Two other hotels</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Hotel Orafi · 4★</h4>
+                <p>Between the Uffizi and Ponte Vecchio. €840 / C$1,310 for 3 nights</p>
+              </article>
+              <article>
+                <h4>Hotel Continentale · 4★</h4>
+                <p>Lungarno Collection, by the bridge. Special-occasion upgrade. €1,140 / C$1,778</p>
+              </article>
             </div>
-            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
-            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
-            <div class="slider-dots"></div>
-          </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- BIRTHDAY -->
-    <section class="chapter" id="birthday">
-      <div class="wrap reveal">
-      <div class="ornament">30 · IX · 2026</div>
-      <div class="birthday panel">
-        <div class="birthday-photo" role="img" aria-label="Ponte Vecchio and the Arno at dusk"></div>
-        <div class="birthday-copy">
+    <section id="birthday">
+      <div class="wrap bday">
+        <div class="bday-photo">
+          <div class="shot-slides">
+            <img class="is-on" src="images/chianti.jpg" alt="Chianti vineyards" data-place="Chianti" />
+            <img src="images/san-gimignano.jpg" alt="San Gimignano towers" data-place="San Gimignano" />
+            <img src="images/ponte-vecchio.jpg" alt="Ponte Vecchio at dusk" data-place="Ponte Vecchio" />
+          </div>
+          <div class="shot-place">Chianti</div>
+          <div class="shot-dots"></div>
+        </div>
+        <div>
           <p class="kicker">30 September</p>
           <h2>Her birthday</h2>
-          <p class="script">A table over the Arno</p>
-          <p>By day: a private convertible through Chianti: Greve, Castellina, San Gimignano, Siena, with scenic stops and a relaxed Tuscan lunch. By night: a reserved celebration table, vegetarian tasting menu, and a quiet request to the restaurant for flowers and a dessert inscription.</p>
-          <div class="rest-card">
-            <h3>Borgo San Jacopo</h3>
-            <p>1 Michelin star · Hotel Lungarno · Arno and Ponte Vecchio views</p>
-            <p style="margin-top:10px">This is the recommendation. Intimate, special-occasion service, and a dedicated vegetarian tasting menu. A handful of tables look straight onto the river. We will request a window/river table and note the birthday when booking.</p>
-            <p style="margin-top:12px"><strong>Vegetarian tasting menu</strong> €170 / C$265 pp<br />
-            Wine pairing (est.) €90 / C$140 pp<br />
-            Birthday cake / flowers / table styling €60 / C$94<br />
-            <strong>Dinner for two €620 · C$967</strong> · shown separately in the quotation</p>
-          </div>
-          <div class="rest-card">
-            <h3>Alternatives</h3>
-            <p><strong>Segno Rooftop Experience</strong>: Duomo and terracotta-roof sunset, vegetable “Radici” tasting. About €90–120 / C$140–187 pp plus wine. More panoramic, slightly less formal. ~€380–450 / C$593–702 for two.</p>
-            <p style="margin-top:10px"><strong>Antesi</strong> at Villa San Michele, Fiesole: eight tables in a 16th-century loggia above Florence. Vegetarian “Traccia” menu €160 / C$250 pp, wine pairing €110 / C$172. Taxi each way ~€40 / C$62. The most secluded historic setting. ~€720 / C$1,123 including transfers.</p>
-          </div>
+          <p class="script">Chianti by day. The Arno by night.</p>
+          <p>Private convertible: Greve, Castellina, San Gimignano, Siena, villa lunch. Evening table at Borgo San Jacopo, vegetarian tasting, flowers and a dessert inscription.</p>
+          <p class="rate">Dinner €620 <span class="cad">C$967</span></p>
+          <p>Convertible day €1,090 / C$1,700, lunch included.</p>
+          <details>
+            <summary>Other tables</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Segno Rooftop</h4>
+                <p>Duomo views, vegetable tasting. About €400 / C$624 for two.</p>
+              </article>
+              <article>
+                <h4>Antesi, Fiesole</h4>
+                <p>Eight tables above Florence. About €720 / C$1,123 including taxis.</p>
+              </article>
+              <article>
+                <h4>Convertible without lunch</h4>
+                <p>€890 / C$1,388. Self-drive is cheaper, but you lose the photographs and the wine.</p>
+              </article>
+            </div>
+          </details>
         </div>
-      </div>
-      <div class="panel block convertible">
-        <h3>The convertible day</h3>
-        <p>Private all-inclusive Chianti experience in a vintage Fiat 500 cabrio (or similar), with hotel pickup in Florence. Route includes Greve in Chianti, Castellina in Chianti, San Gimignano, Siena, vineyard photo stops, and a 3-course villa lunch with Chianti Classico. English-speaking driver-guide. About 8–9 hours, returning in time to dress for dinner.</p>
-        <p class="rate" style="margin-top:10px">€1,090 <span class="cad">C$1,700</span> for the private car · 2 guests · lunch included</p>
-        <p class="muted">Classic version without villa lunch: €890 / C$1,388. Self-drive convertible is cheaper but not recommended for a birthday, as you lose the photographs, the wine, and the ease.</p>
-      </div>
       </div>
     </section>
 
-    <!-- CINQUE TERRE -->
-    <section class="chapter alt" id="cinqueterre">
-      <figure class="chapter-hero">
-        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1800&q=80" alt="Manarola harbour and colourful houses at sunset" />
-        <figcaption>
-          <span class="chap-no">Chapter 04</span>
-          <div class="when">1 October · 1 night</div>
-          <h2>Manarola · Cinque Terre</h2>
-        </figcaption>
-      </figure>
-      <div class="wrap chapter-body reveal">
-      <div class="grid-2">
-        <div class="panel block">
-          <p class="time">Cliffs, colour, and one unforgettable sunset</p>
-          <h3>The Ligurian night</h3>
-          <p>Morning train Florence → La Spezia → Manarola. The village is steep; we only recommend stays that are close to the station or that offer luggage transfer. One night is enough for Manarola, Vernazza, and sunset, not for hiking all five villages.</p>
-          <ul class="list">
-            <li><b>08:00</b> Train Firenze S.M.N. → La Spezia Centrale (~2h20), then 8 minutes to Manarola.</li>
-            <li><b>Late morning</b> Porter or short, manageable walk to the room. Leave large bags if needed.</li>
-            <li><b>Afternoon</b> Manarola harbour and viewpoints, then the Cinque Terre train to Vernazza.</li>
-            <li><b>Optional</b> Via dell’Amore, Riomaggiore → Manarola. Open in 2026 with timed tickets; book ahead. Flat, about 30 minutes.</li>
-            <li><b>Sunset</b> Back in Manarola for the classic harbour light, then dinner on a terrace.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip must">Manarola</span>
-            <span class="chip must">Vernazza</span>
-            <span class="chip must">Sunset</span>
-            <span class="chip opt">Via dell’Amore</span>
-            <span class="chip opt">Short scenic walk</span>
-          </div>
+    <section class="chapter band" id="cinqueterre">
+      <figure class="shot">
+        <div class="shot-slides">
+          <img class="is-on" src="images/manarola.jpg" alt="Manarola harbour" data-place="Manarola" />
+          <img src="images/vernazza.jpg" alt="Vernazza" data-place="Vernazza" />
         </div>
-        <div class="stay reveal">
-          <p class="time">View first · luggage handled</p>
-          <h3>Lodge or apartment</h3>
-          <div class="hotel pick">
-            <span class="badge">Recommended</span>
+        <figcaption>
+          <span class="chap">04 · 1 October · 1 night</span>
+          <h2>Manarola</h2>
+          <div class="when shot-place">Manarola</div>
+        </figcaption>
+        <div class="shot-dots"></div>
+      </figure>
+      <div class="wrap chapter-inner">
+        <div class="plan">
+          <h3>The day</h3>
+          <ol>
+            <li><b>08:00</b> Florence → La Spezia (~2h20), then 8 minutes to Manarola.</li>
+            <li><b>Afternoon</b> Harbour viewpoints, train to Vernazza.</li>
+            <li class="opt"><b>Optional</b> Via dell’Amore, timed tickets, about 30 minutes, flat.</li>
+            <li><b>Sunset</b> Back in Manarola for the harbour light, then dinner.</li>
+          </ol>
+        </div>
+        <div class="stay">
+          <h3>Stay</h3>
+          <div class="pick">
+            <p class="kicker">Recommended</p>
             <h4>La Torretta Lodge</h4>
             <div class="stars">Boutique</div>
-            <p>Converted medieval tower above the village. Private terraces, and complimentary luggage transfer from the station, the detail that makes Cinque Terre civilised. Superior room. ~€450 / C$702 per night</p>
+            <p>Medieval tower above the village. Luggage transfer from the station.</p>
             <p class="rate">€450 <span class="cad">C$702</span></p>
           </div>
-          <div class="hotel">
-            <h4>Hotel Marina Piccola</h4>
-            <div class="stars">★★★</div>
-            <p>Five minutes from the station and boat dock, some sea-view rooms, recently refreshed. Best 3-star if you want a hotel rather than an apartment. ~€250 / C$390 per night</p>
-            <p class="rate">€250 <span class="cad">C$390</span></p>
-          </div>
-          <div class="hotel">
-            <h4>Tramontana apartment</h4>
-            <div class="stars">Apartment</div>
-            <p>Studio with private terrace, five minutes from the station. Stronger view-and-value play, provided you travel with one manageable suitcase each. ~€170 / C$265 per night</p>
-            <p class="rate">€170 <span class="cad">C$265</span></p>
-          </div>
-        </div>
-      </div>
-          <div class="slider" aria-label="Cinque Terre photographs">
-            <div class="slider-stage">
-            <figure class="slide is-on">
-              <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1400&q=80" alt="Cinque Terre village above the sea" />
-              <figcaption>Cinque Terre</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1534445867742-43195f401b6c?auto=format&fit=crop&w=1400&q=80" alt="Italian coastal village" />
-              <figcaption>Coastal cliffs</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1537083702767-42f85f12834f?auto=format&fit=crop&w=1400&q=80" alt="Manarola at dusk" />
-              <figcaption>Manarola dusk</figcaption>
-            </figure>
+          <details>
+            <summary>Two other stays</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Hotel Marina Piccola · 3★</h4>
+                <p>Five minutes from the station. €250 / C$390</p>
+              </article>
+              <article>
+                <h4>Tramontana apartment</h4>
+                <p>Studio with terrace, one suitcase each. €170 / C$265</p>
+              </article>
             </div>
-            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
-            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
-            <div class="slider-dots"></div>
-          </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- VENICE -->
     <section class="chapter" id="venice">
-      <figure class="chapter-hero">
-        <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1800&q=80" alt="Venetian canal and gondolas" />
-        <figcaption>
-          <span class="chap-no">Chapter 05</span>
-          <div class="when">2 October · 1 night</div>
-          <h2>Venice</h2>
-        </figcaption>
-      </figure>
-      <div class="wrap chapter-body reveal">
-      <div class="grid-2">
-        <div class="panel block">
-          <p class="time">Arrive afternoon · the city after dark</p>
-          <h3>Grand Canal to San Marco</h3>
-          <p>This is the longest overland day. An early Cinque Terre departure reaches Venezia Santa Lucia around early afternoon. Staying beside the station means you never drag bags over bridges. Then the vaporetto does the theatre for you: a slow Grand Canal ride to St Mark’s.</p>
-          <ul class="list">
-            <li><b>07:00</b> Manarola → La Spezia → Venezia S. Lucia, about 4.5–5.5 hours with one change.</li>
-            <li><b>14:00</b> Hotel drop. Vaporetto from Ferrovia down the Grand Canal.</li>
-            <li><b>Afternoon</b> Rialto, St Mark’s Square, St Mark’s Basilica, Doge’s Palace (pre-booked).</li>
-            <li><b>Evening</b> Quiet back-canal walk. Optional private gondola after 7:00 PM (€110 / C$172 for the boat).</li>
-          </ul>
-          <div class="chips">
-            <span class="chip must">Grand Canal</span>
-            <span class="chip must">Rialto</span>
-            <span class="chip must">St Mark’s</span>
-            <span class="chip must">Basilica</span>
-            <span class="chip must">Doge’s Palace</span>
-            <span class="chip opt">Gondola</span>
-          </div>
+      <figure class="shot">
+        <div class="shot-slides">
+          <img class="is-on" src="images/venice-canal.jpg" alt="Rialto Bridge" data-place="Rialto Bridge" />
+          <img src="images/venice-gondola.jpg" alt="Santa Maria della Salute" data-place="Santa Maria della Salute" />
+          <img src="images/venice-sanmarco.jpg" alt="Piazza San Marco" data-place="Piazza San Marco" />
         </div>
-        <div class="stay reveal">
-          <p class="time">Beside Santa Lucia · no bridges with bags</p>
-          <h3>Where to stay</h3>
-          <div class="hotel pick">
-            <span class="badge">Recommended</span>
+        <figcaption>
+          <span class="chap">05 · 2 October · 1 night</span>
+          <h2>Venice</h2>
+          <div class="when shot-place">Rialto Bridge</div>
+        </figcaption>
+        <div class="shot-dots"></div>
+      </figure>
+      <div class="wrap chapter-inner">
+        <div class="plan">
+          <h3>The day</h3>
+          <ol>
+            <li><b>07:00</b> Manarola → Venezia S. Lucia, 4.5–5.5 hours, one change.</li>
+            <li><b>14:00</b> Hotel drop. Vaporetto from Ferrovia down the Grand Canal.</li>
+            <li><b>Afternoon</b> Rialto, St Mark’s, Basilica, Doge’s Palace.</li>
+            <li class="opt"><b>Optional</b> Private gondola after 7:00 PM, €110 / C$172.</li>
+          </ol>
+        </div>
+        <div class="stay">
+          <h3>Stay</h3>
+          <div class="pick">
+            <p class="kicker">Recommended</p>
             <h4>NH Venezia Santa Lucia</h4>
             <div class="stars">★★★★</div>
-            <p>On the Grand Canal, facing Ponte degli Scalzi, opposite the Ferrovia vaporetto. Elevator, renovated 2023, a few minutes from the station. Water-taxi possible at the canal front. ~€320 / C$499 per night</p>
+            <p>Grand Canal, facing Ponte degli Scalzi. Elevator. No bridges with bags.</p>
             <p class="rate">€320 <span class="cad">C$499</span></p>
           </div>
-          <div class="hotel">
-            <h4>Hotel Maggior Consiglio</h4>
-            <div class="stars">★★★</div>
-            <p>Two-minute flat walk from Santa Lucia, no bridges, elevator. The practical 3-star for luggage. ~€180 / C$281 per night</p>
-            <p class="rate">€180 <span class="cad">C$281</span></p>
-          </div>
-          <div class="hotel">
-            <h4>Hotel Basilea</h4>
-            <div class="stars">★★★</div>
-            <p>On the Rio Marin canal, five minutes from the station and Piazzale Roma. Characterful 17th-century building. ~€200 / C$312 per night</p>
-            <p class="rate">€200 <span class="cad">C$312</span></p>
-          </div>
-        </div>
-      </div>
-          <div class="slider" aria-label="Venice photographs">
-            <div class="slider-stage">
-            <figure class="slide is-on">
-              <img src="https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1400&q=80" alt="Rialto Bridge" />
-              <figcaption>Rialto</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80" alt="Italian historic square" />
-              <figcaption>Evening Venice</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1400&q=80" alt="Gondola on a Venice canal" />
-              <figcaption>Canals</figcaption>
-            </figure>
+          <details>
+            <summary>Two other hotels</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Hotel Maggior Consiglio · 3★</h4>
+                <p>Two-minute flat walk from the station. €180 / C$281</p>
+              </article>
+              <article>
+                <h4>Hotel Basilea · 3★</h4>
+                <p>Rio Marin, five minutes from Santa Lucia. €200 / C$312</p>
+              </article>
             </div>
-            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
-            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
-            <div class="slider-dots"></div>
-          </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- MILAN -->
-    <section class="chapter alt" id="milan">
-      <figure class="chapter-hero">
-        <img src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1800&q=80" alt="Milan Cathedral and Piazza del Duomo" />
-        <figcaption>
-          <span class="chap-no">Chapter 06</span>
-          <div class="when">3 October · 1 night · 4 October departure</div>
-          <h2>Milan, then home</h2>
-        </figcaption>
-      </figure>
-      <div class="wrap chapter-body reveal">
-      <div class="grid-2">
-        <div class="panel block">
-          <p class="time">Fashion, marble, and a 1:00 PM flight</p>
-          <h3>A last Italian evening</h3>
-          <p>Morning Frecciarossa Venice → Milano Centrale (~2h20). Hotel beside the station so the Malpensa run is simple. Afternoon for the Duomo, Galleria, La Scala, and Brera. Next morning: breakfast, then the airport train.</p>
-          <ul class="list">
-            <li><b>3 Oct 09:30</b> Venezia S. Lucia → Milano Centrale. Hotel drop, then metro to Duomo.</li>
-            <li><b>Afternoon</b> Milan Cathedral (rooftop if the sky is clear), Galleria Vittorio Emanuele II, Piazza della Scala.</li>
-            <li><b>Late day</b> Brera district walk. Optional aperitivo. Sforza Castle if energy remains.</li>
-            <li><b>4 Oct 09:00</b> Malpensa Express from Centrale (~50 min) for the ~1:00 PM Toronto flight. Be at the terminal by 10:00.</li>
-          </ul>
-          <div class="chips">
-            <span class="chip must">Duomo</span>
-            <span class="chip must">Galleria</span>
-            <span class="chip must">La Scala</span>
-            <span class="chip must">Brera</span>
-            <span class="chip opt">Aperitivo</span>
-            <span class="chip opt">Sforza Castle</span>
-          </div>
+    <section class="chapter band" id="milan">
+      <figure class="shot">
+        <div class="shot-slides">
+          <img class="is-on" src="images/milan-duomo.jpg" alt="Milan Cathedral" data-place="The Duomo" />
+          <img src="images/milan-galleria.jpg" alt="Galleria Vittorio Emanuele II" data-place="Galleria Vittorio Emanuele II" />
+          <img src="images/milan-galleria-in.jpg" alt="Inside the Galleria" data-place="Inside the Galleria" />
         </div>
-        <div class="stay reveal">
-          <p class="time">Next to Milano Centrale</p>
-          <h3>Where to stay</h3>
-          <div class="hotel pick">
-            <span class="badge">Recommended</span>
+        <figcaption>
+          <span class="chap">06 · 3 October · fly 4 October</span>
+          <h2>Milan</h2>
+          <div class="when shot-place">The Duomo</div>
+        </figcaption>
+        <div class="shot-dots"></div>
+      </figure>
+      <div class="wrap chapter-inner">
+        <div class="plan">
+          <h3>The days</h3>
+          <ol>
+            <li><b>3 Oct</b> Frecciarossa Venice → Centrale (~2h20). Duomo rooftop, Galleria, La Scala, Brera.</li>
+            <li><b>4 Oct 09:00</b> Malpensa Express, ~50 min, for the ~1:00 PM Toronto flight. Be at the terminal by 10:00.</li>
+          </ol>
+        </div>
+        <div class="stay">
+          <h3>Stay</h3>
+          <div class="pick">
+            <p class="kicker">Recommended</p>
             <h4>Starhotels E.c.ho.</h4>
             <div class="stars">★★★★</div>
-            <p>100 metres from Centrale. Quiet, well-run, elevator, easy with luggage before an international flight. ~€200 / C$312 per night</p>
+            <p>100 metres from Centrale. Quiet, elevator, simple morning to MXP.</p>
             <p class="rate">€200 <span class="cad">C$312</span></p>
           </div>
-          <div class="hotel">
-            <h4>Smart Hotel Milano</h4>
-            <div class="stars">★★★★</div>
-            <p>One minute from the station, modern rooms, elevator. Slightly sharper design, same logic. ~€180 / C$281 per night</p>
-            <p class="rate">€180 <span class="cad">C$281</span></p>
-          </div>
-          <div class="hotel">
-            <h4>Just Hotel Milano</h4>
-            <div class="stars">★★★★</div>
-            <p>Three-minute walk from Centrale, airport buses and Malpensa Express at the door. ~€175 / C$273 per night</p>
-            <p class="rate">€175 <span class="cad">C$273</span></p>
-          </div>
-        </div>
-      </div>
-          <div class="slider" aria-label="Milan photographs">
-            <div class="slider-stage">
-            <figure class="slide is-on">
-              <img src="https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1400&q=80" alt="Milan Duomo" />
-              <figcaption>Duomo</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.pexels.com/photos/2422584/pexels-photo-2422584.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Galleria Vittorio Emanuele II" />
-              <figcaption>Galleria</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1400&q=80" alt="Northern Italian street" />
-              <figcaption>Brera streets</figcaption>
-            </figure>
+          <details>
+            <summary>Two other hotels</summary>
+            <div class="alt-hotels">
+              <article>
+                <h4>Smart Hotel Milano · 4★</h4>
+                <p>One minute from the station. €180 / C$281</p>
+              </article>
+              <article>
+                <h4>Just Hotel Milano · 4★</h4>
+                <p>Three minutes from Centrale. €175 / C$273</p>
+              </article>
             </div>
-            <button type="button" class="slider-nav prev" aria-label="Previous photo">‹</button>
-            <button type="button" class="slider-nav next" aria-label="Next photo">›</button>
-            <div class="slider-dots"></div>
-          </div>
+          </details>
+        </div>
       </div>
     </section>
 
-    <!-- TRANSPORT -->
-    <section class="section" id="transport">
-      <div class="wrap reveal">
-      <div class="ornament">The route</div>
-      <div class="section-head">
-        <div>
-          <p class="kicker">How you move</p>
-          <h2 class="section-title">Transportation</h2>
+    <section id="move">
+      <div class="wrap">
+        <p class="kicker">How you move</p>
+        <h2 class="section-title">Transport</h2>
+        <div class="scroll">
+        <table class="legs">
+          <thead><tr><th>Leg</th><th>How</th><th>EUR · CAD</th></tr></thead>
+          <tbody>
+            <tr><td>Fiumicino → Rome hotel</td><td>Private sedan</td><td>€80 · C$125</td></tr>
+            <tr><td>Naples Centrale ↔ Sorrento</td><td>Private, both ways</td><td>€300 · C$468</td></tr>
+            <tr><td>Rome–Naples · Naples–Florence · Venice–Milan</td><td>Frecciarossa</td><td>€310 · C$484</td></tr>
+            <tr><td>Florence → Manarola → Venice</td><td>Regionale / Intercity</td><td>€230 · C$359</td></tr>
+            <tr><td>Local: Rome, Venice water, Milan, MXP Express</td><td>Walk, vaporetto, metro, train</td><td>€102 · C$159</td></tr>
+            <tr><td colspan="2"><strong>All transport</strong></td><td><strong>€1,022 · C$1,594</strong></td></tr>
+          </tbody>
+        </table>
         </div>
-      </div>
-      <div class="transport-grid">
-        <div class="t-card">
-          <h4>Private where it matters</h4>
-          <p>Fiumicino → Rome hotel (€80 / C$125). Naples Centrale ↔ Sorrento hotel both ways (€150 / C$234 each). These three legs are the difference between a graceful trip and a suitcase ordeal.</p>
-        </div>
-        <div class="t-card">
-          <h4>High-speed trains for the rest</h4>
-          <p>Rome–Naples 1h10 · Naples–Florence ~3h · Florence–Manarola ~2h40 · Manarola–Venice 4.5–5.5h · Venice–Milan 2h20. Book Frecciarossa 60–90 days ahead.</p>
-        </div>
-        <div class="t-card">
-          <h4>Cinque Terre & Venice water</h4>
-          <p>Cinque Terre Train Card for village hops. In Venice, a 24-hour vaporetto pass from Ferrovia. Private water taxi from Santa Lucia is optional (~€80–120 / C$125–187) if you prefer a cinematic arrival.</p>
-        </div>
-        <div class="t-card">
-          <h4>4 October · Malpensa</h4>
-          <p>Malpensa Express Centrale → MXP T1, €13 / C$20 pp, ~50 minutes. Leave the hotel at 09:00 for a 1:00 PM Toronto flight. Private car upgrade €110 / C$172 if you want door-to-terminal.</p>
-        </div>
-      </div>
+        <p class="note">Book Frecciarossa 60–90 days ahead. Cinque Terre Train Card for village hops. Optional water taxi in Venice €80–120 / C$125–187. Private car to Malpensa instead of the Express: +€84 / C$131.</p>
       </div>
     </section>
 
-    <!-- QUOTE -->
-    <section class="section" id="quote">
-      <div class="wrap reveal">
-      <div class="ornament">Quotation</div>
-      <div class="section-head">
-        <div>
-          <p class="kicker">For 2 adults · excluding international flights</p>
-          <h2 class="section-title">Quotation</h2>
+    <section id="quote">
+      <div class="wrap">
+        <p class="kicker">2 adults · flights extra · C$1.56 / €</p>
+        <h2 class="section-title">Quotation</h2>
+        <p class="lede">Planning estimates for these dates. Breakfast included at recommended hotels unless noted.</p>
+
+        <div class="grand">
+          <article>
+            <h3>Bella Vista total</h3>
+            <ul class="roll">
+              <li>Hotels <span>€3,010 · C$4,696</span></li>
+              <li>Transport <span>€1,022 · C$1,594</span></li>
+              <li>Tours <span>€1,792 · C$2,796</span></li>
+              <li>Birthday dinner <span>€620 · C$967</span></li>
+              <li class="sum">Trip total <span>€6,444 · C$10,050</span></li>
+            </ul>
+          </article>
+          <article>
+            <h3>Classic Italia total</h3>
+            <ul class="roll">
+              <li>Hotels <span>€2,360 · C$3,682</span></li>
+              <li>Transport <span>€1,022 · C$1,594</span></li>
+              <li>Tours <span>€1,792 · C$2,796</span></li>
+              <li>Birthday dinner <span>€620 · C$967</span></li>
+              <li class="sum">Trip total <span>€5,794 · C$9,040</span></li>
+            </ul>
+          </article>
         </div>
-      </div>
-      <p class="lede">Rates are estimated double-occupancy prices for these dates in 2026. Canadian dollars are shown beside euros at C$1.56 / €. City tax is extra (~€84 / C$131). Breakfast included at recommended hotels unless noted. Confirm live availability before booking.</p>
+        <p class="note">Not included: city tax ~€84 / C$131 · Flights YYZ ⇄ Italy typically C$2,400–3,600 for two · Most meals, insurance, and tips.</p>
 
-      <div class="tabs" role="tablist">
-        <button class="tab active" type="button" data-pkg="bella">Bella Vista · recommended</button>
-        <button class="tab" type="button" data-pkg="classic">Classic Italia · value</button>
-      </div>
-
-      <div class="pkg active" id="pkg-bella">
-        <div class="panel block">
-          <h3>Hotels: Bella Vista</h3>
+        <div class="tabs" role="tablist">
+          <button class="tab active" type="button" data-pkg="bella">Bella Vista hotels</button>
+          <button class="tab" type="button" data-pkg="classic">Classic hotels</button>
+        </div>
+        <div class="pkg active" id="pkg-bella">
+          <div class="scroll">
           <table class="price-table">
-            <thead>
-              <tr><th>City</th><th>Hotel</th><th>Nights</th><th>EUR · CAD</th></tr>
-            </thead>
+            <thead><tr><th>City</th><th>Hotel</th><th>Nights</th><th>EUR · CAD</th></tr></thead>
             <tbody>
               <tr><td>Rome</td><td>9 Hotel Cesàri 4★</td><td>1</td><td>€280 · C$437</td></tr>
               <tr><td>Sorrento</td><td>Hotel Plaza 4★, sea-view</td><td>2</td><td>€800 · C$1,248</td></tr>
               <tr><td>Florence</td><td>FH55 Hotel Calzaiuoli 4★</td><td>3</td><td>€960 · C$1,498</td></tr>
-              <tr><td>Manarola</td><td>La Torretta Lodge, Superior</td><td>1</td><td>€450 · C$702</td></tr>
+              <tr><td>Manarola</td><td>La Torretta Lodge</td><td>1</td><td>€450 · C$702</td></tr>
               <tr><td>Venice</td><td>NH Venezia Santa Lucia 4★</td><td>1</td><td>€320 · C$499</td></tr>
               <tr><td>Milan</td><td>Starhotels E.c.ho. 4★</td><td>1</td><td>€200 · C$312</td></tr>
-              <tr class="total"><td colspan="3">Hotels subtotal</td><td>€3,010 · C$4,696</td></tr>
+              <tr class="total"><td colspan="3">Hotels</td><td>€3,010 · C$4,696</td></tr>
             </tbody>
           </table>
+          </div>
         </div>
-      </div>
-
-      <div class="pkg" id="pkg-classic">
-        <div class="panel block">
-          <h3>Hotels: Classic Italia</h3>
+        <div class="pkg" id="pkg-classic">
+          <div class="scroll">
           <table class="price-table">
-            <thead>
-              <tr><th>City</th><th>Hotel</th><th>Nights</th><th>EUR · CAD</th></tr>
-            </thead>
+            <thead><tr><th>City</th><th>Hotel</th><th>Nights</th><th>EUR · CAD</th></tr></thead>
             <tbody>
               <tr><td>Rome</td><td>Hotel Colosseum 3★</td><td>1</td><td>€180 · C$281</td></tr>
               <tr><td>Sorrento</td><td>Hotel Plaza 4★, sea-view (kept)</td><td>2</td><td>€800 · C$1,248</td></tr>
@@ -1205,112 +867,33 @@
               <tr><td>Manarola</td><td>Hotel Marina Piccola 3★</td><td>1</td><td>€250 · C$390</td></tr>
               <tr><td>Venice</td><td>Hotel Maggior Consiglio 3★</td><td>1</td><td>€180 · C$281</td></tr>
               <tr><td>Milan</td><td>Smart Hotel Milano 4★</td><td>1</td><td>€170 · C$265</td></tr>
-              <tr class="total"><td colspan="3">Hotels subtotal</td><td>€2,360 · C$3,682</td></tr>
+              <tr class="total"><td colspan="3">Hotels</td><td>€2,360 · C$3,682</td></tr>
             </tbody>
           </table>
+          </div>
         </div>
-      </div>
 
-      <div class="quote-block">
-        <h3>Transportation: both packages</h3>
-        <table class="price-table">
-          <thead><tr><th>Leg</th><th>Mode</th><th>EUR · CAD</th></tr></thead>
-          <tbody>
-            <tr><td>Fiumicino → Rome hotel</td><td>Private sedan</td><td>€80 · C$125</td></tr>
-            <tr><td>Rome local</td><td>Walk / metro</td><td>€16 · C$25</td></tr>
-            <tr><td>Rome → Naples</td><td>Frecciarossa, booked ahead</td><td>€90 · C$140</td></tr>
-            <tr><td>Naples → Sorrento hotel</td><td>Private transfer</td><td>€150 · C$234</td></tr>
-            <tr><td>Sorrento hotel → Naples</td><td>Private transfer</td><td>€150 · C$234</td></tr>
-            <tr><td>Naples → Florence</td><td>Frecciarossa</td><td>€140 · C$218</td></tr>
-            <tr><td>Florence → Manarola</td><td>Regionale via La Spezia</td><td>€70 · C$109</td></tr>
-            <tr><td>Manarola → Venice</td><td>Regionale + Intercity / Frecciarossa</td><td>€160 · C$250</td></tr>
-            <tr><td>Venice water</td><td>ACTV 24-hour vaporetto × 2</td><td>€50 · C$78</td></tr>
-            <tr><td>Venice → Milan</td><td>Frecciarossa</td><td>€80 · C$125</td></tr>
-            <tr><td>Milan local</td><td>Metro</td><td>€10 · C$16</td></tr>
-            <tr><td>Centrale → Malpensa T1</td><td>Malpensa Express</td><td>€26 · C$41</td></tr>
-            <tr class="total"><td colspan="2">Transportation subtotal</td><td>€1,022 · C$1,594</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="quote-block">
-        <h3>Tours & activities: both packages</h3>
-        <table class="price-table">
-          <thead><tr><th>Experience</th><th>Notes</th><th>EUR · CAD</th></tr></thead>
-          <tbody>
-            <tr><td>Colosseum, Forum & Palatine</td><td>Small-group guided, timed entry</td><td>€180 · C$281</td></tr>
-            <tr><td>Amalfi Coast full day</td><td>Positano, Amalfi, Ravello from Sorrento</td><td>€240 · C$374</td></tr>
-            <tr><td>Uffizi Gallery</td><td>Timed tickets</td><td>€58 · C$90</td></tr>
-            <tr><td>Tuscany convertible day</td><td>Private car, villa lunch included</td><td>€1,090 · C$1,700</td></tr>
-            <tr><td>Cinque Terre Train Card + Via dell’Amore</td><td>1-day card and timed path supplement</td><td>€64 · C$100</td></tr>
-            <tr><td>Doge’s Palace + St Mark’s Basilica</td><td>Advance tickets</td><td>€110 · C$172</td></tr>
-            <tr><td>Milan Duomo rooftop</td><td>Timed terrace</td><td>€50 · C$78</td></tr>
-            <tr class="total"><td colspan="2">Tours subtotal</td><td>€1,792 · C$2,796</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="quote-block">
-        <p class="kicker">Quoted separately, as requested</p>
-        <h3>Birthday dinner · Borgo San Jacopo</h3>
-        <table class="price-table">
-          <tbody>
-            <tr><td>Vegetarian tasting menu</td><td>€170 × 2 · C$265 pp</td><td>€340 · C$530</td></tr>
-            <tr><td>Wine pairing</td><td>estimated €90 × 2 · C$140 pp</td><td>€180 · C$281</td></tr>
-            <tr><td>Birthday cake, flowers, reserved table</td><td>special-occasion request</td><td>€60 · C$94</td></tr>
-            <tr><td>Service / cover</td><td></td><td>€40 · C$62</td></tr>
-            <tr class="total"><td colspan="2">Birthday dinner for two</td><td>€620 · C$967</td></tr>
-          </tbody>
-        </table>
-        <p class="muted">If Segno Rooftop is preferred instead, budget €400 / C$624. If Antesi in Fiesole, budget €720 / C$1,123 including taxis.</p>
-      </div>
-
-      <div class="totals">
-        <div class="total-box">
-          <span>Hotels · Bella Vista</span>
-          <strong>€3,010 <span class="cad">C$4,696</span></strong>
-        </div>
-        <div class="total-box">
-          <span>Transport</span>
-          <strong>€1,022 <span class="cad">C$1,594</span></strong>
-        </div>
-        <div class="total-box">
-          <span>Tours</span>
-          <strong>€1,792 <span class="cad">C$2,796</span></strong>
-        </div>
-        <div class="total-box featured">
-          <span>Birthday dinner</span>
-          <strong>€620 <span class="cad">C$967</span></strong>
-        </div>
-      </div>
-
-      <div class="quote-block">
-        <h3>Grand totals for 2 adults</h3>
-        <table class="price-table">
-          <thead><tr><th>Package</th><th>EUR</th><th>CAD (indicative)</th></tr></thead>
-          <tbody>
-            <tr><td>Bella Vista · recommended 4-star</td><td>€6,444</td><td>C$10,050</td></tr>
-            <tr><td>Classic Italia · 3-star mix, Plaza kept in Sorrento</td><td>€5,794</td><td>C$9,040</td></tr>
-            <tr><td>Italian city tax (paid at hotels)</td><td>€84</td><td>C$130</td></tr>
-            <tr><td>International flights YYZ ⇄ Italy</td><td colspan="2">Not included · typically C$2,400–3,600 for two in late September</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="quote-block">
-        <h3>Optional upgrades</h3>
-        <table class="price-table">
-          <thead><tr><th>Upgrade</th><th>Instead of</th><th>Add</th></tr></thead>
-          <tbody>
-            <tr><td>Private Amalfi Coast Mercedes day</td><td>Small-group €240 / C$374</td><td>+ €350 / C$546</td></tr>
-            <tr><td>Pompeii skip-the-line from Sorrento</td><td></td><td>€160 · C$250</td></tr>
-            <tr><td>Private Amalfi boat</td><td></td><td>€220 · C$343</td></tr>
-            <tr><td>Evening gondola, private 30 minutes</td><td></td><td>€110 · C$172</td></tr>
-            <tr><td>Private car Milan hotel → Malpensa</td><td>Express €26 / C$41</td><td>+ €84 / C$131</td></tr>
-            <tr><td>Hotel Continentale, Florence, 3 nights</td><td>Calzaiuoli €960 / C$1,498</td><td>+ €180 / C$281</td></tr>
-          </tbody>
-        </table>
-      </div>
+        <details>
+          <summary>Tours, dinner, upgrades</summary>
+          <div class="scroll">
+          <table class="price-table" style="margin-top:12px">
+            <thead><tr><th>Included in both packages</th><th>EUR · CAD</th></tr></thead>
+            <tbody>
+              <tr><td>Colosseum, Forum & Palatine</td><td>€180 · C$281</td></tr>
+              <tr><td>Amalfi Coast full day</td><td>€240 · C$374</td></tr>
+              <tr><td>Uffizi</td><td>€58 · C$90</td></tr>
+              <tr><td>Tuscany convertible day, lunch included</td><td>€1,090 · C$1,700</td></tr>
+              <tr><td>Cinque Terre card + Via dell’Amore</td><td>€64 · C$100</td></tr>
+              <tr><td>Doge’s Palace + St Mark’s</td><td>€110 · C$172</td></tr>
+              <tr><td>Milan Duomo rooftop</td><td>€50 · C$78</td></tr>
+              <tr class="total"><td>Tours</td><td>€1,792 · C$2,796</td></tr>
+              <tr><td>Birthday dinner, Borgo San Jacopo</td><td>€620 · C$967</td></tr>
+              <tr><td>Transport</td><td>€1,022 · C$1,594</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="note">Dinner split: tasting €340, wine pairing est. €180, cake and flowers €60, service €40. Optional: private Amalfi Mercedes +€350 / C$546 · Pompeii €160 / C$250 · Amalfi boat €220 / C$343 · gondola €110 / C$172 · Continentale Florence +€180 / C$281. Flights YYZ ⇄ Italy not included, typically C$2,400–3,600 for two.</p>
+        </details>
       </div>
     </section>
   </main>
@@ -1318,36 +901,12 @@
   <footer>
     <div class="wrap">
       <h2>Italy Together</h2>
-      <div class="ornament">MMXXVI</div>
-      <div class="footer-links">
-        <a href="#overview">Overview</a>
-        <a href="#rome">Rome</a>
-        <a href="#sorrento">Sorrento</a>
-        <a href="#florence">Florence</a>
-        <a href="#birthday">Birthday</a>
-        <a href="#cinqueterre">Cinque Terre</a>
-        <a href="#venice">Venice</a>
-        <a href="#milan">Milan</a>
-        <a href="#quote">Quotation</a>
-      </div>
-      <p>24 September – 4 October 2026 · Two adults · Prepared as a planning presentation</p>
-      <p>Hotel and tour prices are planning estimates for these dates, not live contracts. International airfare, most meals, travel insurance, and tips are extra. Birthday dinner and the Tuscany convertible day should be reserved first. 30 September is a Saturday in 2026.</p>
+      <p>24 September – 4 October 2026 · Two adults. Prices are planning estimates, not live contracts. Airfare, most meals, insurance, and tips are extra. Reserve the birthday dinner and the convertible first. 30 September is a Saturday in 2026.</p>
     </div>
   </footer>
 
   <script>
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.documentElement.classList.add("js");
-
-    document.querySelectorAll(".tab").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
-        document.querySelectorAll(".pkg").forEach((p) => p.classList.remove("active"));
-        btn.classList.add("active");
-        document.getElementById("pkg-" + btn.dataset.pkg).classList.add("active");
-      });
-    });
-
     const bar = document.querySelector(".progress");
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
@@ -1362,7 +921,6 @@
     heroSlides.forEach((_, i) => {
       const dot = document.createElement("button");
       dot.type = "button";
-      dot.setAttribute("aria-label", "Hero image " + (i + 1));
       if (i === 0) dot.classList.add("is-on");
       dot.addEventListener("click", () => showHero(i));
       heroDots.appendChild(dot);
@@ -1374,52 +932,41 @@
       heroSlides[heroIndex].classList.add("is-on");
       heroDots.children[heroIndex].classList.add("is-on");
     }
-    if (!reduceMotion && heroSlides.length > 1) {
-      setInterval(() => showHero(heroIndex + 1), 5600);
-    }
+    if (!reduceMotion && heroSlides.length > 1) setInterval(() => showHero(heroIndex + 1), 5600);
 
-    function initSlider(slider) {
-      const slides = [...slider.querySelectorAll(".slide")];
-      const dots = slider.querySelector(".slider-dots");
+    document.querySelectorAll(".shot, .bday-photo").forEach((shot, s) => {
+      const slides = [...shot.querySelectorAll(".shot-slides img")];
+      const dots = shot.querySelector(".shot-dots");
+      const place = shot.querySelector(".shot-place");
+      if (slides.length < 2 || !dots) return;
       let i = 0;
-      slides.forEach((_, idx) => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.setAttribute("aria-label", "Slide " + (idx + 1));
-        if (idx === 0) b.classList.add("is-on");
-        b.addEventListener("click", () => go(idx));
-        dots.appendChild(b);
+      slides.forEach((_, n) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.setAttribute("aria-label", slides[n].dataset.place || ("Photo " + (n + 1)));
+        if (n === 0) btn.classList.add("is-on");
+        btn.addEventListener("click", () => show(n));
+        dots.appendChild(btn);
       });
-      function go(n) {
+      function show(n) {
         slides[i].classList.remove("is-on");
         dots.children[i].classList.remove("is-on");
         i = (n + slides.length) % slides.length;
         slides[i].classList.add("is-on");
         dots.children[i].classList.add("is-on");
+        if (place && slides[i].dataset.place) place.textContent = slides[i].dataset.place;
       }
-      slider.querySelector(".prev").addEventListener("click", () => go(i - 1));
-      slider.querySelector(".next").addEventListener("click", () => go(i + 1));
-      if (!reduceMotion) {
-        let timer = setInterval(() => go(i + 1), 6500);
-        slider.addEventListener("mouseenter", () => clearInterval(timer));
-        slider.addEventListener("mouseleave", () => { timer = setInterval(() => go(i + 1), 6500); });
-      }
-    }
-    document.querySelectorAll(".slider").forEach(initSlider);
+      if (!reduceMotion) setInterval(() => show(i + 1), 4800 + s * 350);
+    });
 
-    const reveals = document.querySelectorAll(".reveal");
-    if (reduceMotion) {
-      reveals.forEach((el) => el.classList.add("is-in"));
-    } else {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-in"); });
-      }, { threshold: 0.05, rootMargin: "80px 0px 0px 0px" });
-      reveals.forEach((el) => {
-        const r = el.getBoundingClientRect();
-        if (r.top < window.innerHeight - 24) el.classList.add("is-in");
-        io.observe(el);
+    document.querySelectorAll(".tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach((t) => t.classList.remove("active"));
+        document.querySelectorAll(".pkg").forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("pkg-" + btn.dataset.pkg).classList.add("active");
       });
-    }
+    });
   </script>
 </body>
 </html>
